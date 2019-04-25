@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/com_facebook_button_text_color.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/c83f1f1eeee03125f99b95531aee5106/res/color/com_facebook_button_text_color.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/com_facebook_send_button_text_color.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.34.0.aar/38d69fbf4a428734c20dd88c680c88e5/res/color/com_facebook_send_button_text_color.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/50bd778c2de0c3f00695a9f7656829aa/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_tint.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/50bd778c2de0c3f00695a9f7656829aa/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/ucrop_scale_text_view_selector.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/color/ucrop_scale_text_view_selector.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/50bd778c2de0c3f00695a9f7656829aa/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color/abc_primary_text_disable_only_material_light.xml"
+    }
+]

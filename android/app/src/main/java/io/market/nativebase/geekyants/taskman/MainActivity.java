@@ -1,0 +1,33 @@
+package io.market.nativebase.geekyants.taskman;
+
+import com.facebook.react.ReactActivity;
+
+import android.os.Bundle; // here
+import android.content.Intent;
+// react-native-splash-screen >= 0.3.1
+import org.devio.rn.splashscreen.SplashScreen; // here
+
+public class MainActivity extends ReactActivity {
+
+    /**
+     * Returns the name of the main component registered from JavaScript.
+     * This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return "TaskMan";
+    }
+
+      @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        //SplashScreen.show(this);  // here
+          SplashScreen.show(this, true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
+    }
+}

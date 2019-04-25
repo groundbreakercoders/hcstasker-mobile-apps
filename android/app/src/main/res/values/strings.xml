@@ -1,0 +1,5 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
+    <string name="app_name">TaskMan</string>
+    <string name="facebook_app_id">468405990567287</string>
+</resources>

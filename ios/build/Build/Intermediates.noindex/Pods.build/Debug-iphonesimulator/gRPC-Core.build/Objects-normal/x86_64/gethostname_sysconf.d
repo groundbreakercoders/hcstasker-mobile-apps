@@ -1,0 +1,8 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/gRPC-Core/src/core/lib/iomgr/gethostname_sysconf.cc \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Target\ Support\ Files/gRPC-Core/gRPC-Core-prefix.pch \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/gRPC-Core/grpc/support/port_platform.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/port_platform.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/gRPC-Core/src/core/lib/iomgr/gethostname.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/gRPC-Core/src/core/lib/iomgr/port.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/gRPC-Core/grpc/support/alloc.h

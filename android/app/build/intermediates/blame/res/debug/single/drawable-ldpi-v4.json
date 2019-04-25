@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_reset.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_reset.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_next.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_next.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_cross.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_cross.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/screen.png",
+        "source": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/src/main/res/drawable-ldpi/screen.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_rotate.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_rotate.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_scale.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_scale.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_angle.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_angle.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_crop.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_crop.png"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_done.png",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_done.png"
+    }
+]

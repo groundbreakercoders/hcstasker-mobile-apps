@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/ReactNativePermissions.m \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Target\ Support\ Files/ReactNativePermissions/ReactNativePermissions-prefix.pch \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/ReactNativePermissions.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTBridgeModule.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTDefines.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/React/RCTInspectorDevServerHelper.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/React/RCTPackagerConnection.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTBridge.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTBridgeDelegate.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTJavaScriptLoader.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTFrameUpdate.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTInvalidating.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTConvert.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTAnimationType.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTBorderStyle.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTLog.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTAssert.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTUtils.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTPointerEvents.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTTextDecorationLineType.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/yoga/Yoga.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/yoga/YGMacros.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Public/React/React/RCTEventDispatcher.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPLocation.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/RCTConvert+RNPStatus.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPBluetooth.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPNotification.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPAudioVideo.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPEvent.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPPhoto.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPContacts.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPBackgroundRefresh.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPSpeechRecognition.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPMediaLibrary.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-permissions/ios/Permissions/RNPMotion.h

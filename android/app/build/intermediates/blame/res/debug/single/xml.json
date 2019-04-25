@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native-image-crop-picker/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/xml/preferences.xml"
+    }
+]

@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.m \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FCompoundWrite.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FStorageEngine.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FCachePolicy.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/FCacheNode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQueryManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQuery.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPruneForest.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h

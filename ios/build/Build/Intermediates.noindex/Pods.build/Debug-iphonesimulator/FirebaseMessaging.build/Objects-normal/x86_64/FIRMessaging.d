@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessaging.m \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/Public/FIRMessaging.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessaging_Private.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingClient.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingConstants.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingContextManagerService.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingDataMessageManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingDefines.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingLogger.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMMessageCode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingPubSub.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingReceiver.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingRmqManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingSyncMessageManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingUtilities.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingVersionUtilities.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/Headers/Private/FirebaseCore/FIRReachabilityChecker.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseMessaging/Firebase/Messaging/NSError+FIRMessaging.h

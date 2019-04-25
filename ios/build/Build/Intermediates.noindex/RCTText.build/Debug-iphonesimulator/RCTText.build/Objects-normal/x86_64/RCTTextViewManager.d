@@ -1,0 +1,36 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/Text/RCTTextViewManager.m \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/Text/RCTTextViewManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/BaseText/RCTBaseTextViewManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAccessibilityManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView+Layout.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUIManager.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUIManagerObserverCoordinator.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/BaseText/RCTBaseTextShadowView.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/RCTTextAttributes.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/node_modules/react-native/Libraries/Text/Text/RCTTextView.h

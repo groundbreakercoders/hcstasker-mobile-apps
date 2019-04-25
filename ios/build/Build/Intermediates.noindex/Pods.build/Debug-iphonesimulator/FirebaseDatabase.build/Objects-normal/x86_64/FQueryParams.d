@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.m \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FValidation.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Constants/FConstants.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FPriorityIndex.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FNodeFilter.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FIndexedFilter.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FLimitedFilter.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/FRangedFilter.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/lionelpannisamy/reactproject/hcstasker/MobileApp/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FSnapshotUtilities.h
