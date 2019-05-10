@@ -27,9 +27,9 @@
 {
   [FIRApp configure];
   [RNFirebaseNotifications configure];
-  [GMSPlacesClient provideAPIKey:@"AIzaSyDhN44UBYGNpQ4tZeKxNQCgI9602rB1Kr8"];
-  [GMSServices provideAPIKey:@"AIzaSyDhN44UBYGNpQ4tZeKxNQCgI9602rB1Kr8"];
-  
+  [GMSPlacesClient provideAPIKey:@"AIzaSyA1qyPf2mncV3BYMdYJR14yBqv4MkhYCjE"];
+  [GMSServices provideAPIKey:@"AIzaSyA1qyPf2mncV3BYMdYJR14yBqv4MkhYCjE"];
+
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
@@ -50,8 +50,8 @@
   // [SplashScreen show];
   return YES;
 }
-- (BOOL)application:(UIApplication *)application 
-            openURL:(NSURL *)url 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
   BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application

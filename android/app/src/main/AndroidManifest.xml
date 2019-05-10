@@ -40,14 +40,14 @@
         </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-      
+
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="468405990567287"/>
-        <meta-data 
-            android:name="com.google.android.geo.API_KEY"        
-            android:value="AIzaSyA1X0l-9EMKxhZJ1T7IiajI5FTiKFez6pI"
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA1qyPf2mncV3BYMdYJR14yBqv4MkhYCjE"
         />
 
-        <!-- <meta-data 
+        <!-- <meta-data
         AIzaSyCXENFN7bOV0hMc0UsZ24gWJKX2PGntRa4
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id"/> -->
@@ -65,7 +65,7 @@
 
         <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" />
 
-  
+
     </application>
-   
+
 </manifest>

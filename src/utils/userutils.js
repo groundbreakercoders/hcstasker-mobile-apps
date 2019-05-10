@@ -1,6 +1,6 @@
 import { GraphRequest, GraphRequestManager } from "react-native-fbsdk";
 import Polyline from "@mapbox/polyline";
-const apiKey = 'AIzaSyDhN44UBYGNpQ4tZeKxNQCgI9602rB1Kr8';
+const apiKey = 'AIzaSyA1qyPf2mncV3BYMdYJR14yBqv4MkhYCjE';
 
 export default function getFacebookProfile(accessToken): Promise {
   return new Promise((resolve, reject) => {
@@ -36,9 +36,9 @@ export async function getDirections(origin, destination): Promise {
     // console.log(apiKey,"Key@@@")
     destination = `${destination._latitude},${destination._longitude}`; // eslint-disable-line
     // const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}`;
-    const url = 
+    const url =
       `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apiKey}`
-  
+
     const resp = await fetch(url);
     // console.log(resp,"inside Resp")
     const respJson = await resp.json();
@@ -70,9 +70,9 @@ export async function getDirection(origin, destination): Promise {
     destination = `${destination.latitude},${destination.longitude}`; // eslint-disable-line
     // console.log(destination,"after change getDirection direction")
     // const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}`;
-    const url = 
+    const url =
       `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apiKey}`
-  
+
     const resp = await fetch(url);
     // console.log(resp,"inside Resp")
     const respJson = await resp.json();
@@ -92,4 +92,3 @@ export async function getDirection(origin, destination): Promise {
     return { error: true, errorMessage: error };
   }
 }
-
