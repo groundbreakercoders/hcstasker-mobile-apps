@@ -11,6 +11,7 @@ import LocalizedStrings from "react-native-localization";
 
 import Signin from "../components/signin";
 import Login from "../components/login";
+import LoginTasker from "../components/loginTasker"
 import SignUpPage from "../components/signup";
 import ForgotPassword from "../components/forgotPassword";
 import Home from "../components/home";
@@ -275,9 +276,16 @@ class App extends Component {
             />
             <Scene
               hideNavBar
-              key="login"
+              key="loginUser"
               component={Login}
               title="Login Page"
+              strings={strings}
+            />
+            <Scene
+              hideNavBar
+              key="loginTasker"
+              component={LoginTasker}
+              title="Login Page Page"
               strings={strings}
             />
             <Scene

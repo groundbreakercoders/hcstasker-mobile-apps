@@ -106,7 +106,7 @@ class Signin extends Component {
     // console.log(this.props,"HelloSignIN#############!!!!!!!!!!!!!!!")
     if(this.props.User.loading){
         return(
-          
+
       //  <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
       //    <ActivityIndicator color="blue" size="large"/>
       //  </View>
@@ -118,43 +118,42 @@ class Signin extends Component {
           <View style={{ flex: 1, flexDirection: "column", height }}>
             <View style={{ flex: Platform.OS === "ios" ? 2.7 : 2.7 }}>
               <ImageSwiper lang={lang} />
-            
+
               <View style={{flex:1,justifyContent:"center",alignItems:"center",position: 'absolute',
                 left: 0,
-                right: 0, 
+                right: 0,
                 top: 0,
                 bottom: 0,
                 backgroundColor:"#F5FCFF88"
                 }}>
                   <ActivityIndicator color="blue" size="large"></ActivityIndicator>
               </View>
-              
+
               {/* <ActivityIndicator color="blue" size="large"/> */}
             </View>
             <View style={styles.buttonsView}>
               <Button disabled
                 onPress={() => {
-                  Actions.login()
+                  Actions.loginUser()
                     // this.callMe(),
                     // this.props.setCurrentAddress();
                 }}
                 rounded
                 style={styles.loginButton}
               >
-                <Text style={styles.buttonText}>{lang.Login}</Text>
+                <Text style={styles.buttonText}>{lang.loginUser}</Text>
               </Button>
+
               <Button disabled
                 onPress={() => {
-                  Actions.signuppage()
+                  Actions.loginTasker()
                     // this.callMe(),
                     // this.props.setCurrentAddress();
                 }}
                 rounded
-                style={[styles.loginButton, styles.signupButton]}
+                style={[styles.loginButton]}
               >
-                <Text style={[styles.buttonText, styles.signupText]}>
-                  {lang.signup}
-                </Text>
+                  <Text style={styles.buttonText}>{lang.LoginTasker}</Text>
               </Button>
               <Button
                 onPress={() => this.setModalVisible(true)}
@@ -234,28 +233,27 @@ class Signin extends Component {
             <View style={styles.buttonsView}>
               <Button
                 onPress={() => {
-                  Actions.login()
+                  Actions.loginUser()
                     // this.callMe(),
                     // this.props.setCurrentAddress();
                 }}
                 rounded
                 style={styles.loginButton}
               >
-                <Text style={styles.buttonText}>{lang.Login}</Text>
+                <Text style={styles.buttonText}>{lang.LoginUser}</Text>
               </Button>
               <Button
                 onPress={() => {
-                  Actions.signuppage()
+                  Actions.loginTasker()
                     // this.callMe(),
                     // this.props.setCurrentAddress();
                 }}
                 rounded
-                style={[styles.loginButton, styles.signupButton]}
+                style={styles.loginTaskerButton}
               >
-                <Text style={[styles.buttonText, styles.signupText]}>
-                  {lang.signup}
-                </Text>
+                <Text style={styles.buttonText}>{lang.LoginTasker}</Text>
               </Button>
+
               <Button
                 onPress={() => this.setModalVisible(true)}
                 style={{

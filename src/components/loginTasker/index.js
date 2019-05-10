@@ -24,7 +24,7 @@ import commonColor from "../../../native-base-theme/variables/commonColor";
 
 const { height } = Dimensions.get("window");
 
-class Login extends Component {
+class LoginTasker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,23 +126,6 @@ class Login extends Component {
                   <Spinner color="white" size="small" />
                 )}
               </Button>
-
-              
-
-
-              <Button
-                    onPress={() => {
-                      Actions.signuppage()
-                        // this.callMe(),
-                        // this.props.setCurrentAddress();
-                    }}
-                    rounded
-                    style={[styles.loginButton, styles.signupButton]}
-                  >
-                    <Text style={[styles.buttonText, styles.signupText]}>
-                      {lang.signup}
-                      </Text>
-    </Button>
               {/* <Button rounded style={[styles.loginButton, styles.google]}>
                 <Text style={styles.buttonText}>{lang.google}</Text>
               </Button> */}
@@ -258,4 +241,4 @@ function bindActions(dispatch) {
 export default connect(
   mapStateToProps,
   bindActions
-)(Login);
+)(LoginTasker);

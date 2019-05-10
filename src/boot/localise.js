@@ -1,6 +1,8 @@
 const lang = {
   en: {
-    Login: "Log In",
+    Login: "Login",
+    LoginUser: "Login as User",
+    LoginTasker: "Login as CareTaker",
     signup: "Sign Up",
     changelanguage: "Change Language",
     signin: "Sign In",

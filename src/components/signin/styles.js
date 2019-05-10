@@ -24,6 +24,15 @@ export default {
     backgroundColor: commonColor.brandPrimary,
     elevation: 0
   },
+  loginTaskerButton: {
+    width: deviceWidth - 120,
+    alignSelf: "center",
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: commonColor.brandPrimary,
+    elevation: 0
+  },
   signupButton: {
     backgroundColor: "transparent",
     borderWidth: 1,
