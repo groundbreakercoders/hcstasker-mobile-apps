@@ -28,7 +28,7 @@ const TabBar = props => {
     strings.account
   ];
   const iconWithName = (name, color) => (
-    <Icon name={name} style={{ color: "#FFF" }} />
+    <Icon name={name}  style={{ color: "white", fontSize: 28 }} />
   );
   switchUser = istasker => {
     if (istasker) {
@@ -95,13 +95,11 @@ const TabBar = props => {
                     )}
                     <Text
                       style={{
-                        color: "#fff",
-                        fontSize: 9,
-                        textAlign: "center",
-                        // marginTop:3
-                        // marginBottom: 8
-                        // flex:0.7
-                      }}
+                       color: "white",
+                       fontSize: 10,
+                       textAlign: "center",
+                       // flex: 0.7
+                     }}
                       numberOfLines={1}
                     >
                       {title[idx]}
@@ -110,47 +108,7 @@ const TabBar = props => {
                 </TouchableOpacity>
               );
             })}
-            <TouchableOpacity
-              style={{ flex: 1, backgroundColor: commonColor.brandSecondary }}
-              onPress={() => this.switchUser(props.isTasker)}
-            >
-              <SafeAreaView
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  
-                }}
-              >
-                {props.typeChanging ? (
-                  <Spinner color="#fff" />
-                ) : (
-                  <SafeAreaView
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height:Platform.OS === "android" ? 55 : 57
-                      // height: 55
-                    }}
-                  >
-                    <Icon
-                      name="md-swap"
-                      style={{ color: "white", fontSize: 28 }}
-                    />
-                    <Text
-                      numberOfLines={1}
-                      style={{
-                        color: "white",
-                        fontSize: 10,
-                        textAlign: "center",
-                        // flex: 0.7
-                      }}
-                    >
-                      {strings.tasker}
-                    </Text>
-                  </SafeAreaView>
-                )}
-              </SafeAreaView>
-            </TouchableOpacity>
+
           </View>
         ) : null}
 

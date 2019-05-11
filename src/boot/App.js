@@ -249,6 +249,13 @@ class App extends Component {
             component={BookingHistory}
             title="BookingHistory Page"
           />
+          <Scene
+            hideNavBar
+            key="accountpage"
+            component={Account}
+            title="Account Page"
+            strings={strings}
+          />
         </Stack>
       </Scene>
     );

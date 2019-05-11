@@ -17,11 +17,11 @@ const TabBarTasker = props => {
   // console.log(props, "tabBarTasker");
   const { routes, index } = props.navigation.state;
   const { activeTintColor, inactiveTintColor, strings } = props;
-  const taskicons = ["ios-home", "ios-list-box", "ios-book"];
-  const taskActiveicons = ["ios-home", "ios-list-box", "ios-book"];
-  const tasktitle = [strings.Home, strings.Earnings, strings.History];
+  const taskicons = ["ios-home", "ios-list-box", "ios-book","ios-person-outline"];
+  const taskActiveicons = ["ios-home", "ios-list-box", "ios-book","ios-person"];
+  const tasktitle = [strings.Home, strings.Earnings, strings.History, strings.account];
   const iconWithName = (name, color) => (
-    <Icon name={name} style={{ color: "#FFF" }} />
+    <Icon name={name} style={{ color: "#FFF", fontSize: 28, marginTop: -2 }} />
   );
   return (
     <View>
@@ -35,6 +35,7 @@ const TabBarTasker = props => {
           >
 
             {routes.map((route, idx) => {
+              {console.log(idx)}
               const color = index === idx ? activeTintColor : inactiveTintColor;
               return (
                 <TouchableOpacity
@@ -49,8 +50,8 @@ const TabBarTasker = props => {
                       alignItems: "center",
                       justifyContent: "center",
 
-                      height:Platform.OS == "android" ? 52 : null
-                      
+                       height:Platform.OS === "android" ? 55 : 56
+
                     }}
                   >
                     {iconWithName(
@@ -71,49 +72,8 @@ const TabBarTasker = props => {
                 </TouchableOpacity>
               );
             })}
-            <TouchableOpacity
-              style={{ flex: 1, backgroundColor: commonColor.brandSecondary }}
-              onPress={() => {
-                props.switchType();
-                props.changeStatus(false);
-              }}
-            >
-              <SafeAreaView
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height:Platform.OS === "android" ? 55 : 56
-                
-                }}
-              >
-                {props.typeChanging ? (
-                  <Spinner color="#fff" />
-                ) : (
-                  <View
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon
-                      name="md-swap"
-                      style={{ color: "white", fontSize: 28, marginTop: -2 }}
-                    />
-                    <Text
-                      numberOfLines={2}
-                      style={{
-                        color: "white",
-                        fontSize: 10,
-                        textAlign: "center"
-                      }}
-                    >
-                      {strings.User}
-                    </Text>
-                  </View>
-                )}
-              </SafeAreaView>
-            </TouchableOpacity>
-            
+
+
            </View>
         ) : null}
         {props.userPageStatus === "startTask" ? (
@@ -148,7 +108,7 @@ const TabBarTasker = props => {
                   <Text style={styles.btnText}>{console.log(strings.StartTask,"StartTask@@@@@@@@@@@@@")}{strings.StartTask}</Text>
                 )}
               </TouchableOpacity>
-            ) : ( 
+            ) : (
               <TouchableOpacity
                 style={[styles.fullButton, styles.bookNow]}
                 onPress={() => {
@@ -182,7 +142,7 @@ const TabBarTasker = props => {
               backgroundColor: "#fff",
               height: 55
             }}
-          > 
+          >
             <TouchableOpacity
               style={[styles.fullButton, styles.bookLater]}
               onPress={() => {
@@ -222,7 +182,7 @@ const TabBarTasker = props => {
 };
 
 TabBarTasker.propTypes = {
-  navigationState: PropTypes.object.isRequired,
+  //navigationState: PropTypes.object.isRequired,
   activeTintColor: PropTypes.string.isRequired,
   inactiveTintColor: PropTypes.string.isRequired,
   setUserPageStatus: PropTypes.func.isRequired,
