@@ -3,7 +3,7 @@ import { Actions } from "react-native-router-flux";
 import { Answers } from "react-native-fabric";
 import firebase from "react-native-firebase";
 import { Alert } from "react-native";
-import { UserType } from "../reducers";
+
 
 export function signUp(user) {
   return (dispatch, getState) => {

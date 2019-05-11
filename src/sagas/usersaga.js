@@ -32,7 +32,7 @@ function* signUpUser({ name, email, password, phone }) {
     let cipherPassword = CryptoJS.AES.encrypt(password, "secret key");
 
     cipherPassword = cipherPassword.toString();
-    
+
 
     yield call(() =>
       firebase
@@ -40,7 +40,7 @@ function* signUpUser({ name, email, password, phone }) {
         .createUserAndRetrieveDataWithEmailAndPassword(uniqueId, password)
         .then(() => {
           success = true;
-          
+
         })
         .catch(error => {
           success = "error";
@@ -178,7 +178,7 @@ function* signUpUser({ name, email, password, phone }) {
     if (success === true) {
       NavigationActions.user();
     }
-    
+
     yield put(stopSubmit("signUp"));
   } catch (error) {
     yield put(UserActions.setSpinner(false));
@@ -611,13 +611,13 @@ function nearByTasker(nearByUser,location) {
     location.longitude
     )
     // console.log(index,  distance,"DIStancessssssss")
-    index.distance = distance; 
+    index.distance = distance;
     // console.log(index,'Distance User')
   });
 
   const sortData = _.sortBy(nearByUser, [function(o) { return o.distance; }]);
   // console.log(sortData,"Sorting")
-  
+
   resolve(sortData);
 })
 }
@@ -708,7 +708,7 @@ function* getTaskers({ loc, cat, subCat }) {
         console.log(mogifieTaskers, '@@@@@@@@@@@@@@@@@@@@@@@');
         yield put(UserActions.setMarkers(markers, mogifieTaskers));
         // yield put(UserActions.setMarkers(markers, nearbyUsers));
-      } else {  
+      } else {
         yield put(UserActions.setSubCategorySelected(false, null));
       }
       yield put(UserActions.setFetchTaskers(false));
@@ -796,7 +796,7 @@ function* loginUser({ email, password }) {
     }
     yield put(TripActions.setCurrentAddress())
     if (success === true) {
-      NavigationActions.user();
+      NavigationActions.reset(userType);
     }
     if (success === true || success === "error") {
       yield put(UserActions.setSpinner(false));
@@ -844,7 +844,7 @@ function* setServiceAndCategory({ cat, subcat, cost, add }) {
     // console.log(email,"email inside userSaga")
 
     // console.log(cat, subcat, cost, add, email, "tesingginggngingin")
-  
+
     // const value = eval(cost);
     // console.log(typeof cost,"@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     yield call(() =>
@@ -864,7 +864,7 @@ function* setServiceAndCategory({ cat, subcat, cost, add }) {
           {
             merge: true
           })
-        
+
     );
     console.log(cost,"inside afterrrr!!!!!!!!!!!!!!!!!!!!!!!")
     yield put(UserActions.isTaskerOrNot(true));
@@ -941,7 +941,7 @@ function* storeToken({ token }) {
         )
     );
     yield put(UserActions.storeTokenInState(token));
-    
+
   } catch (error) {
     console.log(error);
   }
