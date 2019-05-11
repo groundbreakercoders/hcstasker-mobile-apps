@@ -37,7 +37,7 @@ class LoginForm extends Component {
   submit(values) {
     // this.setState({loading:true})
     console.log("Hello",values)
-    this.props.dispatch(UserActions.login(values.email, values.password));
+    this.props.dispatch(UserActions.login(values.email, values.password,"tasker"));
   }
   render() {
     const locale = this.props.lang;

@@ -56,7 +56,7 @@ const { Types, Creators } = createActions({
   onLoginFinished: ["error", "result"],
   userId: ["id"],
   generatedRefererCode: ["refererCode"],
-  login: ["email", "password"],
+  login: ["email", "password", "launchUserType"],
   loginSuccess: {
     username: null,
     istasker: null
@@ -101,6 +101,7 @@ export const INITIAL_STATE = Immutable({
   photo: null,
   profileurl: null,
   password: null,
+  launchUserType: null,
   onTrip: false,
   tripStatus: "default",
   modalVisible: false,
@@ -144,7 +145,7 @@ export const checkUserStatus = (state = INITIAL_STATE, { name, fid }) => ({
   name,
   fid
 });
-export const loginUser = (state = INITIAL_STATE, { username, istasker }) => 
+export const loginUser = (state = INITIAL_STATE, { username, istasker }) =>
 ({
   ...state,
   username,

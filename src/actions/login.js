@@ -24,7 +24,8 @@ export function signUp(user) {
     dispatch({
       type: "LOGIN",
       username: user.username,
-      password: user.password
+      password: user.password,
+      launchUserType: user.userType
     });
 
     Answers.logSignUp("Demo", true, { referral: user.referalPromo });

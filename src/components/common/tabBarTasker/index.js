@@ -35,7 +35,6 @@ const TabBarTasker = props => {
           >
 
             {routes.map((route, idx) => {
-              {console.log(idx)}
               const color = index === idx ? activeTintColor : inactiveTintColor;
               return (
                 <TouchableOpacity

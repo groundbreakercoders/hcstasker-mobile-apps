@@ -736,15 +736,15 @@ function* getTaskers({ loc, cat, subCat }) {
 }
 
 
-function* loginUser({ email, password }) {
+function* loginUser({ email, password, launchUserType}) {
   try {
-    console.log("loginUser Call!!!!!!!!!!!!!!!")
+    console.log("loginUser Call!!!!!!!!!!!!!!!"+launchUserType)
     yield put(startSubmit("login"));
     yield put(UserActions.setSpinner(true));
     let matchedChild;
     let isExist = false;
     let success = null;
-
+    let tempUserType;
     yield call(() =>
       firebase
         .auth()
@@ -777,10 +777,26 @@ function* loginUser({ email, password }) {
             isExist = true;
             const { userType } = data;
             matchedChild = data;
-            NavigationActions.reset(userType);
+            tempUserType = userType;
+            if(userType != launchUserType) {
+              success = "error";
+              if(userType == "user") {
+                  Alert.alert("Please login as User");
+              } else {
+                Alert.alert("Please login as CareTaker");
+              }
+              throw new Error("Authorization Failed");
+            } else {
+                NavigationActions.reset(userType);
+            }
+
           });
-        })
-        .catch(error => console.log("Catch", error))
+        }).catch(error => {
+            console.log("Catch", error);
+            if(tempUserType != launchUserType) {
+              throw new Error("Authentcation Failed");
+            }
+          })
     );
     yield call(loginYieldCall, matchedChild);
 
@@ -796,7 +812,17 @@ function* loginUser({ email, password }) {
     }
     yield put(TripActions.setCurrentAddress())
     if (success === true) {
-      NavigationActions.reset(userType);
+      if(tempUserType != launchUserType) {
+        success = "error";
+        if(launchUserType == "user") {
+            Alert.alert("Please login as User");
+        } else {
+          Alert.alert("Please login as CareTaker");
+        }
+          throw new Error("Authorization Failed");
+      } else {
+        NavigationActions.reset(userType);
+      }
     }
     if (success === true || success === "error") {
       yield put(UserActions.setSpinner(false));
@@ -1255,4 +1281,6 @@ export default function* userSagas() {
   yield fork(changePasswordListener);
   yield fork(resetStoreDataListener);
   yield fork(getFavouritetaskersListener);
+}
+r);
 }

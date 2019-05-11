@@ -37,7 +37,7 @@ class LoginForm extends Component {
   submit(values) {
     // this.setState({loading:true})
     console.log("Hello",values)
-    this.props.dispatch(UserActions.login(values.email, values.password));
+    this.props.dispatch(UserActions.login(values.email, values.password,"user"));
   }
   render() {
     const locale = this.props.lang;
@@ -71,7 +71,7 @@ class LoginForm extends Component {
             rounded
             style={styles.loginButton}
             onPress={this.props.handleSubmit(this.submit.bind(this))}
-           
+
           >
             {loading  ? (
               <Spinner color="#fff" />
