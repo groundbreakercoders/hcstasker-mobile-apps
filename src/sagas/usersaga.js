@@ -780,10 +780,10 @@ function* loginUser({ email, password, launchUserType}) {
             tempUserType = userType;
             if(userType != launchUserType) {
               success = "error";
-              if(userType == "user") {
-                  Alert.alert("Please login as User");
+              if(launchUserType == "user") {
+                  Alert.alert("Please login as CareTaker");
               } else {
-                Alert.alert("Please login as CareTaker");
+                Alert.alert("Please login as User");
               }
               throw new Error("Authorization Failed");
             } else {
@@ -815,9 +815,9 @@ function* loginUser({ email, password, launchUserType}) {
       if(tempUserType != launchUserType) {
         success = "error";
         if(launchUserType == "user") {
-            Alert.alert("Please login as User");
+            Alert.alert("Please login as CareTaker");
         } else {
-          Alert.alert("Please login as CareTaker");
+          Alert.alert("Please login as User");
         }
           throw new Error("Authorization Failed");
       } else {
@@ -1281,6 +1281,4 @@ export default function* userSagas() {
   yield fork(changePasswordListener);
   yield fork(resetStoreDataListener);
   yield fork(getFavouritetaskersListener);
-}
-r);
 }
