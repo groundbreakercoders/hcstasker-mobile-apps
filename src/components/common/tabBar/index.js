@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon, View, Text, Spinner } from "native-base";
-import { TouchableOpacity, Alert,SafeAreaView,Platform } from "react-native";
+import { TouchableOpacity, Alert,SafeAreaView,Platform, Dimensions } from "react-native";
 import { Actions } from "react-native-router-flux";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -22,7 +22,7 @@ const TabBar = props => {
   ];
   const activeIcons = ["ios-compass", "ios-heart", "ios-book", "ios-person"];
   const title = [
-    strings.Explore,
+    strings.Home,
     strings.favourite,
     strings.booking,
     strings.account
@@ -85,7 +85,8 @@ const TabBar = props => {
                     style={{
                       alignItems: "center",
                       justifyContent: "center",
-                      height: Platform.OS === "android" ? 55 : 57
+                      height: Platform.OS === "android" ? 55 : Dimensions.get('screen').height*10/100
+                      // height:Dimensions.get('screen').height*10/100,
                       // height: 55
                     }}
                   >

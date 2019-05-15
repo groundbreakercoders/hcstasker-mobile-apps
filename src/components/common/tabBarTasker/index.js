@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon, View, Text, Spinner } from "native-base";
-import { TouchableOpacity, Alert,SafeAreaView,Platform } from "react-native";
+import { TouchableOpacity, Alert,SafeAreaView,Platform, Dimensions } from "react-native";
 import { Actions } from "react-native-router-flux";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -49,7 +49,7 @@ const TabBarTasker = props => {
                       alignItems: "center",
                       justifyContent: "center",
 
-                       height:Platform.OS === "android" ? 55 : 56
+                       height:Dimensions.get('screen').height*10/100
 
                     }}
                   >

@@ -34,10 +34,10 @@ class CategoryAndSubCategory extends Component {
       taskerName: this.props.tasker,
       tName: null,
       catSelected: this.props.SubCategorySelected,
-      
+
     };
     // this.scrollToItem(bind)
-    
+
   }
   componentDidMount(){
     this.scrollToItem()
@@ -59,49 +59,18 @@ class CategoryAndSubCategory extends Component {
     let randomIndex = Math.floor(Math.random(Date.now()) * data.length);
     this.flatListRef.scrollToIndex({animated: true, index: "" + randomIndex});
   }
-  
+
   render() {
     const { strings } = this.props;
     return (
       <View
         style={{
-          flex: !this.state.taskerSelected
-            ? Platform.OS === "ios"
+          flex: Platform.OS === "ios"
               ? 1.3
               : 1.6
-            : Platform.OS === "ios"
-              ? 2.4
-              : 2.9
         }}
       >
-        {this.props.userPageStatus === "home" &&
-          this.state.taskerSelected && (
-        <ScrollView 
-          horizontal
-          style={{flex:0.7}}
-          bounces
-          showsHorizontalScrollIndicator={false}
-        >{this.state.taskerName && this.getCurrentSubcategory(this.state.taskerName).map((category, key) => (
-          <Button
-            key={key}
-            onPress={() => this.categorieSelect(category.name)}
-            transparent
-            small
-            style={styles.scrollviewButton}
-          >
-            <Text
-              style={
-                this.state.name === category.name
-                  ? styles.activeText
-                  : styles.catText
-              }
-            >
-              {strings[category.name]}
-            </Text>
-          </Button>
-        ))}
-        </ScrollView>
-      )}
+
         {this.props.userPageStatus === "home" && (
           <View
             style={{
@@ -109,8 +78,8 @@ class CategoryAndSubCategory extends Component {
               borderTopWidth: 0.6,
               borderTopColor: "#c2c6da"
             }}
-          >  
-              <FlatList 
+          >
+              <FlatList
                   ref={(ref) => { this.flatListRef = ref; }}
                   // scrollsToTop={false}
                   // onEndReached={this.onEndReached.bind(this)}
@@ -125,7 +94,7 @@ class CategoryAndSubCategory extends Component {
                   // onEndReached={this.onEndReached.bind(this)}
                   // onScroll={this.setState({scrollPosition: event.nativeEvent.contentOffset.y})}
                   keyExtractor={(item, index) => String(index)}
-                  renderItem={({ item, index }) => 
+                  renderItem={({ item, index }) =>
                 {
                 return (
                 <View key={index} style={styles.iconView}>
@@ -160,8 +129,8 @@ class CategoryAndSubCategory extends Component {
                 );
               }}>
             </FlatList>
-           
-         
+
+
           </View>
         )}
       </View>
