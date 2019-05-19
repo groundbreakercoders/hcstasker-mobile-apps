@@ -82,7 +82,9 @@ const { Types, Creators } = createActions({
   getFavouritetaskers: null,
   typeChanging: ["bool"],
   setUserLocation: ["Coordinates"],
-  setFetchTaskers: ["bool"]
+  setFetchTaskers: ["bool"],
+  setTaskers : [ "taskerList" ],
+  setTaskerList : ["category"]
 });
 export const UserTypes = Types;
 export default Creators;
@@ -128,7 +130,8 @@ export const INITIAL_STATE = Immutable({
   taskerDetails: null,
   lang: "en",
   typeChanging: false,
-  fetchTaskers: false
+  fetchTaskers: false,
+  taskerList: null
 });
 
 /* ------------- Reducers ------------- */
@@ -299,6 +302,10 @@ export const setFetchTaskers = (state = INITIAL_STATE, { bool }) => ({
   ...state,
   fetchTaskers: bool
 });
+export const setTaskers = (state = INITIAL_STATE, { taskerList }) => ({
+  ...state,
+  taskerList
+});
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
@@ -318,6 +325,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_USER_PAGE_STATUS]: setPageStatus,
   [Types.SET_MARKERS]: setNearMarkers,
   [Types.EDIT_PROFILE_SUCCESS]: editProfile,
+  [Types.SET_TASKERS]: setTaskers,
   [Types.SET_SPINNER]: setSpinner,
   [Types.STORE_TOKEN_IN_STATE]: storeTokenInState,
   [Types.SET_PHOTO_URL]: setPhotoUrl,

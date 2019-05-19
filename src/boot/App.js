@@ -36,7 +36,7 @@ import TaskerHome from "../components/taskerHome";
 import TaskerEarnings from "../components/taskerEarnings";
 import NavElement from "../components/NavElement";
 import DriverOnlineStatusSwitch from "../components/DriverOnlineStatusSwitch";
-
+import Tasker from "../components/tasker";
 import lang from "./localise";
 
 const strings = new LocalizedStrings(lang);
@@ -99,6 +99,7 @@ class App extends Component {
             component={Home}
             title="Home Page"
           />
+
           <Scene
             hideNavBar
             key="savedtaskers"
@@ -120,6 +121,12 @@ class App extends Component {
           />
         </Stack>
         <Scene key="taskerpage" component={TaskerPage} title="Tasker Page" />
+        <Scene
+          hideNavBar
+          key="taskerList"
+          component={Tasker}
+          title="Tasker List Page"
+        />
         <Scene
           key="PaymentPage"
           strings={strings}

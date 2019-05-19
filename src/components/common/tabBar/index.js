@@ -41,28 +41,8 @@ const TabBar = props => {
   return (
     <View style={{ height: 55 }}>
       <View style={{ height : 55 }}>
-        {_.get(props, "SubCategorySelected") &&
-        props.userPageStatus === "home" ? (
-          <View
-            style={{
-              flexDirection: "row",
-              backgroundColor: "#fff",
-              height:Platform.OS === "android" ? 55 :null,
-              zIndex: 1000
-            }}
-          >
-            <TouchableOpacity
-              style={[styles.fullButton, styles.bookNow]}
-              onPress={() => {
-                props.setUserPageStatus("bookingpage");
-              }}
-            >
-              <Text style={styles.btnText}>{strings.booknow}</Text>
-            </TouchableOpacity>
-          </View>
-        ) : null}
-        {props.userPageStatus === "home" &&
-        !_.get(props, "SubCategorySelected") ? (
+
+        {props.userPageStatus === "home" ? (
           <View
             style={{
               backgroundColor: commonColor.brandPrimary,

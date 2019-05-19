@@ -21,8 +21,8 @@ import data from "../../../../utils/data";
 const deviceWidth = Dimensions.get("window").width;
 import styles from "./styles";
 import commonColor from "../../../../../native-base-theme/variables/commonColor";
-
-
+import firebase from "react-native-firebase";
+import Tasker from "../../../tasker";
 
 class CategoryAndSubCategory extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class CategoryAndSubCategory extends Component {
       taskerName: this.props.tasker,
       tName: null,
       catSelected: this.props.SubCategorySelected,
-
+      taskerList: []
     };
     // this.scrollToItem(bind)
 
@@ -44,10 +44,44 @@ class CategoryAndSubCategory extends Component {
   }
 
   categorieSelect(name) {
-      this.props.setTaskerSelected(true, this.state.taskerName);
-      this.setState({ catSelected: true });
-      this.props.setSubCategorySelected(!this.state.catSelected, name);
-      this.props.getTaskers(this.props.origin, this.state.taskerName, name);
+    this.setState({
+      taskerName: name,
+      taskerSelected: true,
+    });
+    let allTaskers=[];
+    firebase
+      .firestore()
+      .collection("users")
+      .where("userType", "==", "tasker")
+      .where("category", "==", name)
+      .get()
+      .then(data => {
+        data.forEach(item => {
+          const tasker = item.data();
+          allTaskers.push(tasker);
+        });
+        this.setState({
+          taskerList: allTaskers
+        });
+      })
+      .catch(err => reject(err));
+
+    // const allTaskers = [];
+    // const query = firebase
+    //   .firestore()
+    //   .collection("users")
+    //
+    // query
+    //   .get()
+    //   .then(data => {
+    //     data.forEach(item => {
+    //       const tasker = item.data();
+    //       allTaskers.push(tasker);
+    //     });
+    //   });
+      console.log(this.state.taskerList);
+      //this.props.setTaskerList(name);
+
   }
   getCurrentSubcategory(name) {
     return data.filter(cat => cat.name === name)[0].subCategories;
@@ -60,14 +94,17 @@ class CategoryAndSubCategory extends Component {
     this.flatListRef.scrollToIndex({animated: true, index: "" + randomIndex});
   }
 
+
   render() {
     const { strings } = this.props;
     return (
+
+
       <View
         style={{
           flex: Platform.OS === "ios"
-              ? 1.3
-              : 1.6
+              ? 0.8
+              : 1.1
         }}
       >
 
@@ -79,6 +116,11 @@ class CategoryAndSubCategory extends Component {
               borderTopColor: "#c2c6da"
             }}
           >
+
+
+
+
+
               <FlatList
                   ref={(ref) => { this.flatListRef = ref; }}
                   // scrollsToTop={false}
@@ -97,15 +139,9 @@ class CategoryAndSubCategory extends Component {
                   renderItem={({ item, index }) =>
                 {
                 return (
-                <View key={index} style={styles.iconView}>
+                <View key={item.name} style={styles.iconView}>
                 <Item
-                  onPress={() => {
-                    this.setState({
-                      taskerName: item.name,
-                      taskerSelected: true,
-                    });
-                  }
-                  }
+                  onPress={() => this.categorieSelect(item.name)}
                   style={
                     this.state.taskerName === item.name
                       ? styles.activeIconItem
@@ -134,6 +170,7 @@ class CategoryAndSubCategory extends Component {
           </View>
         )}
       </View>
+
     );
   }
 }
@@ -142,7 +179,7 @@ CategoryAndSubCategory.propTypes = {
   SubCategorySelected: PropTypes.bool,
   setSubCategorySelected: PropTypes.func,
   setTaskerSelected: PropTypes.func,
-  getTaskers: PropTypes.func,
+  getTaskerList: PropTypes.func,
   taskerSelected: PropTypes.bool
 };
 
@@ -153,15 +190,16 @@ function mapStateToProps(state) {
     SubCategorySelected: state.user.SubCategorySelected,
     tasker: state.user.tasker,
     origin: state.trip.origin,
-    category: state.user.category
+    category: state.user.category,
+    taskerList: state.taskerList
   };
 }
 
 const bindActions = dispatch => ({
   setSubCategorySelected: (selected, cat) =>
     dispatch(UserActions.setSubCategorySelected(selected, cat)),
-  getTaskers: (location, category, subCategory) =>
-    dispatch(UserActions.getTaskers(location, category, subCategory)),
+  setTaskerList: (category) =>
+    dispatch(UserActions.setTaskerList(category)),
   setTaskerSelected: (selected, tasker) =>
     dispatch(UserActions.setTaskerSelected(selected, tasker))
 });

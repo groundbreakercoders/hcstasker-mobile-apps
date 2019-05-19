@@ -1191,6 +1191,32 @@ function* getFavouritetaskers() {
   }
 }
 
+function* setTaskerList(category) {
+    const allTaskers = [];
+    // const query = firebase
+    //   .firestore()
+    //   .collection("users")
+    //   .where("userType", "==", "tasker")
+    //   .where("category", "==", cat);
+    yield call(() =>
+    firebase
+      .firestore()
+      .collection("users")
+      .where("userType", "==", "tasker")
+      .where("category", "==", category.category)
+      .get()
+      .then(data => {
+        data.forEach(item => {
+          const tasker = item.data();
+          allTaskers.push(tasker);
+        });
+      })
+      .catch(err => reject(err))
+  );
+  yield put(UserActions.setTaskers(allTaskers));
+
+}
+
 function* signUpUserListener() {
   yield takeLatest(UserTypes.SIGN_UP, signUpUser);
 }
@@ -1226,7 +1252,7 @@ function* logoutUserListener() {
 }
 
 function* getTaskersListener() {
-  yield takeLatest(UserTypes.GET_TASKERS, getTaskers);
+  yield takeLatest(UserTypes.SET_TASKER_LIST, setTaskerList);
 }
 
 function* editProfileListener() {

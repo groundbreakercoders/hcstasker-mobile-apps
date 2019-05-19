@@ -25,11 +25,29 @@ import styles from "./styles";
 
 const { height } = Dimensions.get("window");
 const image = require("../../assets/image.png");
-
+import firebase from "react-native-firebase";
 class Tasker extends Component {
   constructor(props) {
     super(props);
+    console.log(props.cat);
     this.state = {};
+    let allTaskers = [];
+    firebase
+      .firestore()
+      .collection("users")
+      .where("userType", "==", "tasker")
+      .where("category", "==", "nurses")
+      .get()
+      .then(data => {
+        data.forEach(item => {
+          const tasker = item.data();
+          allTaskers.push(tasker);
+        });
+        this.setState({
+          allTasker: allTaskers
+        });
+      })
+      .catch(err => reject(err));
   }
 
   getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
@@ -54,11 +72,11 @@ class Tasker extends Component {
   render() {
     return (
       <Container>
-        <Header title={_.get(this.props, "category", "")} backButton />
+        <Header title={_.get(this.props, "category", "")}  />
         <Content>
-          {_.get(this.props, "allTasker").length ? (
+          {this.state.allTasker != null ? (
             <View>
-              {_.map(this.props.allTasker, (tasker, key) => (
+              {_.map(this.state.allTasker, (tasker, key) => (
                 <Card style={styles.card} key={key}>
                   <CardItem
                     style={{ paddingTop: 30, paddingBottom: 30, height: 150 }}
@@ -107,14 +125,7 @@ class Tasker extends Component {
                             name="ios-pin"
                             style={{ color: "#44466B", fontSize: 18 }}
                           />{" "}
-                          {tasker.location._latitude
-                            ? this.getDistanceFromLatLonInKm(
-                                this.props.origin.latitude,
-                                this.props.origin.longitude,
-                                tasker.location._latitude,
-                                tasker.location._longitude
-                              )
-                            : "3"}{" "}
+                          {" "}
                           km away
                         </Text>
                         <Text>$ {tasker.fee ? tasker.fee : "900"} </Text>
@@ -153,7 +164,7 @@ class Tasker extends Component {
             </View>
           ) : (
             <View>
-              <Text>No taskers available with this sub category</Text>
+              <Text>No Care Taker available for this service</Text>
             </View>
           )}
         </Content>
@@ -163,7 +174,7 @@ class Tasker extends Component {
 }
 
 const mapStateToProps = state => ({
-  allTasker: state.user.allTasker,
+  allTasker: state.taskerList,
   category: state.user.category,
   origin: state.trip.origin
 });

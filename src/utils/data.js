@@ -2,12 +2,12 @@ const categories = [
   {
     name: "nurses",
     family: "Ionicons",
-    Icon: "ios-construct"
+    Icon: "heart"
   },
   {
     name: "physiotherapist",
     family: "Ionicons",
-    Icon: "heart"
+    Icon: "ios-medical"
   },
   {
     name: "babysitters",

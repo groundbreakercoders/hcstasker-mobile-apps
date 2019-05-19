@@ -111,21 +111,7 @@ class LoginTasker extends Component {
             <Text style={styles.orText}>{lang.or}</Text>
 
             <View style={styles.buttonsView}>
-              <Button
-                onPress={() => {
-                  if (!this.state.disableLoginButton) {
-                    this.yo();
-                  }
-                }}
-                rounded
-                style={[styles.loginButton, styles.facebook]}
-              >
-                {this.state.show ? (
-                  <Text style={styles.buttonText}>{lang.facebook}</Text>
-                ) : (
-                  <Spinner color="white" size="small" />
-                )}
-              </Button>
+              
               {/* <Button rounded style={[styles.loginButton, styles.google]}>
                 <Text style={styles.buttonText}>{lang.google}</Text>
               </Button> */}
