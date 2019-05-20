@@ -28,13 +28,8 @@ class CategoryAndSubCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      taskerSelected: this.props.taskerSelected,
-      tSelected: false,
       name: this.props.category,
-      taskerName: this.props.tasker,
-      tName: null,
-      catSelected: this.props.SubCategorySelected,
-      taskerList: []
+      selectedCategory: null
     };
     // this.scrollToItem(bind)
 
@@ -44,50 +39,14 @@ class CategoryAndSubCategory extends Component {
   }
 
   categorieSelect(name) {
-    this.setState({
-      taskerName: name,
-      taskerSelected: true,
-    });
-    let allTaskers=[];
-    firebase
-      .firestore()
-      .collection("users")
-      .where("userType", "==", "tasker")
-      .where("category", "==", name)
-      .get()
-      .then(data => {
-        data.forEach(item => {
-          const tasker = item.data();
-          allTaskers.push(tasker);
-        });
-        this.setState({
-          taskerList: allTaskers
-        });
-      })
-      .catch(err => reject(err));
-
-    // const allTaskers = [];
-    // const query = firebase
-    //   .firestore()
-    //   .collection("users")
-    //
-    // query
-    //   .get()
-    //   .then(data => {
-    //     data.forEach(item => {
-    //       const tasker = item.data();
-    //       allTaskers.push(tasker);
-    //     });
-    //   });
-      console.log(this.state.taskerList);
-      //this.props.setTaskerList(name);
-
+    this.props.setTaskerList(name);
+    //this.props.setSelectedCategory(name);
   }
   getCurrentSubcategory(name) {
     return data.filter(cat => cat.name === name)[0].subCategories;
   }
   getItemLayout = (data, index) => (
-    { length: 5, offset: 5 * index, index }
+    { length: 3, offset: 3 * index, index }
   )
   scrollToItem = () => {
     let randomIndex = Math.floor(Math.random(Date.now()) * data.length);
@@ -128,7 +87,7 @@ class CategoryAndSubCategory extends Component {
                   getItemLayout={this.getItemLayout}
                   data={data}
                   horizontal
-                  extraData={this.state.taskerName}
+                  extraData={this.props.selectedCategory}
                   showsHorizontalScrollIndicator={false}
                   // initialNumToRender={6}
                   // maxToRenderPerBatch={4}
@@ -143,7 +102,7 @@ class CategoryAndSubCategory extends Component {
                 <Item
                   onPress={() => this.categorieSelect(item.name)}
                   style={
-                    this.state.taskerName === item.name
+                    this.props.selectedCategory === item.name
                       ? styles.activeIconItem
                       : styles.iconItem
                   }
@@ -152,7 +111,7 @@ class CategoryAndSubCategory extends Component {
                     family={item.family}
                     name={item.Icon}
                     style={
-                      this.state.taskerName === item.name
+                      this.props.selectedCategory === item.name
                         ? styles.activeIcon
                         : styles.icon
                     }
@@ -178,7 +137,7 @@ class CategoryAndSubCategory extends Component {
 CategoryAndSubCategory.propTypes = {
   SubCategorySelected: PropTypes.bool,
   setSubCategorySelected: PropTypes.func,
-  setTaskerSelected: PropTypes.func,
+  setSelectedCategory: PropTypes.func,
   getTaskerList: PropTypes.func,
   taskerSelected: PropTypes.bool
 };
@@ -186,22 +145,15 @@ CategoryAndSubCategory.propTypes = {
 function mapStateToProps(state) {
   return {
     userPageStatus: state.user.userPageStatus,
-    taskerSelected: state.user.taskerSelected,
-    SubCategorySelected: state.user.SubCategorySelected,
-    tasker: state.user.tasker,
-    origin: state.trip.origin,
-    category: state.user.category,
-    taskerList: state.taskerList
+    selectedCategory: state.user.selectedCategory
   };
 }
 
 const bindActions = dispatch => ({
-  setSubCategorySelected: (selected, cat) =>
-    dispatch(UserActions.setSubCategorySelected(selected, cat)),
+  setSelectedCategory: (cat) =>
+    dispatch(UserActions.setSelectedCategory(cat)),
   setTaskerList: (category) =>
-    dispatch(UserActions.setTaskerList(category)),
-  setTaskerSelected: (selected, tasker) =>
-    dispatch(UserActions.setTaskerSelected(selected, tasker))
+    dispatch(UserActions.setTaskerList(category))
 });
 
 export default connect(

@@ -9,11 +9,13 @@ const deviceWidth = Dimensions.get("window").width;
 
 export default {
   card: {
-    marginTop: 15,
-    borderColor: "#fff",
-    borderRadius: 0,
-    shadowColor: "#fff",
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0
+    borderBottomWidth: 1,
+    padding: 5,
+    backgroundColor: '#fff',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    borderColor: '#ddd',
+    position: 'relative'
   }
+
 };

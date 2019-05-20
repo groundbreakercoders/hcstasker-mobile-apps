@@ -83,8 +83,9 @@ const { Types, Creators } = createActions({
   typeChanging: ["bool"],
   setUserLocation: ["Coordinates"],
   setFetchTaskers: ["bool"],
-  setTaskers : [ "taskerList" ],
-  setTaskerList : ["category"]
+  setTaskers : [ "taskerList", "selectedCategory" ],
+  setTaskerList : ["category"],
+  setCategory: [ "selectedCategory"]
 });
 export const UserTypes = Types;
 export default Creators;
@@ -131,7 +132,8 @@ export const INITIAL_STATE = Immutable({
   lang: "en",
   typeChanging: false,
   fetchTaskers: false,
-  taskerList: null
+  taskerList: null,
+  selectedCategory: null
 });
 
 /* ------------- Reducers ------------- */
@@ -206,12 +208,6 @@ export const logOutUser = () => {
 export const setUpdatePhoto = (state = INITIAL_STATE, { photo }) => ({
   ...state,
   photo
-});
-
-export const setCategorySelected = (state = INITIAL_STATE, { bool, cat }) => ({
-  ...state,
-  SubCategorySelected: bool,
-  category: cat
 });
 
 export const setTaskerSelected = (state = INITIAL_STATE, { bool, tasker }) => ({
@@ -302,10 +298,28 @@ export const setFetchTaskers = (state = INITIAL_STATE, { bool }) => ({
   ...state,
   fetchTaskers: bool
 });
-export const setTaskers = (state = INITIAL_STATE, { taskerList }) => ({
+export const setCategorySelected = (state = INITIAL_STATE, { bool, cat }) => ({
   ...state,
-  taskerList
+  SubCategorySelected: bool,
+  category: cat
 });
+
+export const setTaskers = (state = INITIAL_STATE, { taskerList, selectedCategory }) => ({
+  ...state,
+  taskerList: taskerList,
+  selectedCategory: selectedCategory
+});
+
+export const setCategory = (state = INITIAL_STATE, { selectedCategory }) => ({
+  ...state,
+  selectedCategory: selectedCategory
+});
+
+//
+// export const setCategory = (state = INITIAL_STATE, { selectedCategory }) => ({
+//   ...state,
+//   selectedCategory:selectedCategory
+// });
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
@@ -326,6 +340,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_MARKERS]: setNearMarkers,
   [Types.EDIT_PROFILE_SUCCESS]: editProfile,
   [Types.SET_TASKERS]: setTaskers,
+  [Types.SET_CATEGORY]: setCategory,
   [Types.SET_SPINNER]: setSpinner,
   [Types.STORE_TOKEN_IN_STATE]: storeTokenInState,
   [Types.SET_PHOTO_URL]: setPhotoUrl,

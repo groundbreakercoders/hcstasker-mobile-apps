@@ -260,7 +260,7 @@ class Home extends Component {
           >
             <View style={{ flex: 1, flexDirection: "column" }}>
               <View style={{ flex: 6 }}>
-              <Tasker />
+              <Tasker strings={strings} />
               </View>
               {this.props.userPageStatus === "home" ? (
                 <CategoryAndSubCategory getSelectedCatTaskers={this.getTaskers} strings={strings} />

@@ -577,7 +577,7 @@ function getDocumentNearBy(cat, subCat) {
           }
           resolve(selectedTasker);
         });
-        resolve([]);
+        resolve(null);
       })
       .catch(err => reject(err));
   });
@@ -1213,7 +1213,8 @@ function* setTaskerList(category) {
       })
       .catch(err => reject(err))
   );
-  yield put(UserActions.setTaskers(allTaskers));
+  //yield put(UserActions.setCategory(category.category));
+  yield put(UserActions.setTaskers(allTaskers, category.category));
 
 }
 
