@@ -22,7 +22,7 @@ import { Actions } from "react-native-router-flux";
 import commonColor from "../../../native-base-theme/variables/commonColor";
 import ImageSwiper from "../common/swiper";
 import styles from "./styles";
-
+import StarRating from 'react-native-star-rating';
 const { height } = Dimensions.get("window");
 const image = require("../../assets/avatar.png");
 import firebase from "react-native-firebase";
@@ -31,7 +31,17 @@ class Tasker extends Component {
     super(props);
     this.state = {};
   }
-
+  getRating(rating) {
+    let total = 0;
+    const length = rating.length? rating.length: 0;
+    _.map(rating, (rate, index) => {
+      total += (rate)?Number(rate):0;
+    });
+    if(total === 0) {
+      return total
+    }
+    return Math.ceil(total / length);
+  }
 
   render() {
     const { strings } = this.props;
@@ -86,19 +96,22 @@ class Tasker extends Component {
                           fontWeight: "500"
                         }}
                         >
-                          <Icon
-                            name="ios-star"
-                            style={{
-                              color: commonColor.brandPrimary,
-                              fontSize: 20
-                            }}
+
+                          <Text style={{ paddingRight: 16,
+                                        color: "#154299"
+                                        }}>
+                          <StarRating
+                               disabled={false}
+                               maxStars={5}
+                               rating={this.getRating(tasker.rating)}
+                                fullStarColor={commonColor.brandPrimary}
+                                starSize={16}
                           />
-                          <Text style={{ paddingRight: 16 }}>
-                            {" "}{tasker.rating && tasker.rating > 0  ? tasker.rating : "0"}{" / 5"}
+                            {" "}{this.getRating(tasker.rating)}
                           </Text>
 
                         </Text>
-                        <Text>$ {tasker.fee ? tasker.fee : "10"} </Text>
+                        <Text>{tasker.fee ? tasker.fee : "10"} KWD/Hour</Text>
                       </Body>
                     </Item>
 
