@@ -14,6 +14,7 @@ import {
   Icon,
   Spinner
 } from "native-base";
+import Booking from "../booking";
 import _ from "lodash";
 import { Dimensions, View } from "react-native";
 import { connect } from "react-redux";
@@ -58,7 +59,7 @@ class Tasker extends Component {
                   >
 
                     <Item
-                      onPress={() => Actions.taskerprofilrepage()}
+                      onPress={() => Actions.booking(tasker)}
                       style={{ borderBottomWidth: 0 }}
                     >
                     {tasker.profileurl ?
@@ -101,7 +102,7 @@ class Tasker extends Component {
                                         color: "#154299"
                                         }}>
                           <StarRating
-                               disabled={false}
+                               disabled={true}
                                maxStars={5}
                                rating={this.getRating(tasker.rating)}
                                 fullStarColor={commonColor.brandPrimary}

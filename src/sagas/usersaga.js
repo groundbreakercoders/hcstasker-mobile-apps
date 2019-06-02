@@ -1043,10 +1043,11 @@ function* resetStoreData() {
 
 function* sendNotification({ destToken, title, body }) {
   try {
+    console.log("sendNotification");
     const response = yield call(doPost, {
       url: "send",
       headers: {
-        Authorization: `key=AAAAYIHH7Hk:APA91bFcSfK3VoIvlr3P6DNVG9jOkAo9WEEiuVbpwHgGVzzJqs9qXp4OrIPYRw1qaE7FY1HHPFPKFYqUCsIj2MbepGXy0ea-OIZh5y_zcqk9y8aRxrlbZGRHyCC4siLzLtYKNWssvraLaPIXzSo90MV6IXDPeEw2Hg`
+        Authorization: 'key=AAAABLj9bgI:APA91bE_8rX6CNpMcpyqOmMK6uPv8tMnUY7ynY04YCshUsZi2NMCqBKwnMg44hbElhwaIfguvj9MHoYlDcsmcVGvOgBmHW61jpKPNLCSp-uQFrFjiiu5jW0_bKXqDPBjOnnVx9Bd3N7J'
       },
       params: {
         to: destToken,
@@ -1209,10 +1210,34 @@ function* setTaskerList(category) {
         data.forEach(item => {
           const tasker = item.data();
           allTaskers.push(tasker);
+
+
+
         });
       })
       .catch(err => reject(err))
   );
+
+  // try {
+  //   console.log("sendNotification");
+  //   const response = yield call(doPost, {
+  //     url: "send",
+  //     headers: {
+  //       Authorization: 'key=AAAABLj9bgI:APA91bE_8rX6CNpMcpyqOmMK6uPv8tMnUY7ynY04YCshUsZi2NMCqBKwnMg44hbElhwaIfguvj9MHoYlDcsmcVGvOgBmHW61jpKPNLCSp-uQFrFjiiu5jW0_bKXqDPBjOnnVx9Bd3N7J'
+  //     },
+  //     params: {
+  //       to: 'eBbSBDgJbVo:APA91bFSFsRxWP3hSW6FLmzQyDtvvgwNfODn-BTYwevaZJ0wRCTQJPE5jLE6gXJrE5Lt3NcnI3xzw5S9rPLhtsX5zZwLw8N519N1yE4Jbg_JVSCHJAhQmX9SoqPRqNddiGtg2CSZ574N',
+  //       collapse_key: "type_a",
+  //       data: {
+  //         body: 'We would like hear your feedback!',
+  //         title: 'Task is completed.'
+  //       }
+  //     }
+  //   });
+  //   console.log("response", response);
+  // } catch (error) {
+  //   console.log(error);
+  // }
   //yield put(UserActions.setCategory(category.category));
   yield put(UserActions.setTaskers(allTaskers, category.category));
 

@@ -46,175 +46,57 @@ class Booking extends Component {
   }
 
   render() {
-    const { tasker } = this.props;
+
     return (
       <Container>
         <Header title="Booking" backButton />
         <Content>
-          <Card style={styles.card}>
-            <CardItem style={{ paddingTop: 30, paddingBottom: 30 }}>
-              <Left style={{ flex: 1 }}>
-                <Thumbnail size={50} source={image} />
-                <Body>
-                  <Text style={{ color: "#44466B", fontSize: 18 }}>
-                    {tasker.name ? tasker.name : ""}
-                  </Text>
-                  <Text note style={{ marginTop: 5, color: "#8B8DAC" }}>
-                    <Icon
-                      name="ios-pin"
-                      style={{ fontSize: 18, color: "#8B8DAC" }}
-                    />{" "}
-                    {tasker.dist ? tasker.dist : 4} km away
-                  </Text>
-                </Body>
-              </Left>
-              <Right style={{ flex: 0.3 }}>
-                <View style={{ flexDirection: "row" }}>
-                  <Icon
-                    name="ios-star"
-                    style={{ color: commonColor.brandSecondary, fontSize: 22 }}
-                  />
-                  <Text style={{ paddingLeft: 5, fontSize: 18 }}>
-                    {tasker.likes ? tasker.likes : "4"}
-                  </Text>
-                </View>
-              </Right>
-            </CardItem>
-          </Card>
-          <View
-            style={{
-              flex: 1,
-              marginTop: 30,
-              backgroundColor: "#fff",
-              height: height / 1.5
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                padding: 20,
-                borderBottomWidth: 1,
-                borderBottomColor: "#C2C5DB"
+        <View
+          style={{
+            flexDirection: "row",
+            padding: 20,
+            borderBottomWidth: 1,
+            borderBottomColor: "#C2C5DB"
+          }}
+        >
+          <Left>
+            <Text style={{ color: "#44466B", fontSize: 18 }}>Set Time</Text>
+          </Left>
+          <Right>
+            <DatePickerCustom
+              date={this.state.time}
+              mode="time"
+              format="HH:mm"
+              itemstyle={{
+                borderBottomWidth: 0,
+                height: 40,
+                justifyContent: "flex-end"
               }}
-            >
-              <Left />
-              <Body>
-                <DatePickerCustom
-                  date={this.state.date}
-                  onUpdate={date => this.update(date)}
-                  mode="date"
-                  format="MMM DD YYYY"
-                  itemstyle={{ borderBottomWidth: 0, height: 40 }}
-                  datepickerStyle={{ width: width / 2, borderBottomWidth: 0 }}
-                  datestyle={{
-                    dateInput: {
-                      flex: 0,
-                      borderWidth: 0,
-                      height: null,
-                      alignItems: "center",
-                      marginTop: -10
-                    },
-                    dateText: {
-                      fontSize: 18,
-                      color: "#44466B"
-                    }
-                  }}
-                />
-              </Body>
-              <Right>
-                <Icon
-                  name="ios-arrow-forward"
-                  style={{ color: commonColor.brandSecondary }}
-                />
-              </Right>
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                padding: 20,
-                borderBottomWidth: 1,
-                borderBottomColor: "#C2C5DB"
+              datepickerStyle={{ width: width / 2, borderBottomWidth: 0 }}
+              datestyle={{
+                dateInput: {
+                  flex: 0,
+                  borderWidth: 0,
+                  height: null,
+                  alignItems: "flex-end",
+                  justifyContent: "flex-end",
+                  marginTop: -10
+                },
+                dateText: {
+                  flex: 0,
+                  fontSize: 22,
+                  color: commonColor.brandSecondary,
+                  right: -45,
+                  marginBottom: 10
+                }
               }}
-            >
-              <Left>
-                <Text style={{ color: "#44466B", fontSize: 18 }}>Set Time</Text>
-              </Left>
-              <Right>
-                <DatePickerCustom
-                  date={this.state.time}
-                  onUpdate={date => this.updateTime(date)}
-                  mode="time"
-                  format="HH:mm"
-                  itemstyle={{
-                    borderBottomWidth: 0,
-                    height: 40,
-                    justifyContent: "flex-end"
-                  }}
-                  datepickerStyle={{ width: width / 2, borderBottomWidth: 0 }}
-                  datestyle={{
-                    dateInput: {
-                      flex: 0,
-                      borderWidth: 0,
-                      height: null,
-                      alignItems: "flex-end",
-                      justifyContent: "flex-end",
-                      marginTop: -10
-                    },
-                    dateText: {
-                      flex: 0,
-                      fontSize: 22,
-                      color: commonColor.brandSecondary,
-                      right: -45,
-                      marginBottom: 10
-                    }
-                  }}
-                />
-              </Right>
-            </View>
-            <View
-              style={{
-                padding: 10,
-                borderBottomWidth: 1,
-                borderBottomColor: "#C2C5DB"
-              }}
-            >
-              <Button full transparent onPress={() => Actions.PaymentPage()}>
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 20,
-                    color: "#44466B"
-                  }}
-                >
-                  Select payment
-                </Text>
-              </Button>
-            </View>
-          </View>
+            />
+          </Right>
+        </View>
         </Content>
         <Footer>
           <FooterTab>
-            <Button
-              onPress={() =>
-                this.props.requestTasker(
-                  tasker,
-                  this.state.date,
-                  this.state.time
-                )
-              }
-              full
-              style={{ backgroundColor: commonColor.brandSecondary }}
-            >
-              {this.props.loading ? (
-                <Spinner />
-              ) : (
-                <Text
-                  style={{ color: "#fff", fontSize: 16, fontWeight: "600" }}
-                >
-                  CONFIRM BOOKING
-                </Text>
-              )}
-            </Button>
+
           </FooterTab>
         </Footer>
       </Container>
@@ -227,7 +109,7 @@ Booking.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 const mapStateToProps = state => ({
-  loading: state.trip.loading
+  //loading: state.trip.loading
 });
 
 const bindActions = dispatch => ({

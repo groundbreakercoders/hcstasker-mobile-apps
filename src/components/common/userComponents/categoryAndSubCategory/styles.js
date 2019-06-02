@@ -33,7 +33,7 @@ export default {
   iconView: {
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 40,
+    marginLeft: 80,
     marginTop: 5,
   },
   iconItem: {

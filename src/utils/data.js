@@ -8,11 +8,6 @@ const categories = [
     name: "physiotherapist",
     family: "Ionicons",
     Icon: "ios-medical"
-  },
-  {
-    name: "babysitter",
-    family: "Ionicons",
-    Icon: "md-medkit"
   }
 ];
 

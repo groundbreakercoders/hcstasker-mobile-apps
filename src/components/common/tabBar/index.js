@@ -52,7 +52,7 @@ const TabBar = props => {
           >
             {routes.map((route, idx) => {
               const color = index === idx ? activeTintColor : inactiveTintColor;
-
+                console.log(route);
               return (
                 <TouchableOpacity
                   key={idx}
