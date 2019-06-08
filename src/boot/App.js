@@ -33,10 +33,12 @@ import AddCard from "../components/addCard";
 import PayTasker from "../components/payTasker";
 import Receipt from "../components/receipt";
 import TaskerHome from "../components/taskerHome";
+
 import TaskerEarnings from "../components/taskerEarnings";
 import NavElement from "../components/NavElement";
 import DriverOnlineStatusSwitch from "../components/DriverOnlineStatusSwitch";
 import Tasker from "../components/tasker";
+import Appointments from "../components/appointments";
 import lang from "./localise";
 
 const strings = new LocalizedStrings(lang);
@@ -123,9 +125,9 @@ class App extends Component {
         <Scene key="taskerpage" component={TaskerPage} title="Tasker Page" />
         <Scene
           hideNavBar
-          key="taskerList"
-          component={Tasker}
-          title="Tasker List Page"
+          key="appointments"
+          component={Appointments}
+          title="Appointments Page"
         />
         <Scene
           key="PaymentPage"

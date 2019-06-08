@@ -26,7 +26,7 @@ import BookingPage from "../common/userComponents/bookingPage";
 import BookingConfirmed from "../common/userComponents/bookingConfirmed";
 import platform from "../../../native-base-theme/variables/platform";
 import commonColor from "../../../native-base-theme/variables/commonColor";
-import Tasker from "../tasker";
+import Appointments from "../appointments";
 
 const { height, width } = Dimensions.get("window");
 
@@ -260,7 +260,7 @@ class Home extends Component {
           >
             <View style={{ flex: 1, flexDirection: "column" }}>
               <View style={{ flex: 6 }}>
-              <Tasker strings={strings} />
+              <Appointments strings={strings} />
               </View>
               {this.props.userPageStatus === "home" ? (
                 <CategoryAndSubCategory getSelectedCatTaskers={this.getTaskers} strings={strings} />

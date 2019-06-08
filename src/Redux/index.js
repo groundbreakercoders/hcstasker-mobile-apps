@@ -12,6 +12,7 @@ export default onCompletion => {
     network: require("./network").reducer,
     paymentMethods: require("./paymentmethodsstore").reducer,
     tasker: require("./driverstore").reducer,
+    appointment: require("./appointmentstore").reducer,
     form: formReducer
   };
 
