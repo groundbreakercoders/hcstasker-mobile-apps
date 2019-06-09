@@ -14,8 +14,17 @@ export default {
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    borderColor: '#ddd',
-    position: 'relative'
-  }
+    borderColor: '#ddd'
+  },
+  cardCardItem: {
+    paddingTop: 30,
+    paddingBottom: 30,
+    height: 125
+  },
+  cardCardItemView: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'stretch'
+    }
 
 };

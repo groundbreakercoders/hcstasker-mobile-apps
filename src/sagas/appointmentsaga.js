@@ -11,11 +11,18 @@ import { getDirections } from '../utils/userutils';
 function* getAppointments({ userid, usertype }) {
   try {
     const appointments = [];
+    var query =   firebase
+                  .firestore()
+                  .collection("appointments");
+    if(usertype === 'user') {
+      query=query.where("status", "==", 'Registered')
+                 .where("userId", "==", userid);
+     } else if(usertype === 'supervisor') {
+       query=query.where("status", "==", 'Evaluation In Progress')
+                  .where("supervisorId", "==", userid);
+     }
     yield call(() =>
-      firebase
-        .firestore()
-        .collection("appointments")
-        .where("userId", "==", userid)
+        query
         .get()
         .then(data => {
           data.docs.forEach(item => {

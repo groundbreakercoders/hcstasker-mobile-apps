@@ -33,7 +33,7 @@ class Appointments extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.props.getAppointments('testapp@gmail.com','user');
+    this.props.getAppointments(this.props.userid,this.props.usertype);
   }
   getRating(rating) {
     let total = 0;
@@ -55,68 +55,112 @@ class Appointments extends Component {
         <Content>
           {this.props.appointments != null && this.props.appointments.length > 0 ? (
             <View>
-              {_.map(this.props.allTasker, (tasker, key) => (
+              {_.map(this.props.appointments, (appointment, key) => (
                 <Card  style={styles.card} key={key}>
                   <CardItem
-                    style={{ paddingTop: 30, paddingBottom: 30, height: 150 }}
+                    style={ styles.cardCardItem }
                   >
 
                     <Item
-                      onPress={() => Actions.booking(tasker)}
-                      style={{ borderBottomWidth: 0 }}
+                      // onPress={() => Actions.booking(tasker)}
+                       style={{ borderBottomWidth: 0 }}
                     >
-                    {tasker.profileurl ?
-                    (
-                      <Thumbnail
-                        circle
-                        source={{ uri: tasker.profileurl }}
-                        style={{ width: 80, height: 80, borderRadius: 40 }}
-                      />
-                    ):
-                    (
-                      <Thumbnail
-                        circle
-                        source={image}
-                        style={{ width: 80, height: 80, borderRadius: 40 }}
-                      />
-                    )
-                    }
 
-                      <Body>
+                    <View style={styles.cardCardItemView}>
+
+                        <View  style={{ paddingBottom: 5 }}>
                         <Text
                           style={{
-                            fontSize: 20,
+                            fontSize: 15,
                             color: "#44466B",
-                            fontWeight: "500"
+                            fontWeight: "500",
+                            fontWeight: "bold"
                           }}
                         >
-                          {tasker.name}
+                          Patient Name
                         </Text>
-
+                        </View>
+                        <View style={{ paddingBottom: 5 }}>
                         <Text
-                        style={{
-                          fontSize: 20,
-                          color: "#44466B",
-                          fontWeight: "500"
-                        }}
+                          style={{
+                            fontSize: 15,
+                            color: "#44466B",
+                            fontWeight: "bold"
+                          }}
                         >
-
-                          <Text style={{ paddingRight: 16,
-                                        color: "#154299"
-                                        }}>
-                          <StarRating
-                               disabled={true}
-                               maxStars={5}
-                               rating={this.getRating(tasker.rating)}
-                                fullStarColor={commonColor.brandPrimary}
-                                starSize={16}
-                          />
-                            {" "}{this.getRating(tasker.rating)}
-                          </Text>
-
+                          Service
                         </Text>
-                        <Text>{tasker.fee ? tasker.fee : "10"} KWD/Hour</Text>
-                      </Body>
+                        </View>
+                        <View style={{ paddingBottom: 5 }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            color: "#44466B",
+                            fontWeight: "bold"
+                          }}
+                        >
+                          Sponsor Name
+                        </Text>
+                        </View>
+                        <View style={{ paddingBottom: 5 }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            color: "#44466B",
+                            fontWeight: "bold"
+                          }}
+                        >
+                          Status
+                        </Text>
+                        </View>
+                      </View>
+                      <View style={styles.cardCardItemView}>
+
+                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              color: "#44466B",
+                              fontWeight: "500"
+                            }}
+                          >
+                            : {appointment.patientName}
+                          </Text>
+                          </View>
+                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              color: "#44466B",
+                              fontWeight: "500"
+                            }}
+                          >
+                            : {appointment.serviceCategory}
+                          </Text>
+                          </View>
+                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              color: "#44466B",
+                              fontWeight: "500"
+                            }}
+                          >
+                            : {appointment.sponsorName}
+                          </Text>
+                          </View>
+                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              color: "#44466B",
+                              fontWeight: "500"
+                            }}
+                          >
+                            : {appointment.status}
+                          </Text>
+                          </View>
+                        </View>
                     </Item>
 
 
@@ -126,8 +170,8 @@ class Appointments extends Component {
               ))}
             </View>
           ) : (
-            <View>
-              <Text>No Care Taker available for this service</Text>
+            <View style={ styles.cardCardItem }>
+              <Text>No appointment available</Text>
             </View>
           )}
         </Content>
@@ -137,9 +181,8 @@ class Appointments extends Component {
 }
 
 const mapStateToProps = state => ({
-  allTasker: state.user.taskerList,
-  selectedCategory: state.user.selectedCategory,
-  origin: state.trip.origin,
+  userid: state.user.id,
+  usertype: state.user.userType,
   appointments:state.appointment.appointments
 });
 
