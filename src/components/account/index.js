@@ -30,13 +30,7 @@ import commonColor from "../../../native-base-theme/variables/commonColor";
 const { height, width } = Dimensions.get("window");
 
 const language = [
-  "English",
-  "Français",
-  "Deutsche",
-  "Español",
-  "Português",
-  "日本語",
-  "普通话"
+  "English"
 ];
 
 class Account extends Component {
@@ -83,24 +77,6 @@ class Account extends Component {
     if (index === "English") {
       this.props.strings.setLanguage("en");
       lang = "en";
-    } else if (index === "Français") {
-      this.props.strings.setLanguage("fr");
-      lang = "fr";
-    } else if (index === "Deutsche") {
-      this.props.strings.setLanguage("de");
-      lang = "de";
-    } else if (index === "Español") {
-      this.props.strings.setLanguage("es");
-      lang = "es";
-    } else if (index === "Português") {
-      this.props.strings.setLanguage("po");
-      lang = "po";
-    } else if (index === "日本語") {
-      this.props.strings.setLanguage("jp");
-      lang = "jp";
-    } else {
-      this.props.strings.setLanguage("ch");
-      lang = "ch";
     }
     this.props.updateLanguage(lang);
   }
@@ -267,31 +243,7 @@ class Account extends Component {
                 renderItem={this._renderItem}
               />
             </View>
-            <Button
-              onPress={() => Actions.BecomeTasker()}
-              rounded
-              bordered
-              style={{
-                width: width - 150,
-                alignSelf: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                borderColor: commonColor.brandSecondary,
-                paddingHorizontal: 30,
-                marginTop: 15
-              }}
-            >
-              <Text
-                style={{
-                  color: commonColor.brandSecondary
-                }}
-              >
-                {this.props.isTasker
-                  ? locale.EditMyServices
-                  : locale.BecomeaTasker}
-              </Text>
-            </Button>
-          </View>
+            </View>
         </Content>
       </Container>
     );

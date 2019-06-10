@@ -15,7 +15,7 @@ function* getAppointments({ userid, usertype }) {
                   .firestore()
                   .collection("appointments");
     if(usertype === 'user') {
-      query=query.where("status", "==", 'Registered')
+      query=query.where("status", "!=", 'Completed')
                  .where("userId", "==", userid);
      } else if(usertype === 'supervisor') {
        query=query.where("status", "==", 'Evaluation In Progress')
@@ -27,7 +27,7 @@ function* getAppointments({ userid, usertype }) {
         .then(data => {
           data.docs.forEach(item => {
             appointments.push(item.data());
-          });
+            });
         })
         .catch(error => console.log('Catch', error))
     );
@@ -36,6 +36,8 @@ function* getAppointments({ userid, usertype }) {
   } catch (error) {
     console.log('ERR', error);
   }
+
+
 }
 
 

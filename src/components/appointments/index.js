@@ -34,6 +34,13 @@ class Appointments extends Component {
     super(props);
     this.state = {};
     this.props.getAppointments(this.props.userid,this.props.usertype);
+    // Add a new document with a generated id.
+  // var newAppointmentRef = firebase
+  //               .firestore()
+  //               .collection("appointments").doc();
+  //
+  // // later...
+  // newAppointmentRef.set({uniqueId:newAppointmentRef.id,patientName:"testAutoIDPN",serviceCategory:"testAutoIDSC",sponsorName:"testAutoIDSN",status:"testAutoIDS",userId:"testAutoIDUD@gmail.com"});
   }
   getRating(rating) {
     let total = 0;
@@ -88,7 +95,7 @@ class Appointments extends Component {
                             fontWeight: "bold"
                           }}
                         >
-                          Service
+                          Sponsor Name
                         </Text>
                         </View>
                         <View style={{ paddingBottom: 5 }}>
@@ -99,7 +106,7 @@ class Appointments extends Component {
                             fontWeight: "bold"
                           }}
                         >
-                          Sponsor Name
+                          Service
                         </Text>
                         </View>
                         <View style={{ paddingBottom: 5 }}>
@@ -135,7 +142,7 @@ class Appointments extends Component {
                               fontWeight: "500"
                             }}
                           >
-                            : {appointment.serviceCategory}
+                            : {appointment.sponsorName}
                           </Text>
                           </View>
                           <View style={{ paddingBottom: 5, paddingLeft:5 }}>
@@ -146,7 +153,7 @@ class Appointments extends Component {
                               fontWeight: "500"
                             }}
                           >
-                            : {appointment.sponsorName}
+                            : {appointment.serviceCategory}
                           </Text>
                           </View>
                           <View style={{ paddingBottom: 5, paddingLeft:5 }}>
@@ -177,6 +184,7 @@ class Appointments extends Component {
         </Content>
       </Container>
     );
+
   }
 }
 

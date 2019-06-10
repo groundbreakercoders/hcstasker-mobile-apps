@@ -44,6 +44,7 @@ const lang = {
     NoFavourite: "Oops! No Favourite CareTakers",
     fetchTaskers: "Fetching CareTakers",
     Home: "Home",
+    Appointments: "Appointments",
     Earnings: "Earnings",
     TotalEarnings: "Total Earnings",
     TODAY: "TODAY",

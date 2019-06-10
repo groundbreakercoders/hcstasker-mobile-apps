@@ -22,7 +22,7 @@ const TabBar = props => {
   ];
   const activeIcons = ["ios-compass", "ios-heart", "ios-book", "ios-person"];
   const title = [
-    strings.Home,
+    strings.Appointments,
     strings.favourite,
     strings.booking,
     strings.account
@@ -52,7 +52,6 @@ const TabBar = props => {
           >
             {routes.map((route, idx) => {
               const color = index === idx ? activeTintColor : inactiveTintColor;
-                console.log(route);
               return (
                 <TouchableOpacity
                   key={idx}

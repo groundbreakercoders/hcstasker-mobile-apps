@@ -1268,12 +1268,10 @@ function* setTripStatusListener() {
 }
 
 function* loginUserListener() {
-  console.log(UserTypes.LOGIN,"@@@@@@@@@@@@@@@@@@@@@@@@")
   yield takeLatest(UserTypes.LOGIN, loginUser);
 }
 
 function* logoutUserListener() {
-  console.log(UserTypes.LOG_OUT,"!!!!!!!!!!!!!!!!!!!!")
   yield takeLatest(UserTypes.LOG_OUT, logoutUser);
 }
 

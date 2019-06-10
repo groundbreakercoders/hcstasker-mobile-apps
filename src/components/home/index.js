@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, Container, Content, Icon } from "native-base";
+import { Text, Container, Content, Icon, Button } from "native-base";
 import {
   Dimensions,
   View,
@@ -262,9 +262,42 @@ class Home extends Component {
               <View style={{ flex: 6 }}>
               <Appointments strings={strings} />
               </View>
-              {this.props.userPageStatus === "home" ? (
-                <CategoryAndSubCategory getSelectedCatTaskers={this.getTaskers} strings={strings} />
-              ) : null}
+              <View
+              style={{
+                flex: Platform.OS === "ios"
+                    ? 0.6
+                    : 1.1
+                  }}
+
+                  >
+            <View
+              style={{
+                flex: Platform.OS === "ios" ? 1.7 : 1.9,
+                alignSelf: "center",
+                justifyContent: "center"
+              }}
+            >
+            <Button
+              bordered
+              style={{
+                backgroundColor: commonColor.brandPrimary,
+                width: width - 20,
+                alignSelf: "center",
+                justifyContent: "center"
+              }}
+              onPress={this.onSubmit}
+            >
+              <Text style={{ fontSize: 18,
+              color: "#fff",
+              fontWeight: "500",
+              fontWeight: "bold"
+
+              }}>
+                Create Appointment
+              </Text>
+          </Button>
+          </View>
+          </View>
               {this.props.userPageStatus === "bookingpage" ? (
                 <BookingPage />
               ) : null}

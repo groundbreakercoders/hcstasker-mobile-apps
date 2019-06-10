@@ -26,7 +26,6 @@ function* setCurrentAddress() {
 
 function* updateCurrentLocation() {
 	try {
-		console.log("updateCurrentLocation Called")
 		const getTripOrigin = state => state.trip.origin;
 		const tripOrigin = yield select(getTripOrigin);
 		// console.log(tripOrigin,"TripOrigin")
@@ -35,10 +34,7 @@ function* updateCurrentLocation() {
 		// console.log(uniqueId,"UniqueId")
 
 		const results = yield call(RNGooglePlaces.getCurrentPlace);
-		console.log(results,"Result!!!!!!!!!!!!!!!!!")
 		const { latitude, longitude, address, placeID, name } = results[0];
-		console.log(latitude, longitude, address, placeID, name,"updateCurrentLocation Details" )
-		console.log(uniqueId,"UniqueId");
 		if (tripOrigin == null || tripOrigin.placeID !== placeID) {
 			yield call(() =>
 				firebase
@@ -426,11 +422,7 @@ function* requestTrip() {
 		const allTaskers = yield select(taskers);
 		const loc = state => state.trip.origin;
 		const location = yield select(loc);
-
-		console.log(allTaskers, '&&&&&&&&&&&&&&&&&&&&&&&&');
-
 		const requestTasker = firebase.functions().httpsCallable('requestTasker');
-		console.log(requestTasker,"tripSagaRequest")
 
 		yield call(() =>
 			requestTasker({
@@ -448,8 +440,7 @@ function* requestTrip() {
 					if (res.data.success === false) {
 						Alert.alert(res.data.message);
 					}
-					console.log(res,"response from ")
-					
+
 				})
 				.catch(err => {
 					console.log(err, 'Error--->here');
@@ -584,9 +575,7 @@ function* acceptTrip() {
 		const getfcmtoken = state => state.user.userDetails.userData.fcmToken;
 		const getStates = state => state;
 		const userDetail = yield select(getStates);
-		console.log(userDetail,"Aceept Trip")
 		const token = yield select(getfcmtoken);
-		console.log(token,"TOKEN@@@@@@@@@!!!!!!!!!!!!")
 		let taskername;
 
 		const useruserRef = firebase
@@ -596,8 +585,6 @@ function* acceptTrip() {
 			.collection('taskerDetails')
 			.doc('tasker');
 
-			console.log(useruserRef,"REFFFF**************")
-
 		const usertaskerRef = firebase
 			.firestore()
 			.collection('users')
@@ -605,7 +592,6 @@ function* acceptTrip() {
 			.collection('userDetails')
 			.doc('user');
 
-			console.log(usertaskerRef,"USErTaskerRef&&&&&&&&&&&&&&&")
 
 		yield call(() =>
 			useruserRef.set(

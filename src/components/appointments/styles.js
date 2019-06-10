@@ -25,6 +25,13 @@ export default {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'stretch'
+    },
+    fullButton: {
+      height: 55
+    },
+    pricebtn: {
+      backgroundColor: "#fff",
+      borderRightWidth: 1,
+      borderRightColor: "#ddd"
     }
-
 };
