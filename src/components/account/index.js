@@ -52,19 +52,19 @@ class Account extends Component {
   onPress(index) {
     const { navigation } = this.props.navigation;
     switch (index) {
-      case 1:
+      case '1':
         Actions.TaskerServices();
         break;
-      case 2:
+      case '2':
         this.setModalVisible(true);
         break;
-      case 3:
+      case '3':
         NavigationActions.PaymentPage();
         break;
-      case 4:
+      case '4':
         NavigationActions.changepassword();
         break;
-      case 5:
+      case '5':
         this.logout();
       default:
         console.log("default");
@@ -81,10 +81,10 @@ class Account extends Component {
     this.props.updateLanguage(lang);
   }
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item, index) => item.index;
   _renderItem = ({ item, index }) => (
     <TouchableOpacity
-      key={index}
+      key={item.index}
       style={styles.listItem}
       onPress={() => this.onPress(item.index)}
     >
@@ -120,31 +120,31 @@ class Account extends Component {
     const locale = this.props.strings;
     const data = [
       {
-        index: 1,
+        index: "1",
         name: locale.myservices,
         iconFamily: "Ionicons",
         icon: "ios-bulb-outline"
       },
       {
-        index: 2,
+        index: "2",
         name: locale.language,
         iconFamily: "Ionicons",
         icon: "ios-flag-outline"
       },
       {
-        index: 3,
+        index: "3",
         name: locale.payment,
         iconFamily: "Ionicons",
         icon: "ios-card-outline"
       },
       {
-        index: 4,
+        index: "4",
         name: locale.changepassword,
         icon: "ios-key-outline",
         iconFamily: "Ionicons"
       },
       {
-        index: 5,
+        index: "5",
         name: locale.signout,
         icon: "ios-people-outline",
         iconFamily: "Ionicons"

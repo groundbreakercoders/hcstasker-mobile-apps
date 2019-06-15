@@ -285,7 +285,7 @@ class Home extends Component {
                 alignSelf: "center",
                 justifyContent: "center"
               }}
-              onPress={this.onSubmit}
+              onPress={() => Actions.maintainappointment({"appointment":null})}
             >
               <Text style={{ fontSize: 18,
               color: "#fff",

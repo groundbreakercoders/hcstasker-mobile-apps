@@ -23,7 +23,6 @@ import { Actions } from "react-native-router-flux";
 import commonColor from "../../../native-base-theme/variables/commonColor";
 import ImageSwiper from "../common/swiper";
 import styles from "./styles";
-import StarRating from 'react-native-star-rating';
 const { height } = Dimensions.get("window");
 const image = require("../../assets/avatar.png");
 import firebase from "react-native-firebase";
@@ -101,13 +100,6 @@ class Tasker extends Component {
                           <Text style={{ paddingRight: 16,
                                         color: "#154299"
                                         }}>
-                          <StarRating
-                               disabled={true}
-                               maxStars={5}
-                               rating={this.getRating(tasker.rating)}
-                                fullStarColor={commonColor.brandPrimary}
-                                starSize={16}
-                          />
                             {" "}{this.getRating(tasker.rating)}
                           </Text>
 

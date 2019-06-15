@@ -69,7 +69,7 @@ class Appointments extends Component {
                   >
 
                     <Item
-                      // onPress={() => Actions.booking(tasker)}
+                       onPress={() => Actions.maintainappointment({"appointment":appointment})}
                        style={{ borderBottomWidth: 0 }}
                     >
 
@@ -106,7 +106,7 @@ class Appointments extends Component {
                             fontWeight: "bold"
                           }}
                         >
-                          Service
+                          Created
                         </Text>
                         </View>
                         <View style={{ paddingBottom: 5 }}>
@@ -153,7 +153,7 @@ class Appointments extends Component {
                               fontWeight: "500"
                             }}
                           >
-                            : {appointment.serviceCategory}
+                            : {appointment.dateCreated}
                           </Text>
                           </View>
                           <View style={{ paddingBottom: 5, paddingLeft:5 }}>

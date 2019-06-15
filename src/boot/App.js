@@ -39,6 +39,7 @@ import NavElement from "../components/NavElement";
 import DriverOnlineStatusSwitch from "../components/DriverOnlineStatusSwitch";
 import Tasker from "../components/tasker";
 import Appointments from "../components/appointments";
+import MaintainAppointment from "../components/appointments/maintainAppointment";
 import lang from "./localise";
 
 const strings = new LocalizedStrings(lang);
@@ -128,6 +129,14 @@ class App extends Component {
           key="appointments"
           component={Appointments}
           title="Appointments Page"
+        />
+
+        <Scene
+          hideNavBar
+          key="maintainappointment"
+          component={MaintainAppointment}
+          title="Appointment Form Page"
+          strings={strings}
         />
         <Scene
           key="PaymentPage"
