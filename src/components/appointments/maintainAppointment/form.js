@@ -144,9 +144,19 @@ class MaintainAppointmentForm extends Component {
   onChooseGender(value,index) {
     console.log(value);
     console.log(index);
+this.setState({ appointment: { ...this.state.appointment, gender: value} });
   }
   submit() {
     this.props.saveAppointment(this.state.appointment);
+  }
+  genderIdx() {
+    if(this.state.appointment.gender === "M") {
+      return 0;
+    } if(this.state.appointment.gender === "F") {
+      return 1;
+    } else {
+      return '';
+    }
   }
   render() {
     const { strings, appointment } = this.props;
@@ -178,6 +188,7 @@ class MaintainAppointmentForm extends Component {
             <Item style={{ flex: 1 }}>
             <Input
               //onChangeText={text => this.setState({cost:text})}
+              onChangeText={text => _.set(this.state,'appointment.sponsorName',text)}
               placeholderTextColor="#8B8DAC"
               style={styles.input}
               value={(_.get(this.state,'appointment.sponsorName') === null) ? '' : (_.get(this.state,'appointment.sponsorName'))}
@@ -196,7 +207,7 @@ class MaintainAppointmentForm extends Component {
           <View style={{  marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
               <RadioGroup
-                defaultChoice={0}
+                defaultChoice={this.genderIdx()}
                 style={{ flexDirection: "row",  marginTop: 10, marginBottom: 10  }}
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >

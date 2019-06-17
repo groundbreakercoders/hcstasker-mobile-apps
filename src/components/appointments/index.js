@@ -34,14 +34,8 @@ class Appointments extends Component {
     super(props);
     this.state = {};
     this.props.getAppointments(this.props.userid,this.props.usertype);
-    // Add a new document with a generated id.
-  // var newAppointmentRef = firebase
-  //               .firestore()
-  //               .collection("appointments").doc();
-  //
-  // // later...
-  // newAppointmentRef.set({uniqueId:newAppointmentRef.id,patientName:"testAutoIDPN",serviceCategory:"testAutoIDSC",sponsorName:"testAutoIDSN",status:"testAutoIDS",userId:"testAutoIDUD@gmail.com"});
   }
+
   getRating(rating) {
     let total = 0;
     const length = rating.length? rating.length: 0;

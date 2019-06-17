@@ -67,6 +67,7 @@ function* saveAppointment({appointment}) {
             patientName:appointment.patientName,
             sponsorName:appointment.sponsorName,
             status:appointment.status,
+            gender: appointment.gender,
             userid:appointment.userId,
             dateCreated: dateCreated
           },
@@ -77,10 +78,35 @@ function* saveAppointment({appointment}) {
         .catch(error => console.log("Catch", error))
     );
 
+    const getUser = state => state.user.userType;
+    let userType = yield select(getUser);
+    const getId = state => state.user.id;
+    const userId = yield select(getId);
+      const appointments = [];
+      var query =   firebase
+                    .firestore()
+                    .collection("appointments");
+      if(userType === 'user') {
+        query=query.where("status", "!=", 'Completed')
+                   .where("userId", "==", userId);
+       } else if(userType === 'supervisor') {
+         query=query.where("status", "==", 'Evaluation In Progress')
+                    .where("supervisorId", "==", userId);
+       }
+      yield call(() =>
+          query
+          .get()
+          .then(data => {
+            data.docs.forEach(item => {
+              appointments.push(item.data());
+              });
+          })
+          .catch(error => console.log('Catch', error))
+      );
 
-
+      yield put(AppointmentActions.setAppointments(appointments));
     Alert.alert("Appointment Updated Successfully");
-    NavigationActions.user();
+    Actions.homepage();
 
   } catch (error) {
         console.log("ERROR", error);
