@@ -153,6 +153,8 @@ const lang = {
     AFAddress:"Address",
     AFSponsorName:"Sponsor Name",
     AFPhoneNumber:"Phone number",
+    AFRelationship:"Relationship",
+    AFOtherInstructions:"Any other instructions",
     createAppointment:"Create Appointment",
     editAppointment:"Edit Appointment",
     myAppointments:"My Appointments",

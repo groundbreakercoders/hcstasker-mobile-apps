@@ -127,13 +127,16 @@ class MaintainAppointmentForm extends Component {
   openLocationSearch() {
     RNGooglePlaces.openAutocompleteModal()
       .then(place => {
-        this.setState({
-          latitude: place.latitude,
-          longitude: place.longitude,
-          address: place.address
-        });
-      })
-      .catch(error => console.log(error.message));
+        let userLocation = {
+                            latitude: place.latitude,
+                            longitude: place.longitude,
+                            address: place.address
+                          }
+        this.setState({ appointment: { ...this.state.appointment, userLocation: userLocation} });
+        console.log(this.state);
+      }).catch(error => {
+        console.log(error.message);
+      });
   }
   clearSubCat(text){
     console.log(text,'here')
@@ -142,9 +145,7 @@ class MaintainAppointmentForm extends Component {
     this.state.flag===1?this.modal.open():Alert.alert("Select Category")
   }
   onChooseGender(value,index) {
-    console.log(value);
-    console.log(index);
-this.setState({ appointment: { ...this.state.appointment, gender: value} });
+    this.setState({ appointment: { ...this.state.appointment, gender: value} });
   }
   submit() {
     this.props.saveAppointment(this.state.appointment);
@@ -233,7 +234,7 @@ this.setState({ appointment: { ...this.state.appointment, gender: value} });
                 // defaultValue={this.state.data&&this.state.data.address?this.state.data.address:""}
                 placeholderTextColor="#8B8DAC"
                 style={styles.input}
-                value={this.state.address}
+                value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
               />
             </Item>
@@ -246,15 +247,36 @@ this.setState({ appointment: { ...this.state.appointment, gender: value} });
           <View style={{  marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
-                    placeholder='+44766554433'
+                    onChangeText={text => _.set(this.state,'appointment.phoneno',text)}
                     placeholderTextColor='#adb4bc'
                     keyboardType={'phone-pad'}
                     returnKeyType='done'
                     autoCapitalize='none'
+                    value={(_.get(this.state,'appointment.phoneno') === null) ? '' : (_.get(this.state,'appointment.phoneno'))}
                     autoCorrect={false}
                     secureTextEntry={false}
                     style={styles.input}
                   />
+            </Item>
+          </View>
+        </View>
+
+        <View style={{ marginTop: 15 }}>
+          <Text style={{ color: "#44466B", fontSize: 24 }}>
+            {strings.AFRelationship}
+          </Text>
+          <View style={{ flexDirection: "row", marginTop: 10 }}>
+            <Item style={{ flex: 1 }}>
+            <Input
+              //onChangeText={text => this.setState({cost:text})}
+              onChangeText={text => _.set(this.state,'appointment.relationship',text)}
+              placeholderTextColor="#8B8DAC"
+              style={styles.input}
+              value={(_.get(this.state,'appointment.relationship') === null) ? '' : (_.get(this.state,'appointment.relationship'))}
+              editable={true}
+              // value={this.state.cost.toString()}
+            />
+
             </Item>
           </View>
         </View>
@@ -267,8 +289,31 @@ this.setState({ appointment: { ...this.state.appointment, gender: value} });
             <Item style={{ flex: 1 }}>
             <TextInput
               style={styles.textArea}
-              onChangeText={review => this.setState({ review })}
+              onChangeText={text => _.set(this.state,'appointment.medicalCondition',text)}
               placeholder={strings.medicalCondition}
+              value={(_.get(this.state,'appointment.medicalCondition') === null) ? '' : (_.get(this.state,'appointment.medicalCondition'))}
+              editable={true}
+              multiline={true}
+              numberOfLines={4}
+              selectionColor={commonColor.lightThemePlaceholder}
+            />
+
+            </Item>
+          </View>
+        </View>
+
+
+        <View style={{ marginTop: 15 }}>
+          <Text style={{ color: "#44466B", fontSize: 24 }}>
+            {strings.AFOtherInstructions}
+          </Text>
+          <View style={{ flexDirection: "row", marginTop: 10 }}>
+            <Item style={{ flex: 1 }}>
+            <TextInput
+              style={styles.textArea}
+              onChangeText={text => _.set(this.state,'appointment.otherInstructions',text)}
+              value={(_.get(this.state,'appointment.otherInstructions') === null) ? '' : (_.get(this.state,'appointment.otherInstructions'))}
+              placeholder={strings.otherInstructions}
               editable={true}
               multiline={true}
               numberOfLines={4}

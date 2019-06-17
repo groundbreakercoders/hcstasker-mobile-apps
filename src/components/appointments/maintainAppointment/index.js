@@ -7,7 +7,7 @@ import styles from "./styles";
 import { connect } from "react-redux";
 import MaintainAppointmentForm from "./form";
 
-
+import commonColor from "../../../../native-base-theme/variables/commonColor";
 class MaintainAppointment extends Component {
 
 

@@ -41,16 +41,22 @@ function* getAppointments({ userid, usertype }) {
 
 function* saveAppointment({appointment}) {
   try {
-    let uniqueId;
+    const getUser = state => state.user.userType;
+    let userType = yield select(getUser);
+    const getId = state => state.user.id;
+    const userId = yield select(getId);
     let dateCreated;
+    let status;
     if(appointment.uniqueId)  {
       uniqueId = appointment.uniqueId;
       dateCreated = appointment.dateCreated;
+      status = appointment.status;
     } else {
       var newAppointmentRef = firebase
                      .firestore()
                      .collection("appointments").doc();
       uniqueId=newAppointmentRef.id;
+      status = 'Registered';
       dateCreated = moment(new Date()).format("MMM DD YYYY");
     }
   // newAppointmentRef.set({uniqueId:newAppointmentRef.id,patientName:"testAutoIDPN",serviceCategory:"testAutoIDSC",sponsorName:"testAutoIDSN",status:"testAutoIDS",userId:"testAutoIDUD@gmail.com"});
@@ -66,9 +72,14 @@ function* saveAppointment({appointment}) {
             uniqueId:uniqueId,
             patientName:appointment.patientName,
             sponsorName:appointment.sponsorName,
-            status:appointment.status,
+            status:status,
             gender: appointment.gender,
-            userid:appointment.userId,
+            userId: userId,
+            userLocation:appointment.userLocation,
+            phoneno:appointment.phoneno,
+            relationship:appointment.relationship,
+            medicalCondition:appointment.medicalCondition,
+            otherInstructions:appointment.otherInstructions,
             dateCreated: dateCreated
           },
           {
@@ -78,33 +89,32 @@ function* saveAppointment({appointment}) {
         .catch(error => console.log("Catch", error))
     );
 
-    const getUser = state => state.user.userType;
-    let userType = yield select(getUser);
-    const getId = state => state.user.id;
-    const userId = yield select(getId);
-      const appointments = [];
-      var query =   firebase
-                    .firestore()
-                    .collection("appointments");
-      if(userType === 'user') {
-        query=query.where("status", "!=", 'Completed')
-                   .where("userId", "==", userId);
-       } else if(userType === 'supervisor') {
-         query=query.where("status", "==", 'Evaluation In Progress')
-                    .where("supervisorId", "==", userId);
-       }
-      yield call(() =>
-          query
-          .get()
-          .then(data => {
-            data.docs.forEach(item => {
-              appointments.push(item.data());
-              });
-          })
-          .catch(error => console.log('Catch', error))
-      );
+    AppointmentActions.getAppointments(userId,userType);
 
-      yield put(AppointmentActions.setAppointments(appointments));
+      //
+      // const appointments = [];
+      // var query =   firebase
+      //               .firestore()
+      //               .collection("appointments");
+      // if(userType === 'user') {
+      //   query=query.where("status", "!=", 'Completed')
+      //              .where("userId", "==", userId);
+      //  } else if(userType === 'supervisor') {
+      //    query=query.where("status", "==", 'Evaluation In Progress')
+      //               .where("supervisorId", "==", userId);
+      //  }
+      // yield call(() =>
+      //     query
+      //     .get()
+      //     .then(data => {
+      //       data.docs.forEach(item => {
+      //         appointments.push(item.data());
+      //         });
+      //     })
+      //     .catch(error => console.log('Catch', error))
+      // );
+      //
+      // yield put(AppointmentActions.setAppointments(appointments));
     Alert.alert("Appointment Updated Successfully");
     Actions.homepage();
 
