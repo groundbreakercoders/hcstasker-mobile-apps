@@ -155,6 +155,7 @@ const lang = {
     AFPhoneNumber:"Phone number",
     AFRelationship:"Relationship",
     AFOtherInstructions:"Any other instructions",
+    AFDOB:"Date Of Birth",
     createAppointment:"Create Appointment",
     editAppointment:"Edit Appointment",
     myAppointments:"My Appointments",

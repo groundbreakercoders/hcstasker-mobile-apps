@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import RNGooglePlaces from "react-native-google-places";
-import { TextInput,Text, TouchableHighlight, Modal, Keyboard,Alert} from "react-native";
+import { TextInput,Text, TouchableHighlight, Modal, Keyboard,Alert, Dimensions} from "react-native";
 import {
   Item,
   Input,
@@ -26,13 +26,19 @@ import styles from "./styles";
 import firebase from "react-native-firebase";
 import data from "../../../utils/data";
 import {RadioGroup, RadioButton, Radio} from "radio-react-native";
+import DatePickerCustom from "../../common/datePicker";
+const { height, width } = Dimensions.get("window");
+import moment from "moment";
+import DatePicker from "react-native-datepicker";
 class MaintainAppointmentForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       loading: true,
       data: null,
-      cost: ""
+      cost: "",
+      date: ""
     };
     if(props.appointment) {
         this.state = {
@@ -222,6 +228,47 @@ class MaintainAppointmentForm extends Component {
             </Item>
           </View>
         </View>
+
+
+          <View style={{ marginTop: 15 }}>
+            <Text style={{ color: "#44466B", fontSize: 24 }}>
+              {strings.AFDOB}
+            </Text>
+            <View style={{ flexDirection: "row", marginTop: 10 }}>
+              <Item style={{ flex: 1 }}>
+              <DatePicker
+                      style={{width: 200}}
+                      date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
+                      mode="date"
+                      placeholder="Please select date"
+                      placeholderTextColor="#8B8DAC"
+                      format="DD-MM-YYYY"
+                      confirmBtnText="Confirm"
+                      cancelBtnText="Cancel"
+                      customStyles={{
+                        dateIcon: {
+                          position: 'absolute',
+                          left: 0,
+                          top: 4,
+                          marginLeft: 0
+                        },
+                        dateInput: {
+                          marginLeft: 36,
+                            borderWidth: 0,
+                        }
+                        // ... You can check the source to find the other keys.
+                      }}
+                      onDateChange={(date) => {
+                        this.setState({ appointment: { ...this.state.appointment, dob: date} });
+                      }
+                      }
+                    />
+
+              </Item>
+            </View>
+          </View>
+
+
         <View style={{ marginTop: 15 }}>
           <Text style={{ color: "#44466B", fontSize: 24 }}>
             {strings.Address}

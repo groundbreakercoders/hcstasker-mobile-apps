@@ -80,6 +80,7 @@ function* saveAppointment({appointment}) {
             relationship:appointment.relationship,
             medicalCondition:appointment.medicalCondition,
             otherInstructions:appointment.otherInstructions,
+            dob:appointment.dob,
             dateCreated: dateCreated
           },
           {
