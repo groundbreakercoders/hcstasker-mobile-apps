@@ -5,7 +5,8 @@ import { guide } from "../theme";
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
   getAppointments: ["userid", "usertype"],
-  setAppointments: ["appointments"]
+  setAppointments: ["appointments"],
+  saveAppointment: ["appointment"]
 });
 
 export const AppointmentTypes = Types;

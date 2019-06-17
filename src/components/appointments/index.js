@@ -58,7 +58,7 @@ class Appointments extends Component {
     const { strings } = this.props;
     return (
       <Container>
-        <Header title="My Appointments"  />
+        <Header title={this.props.strings.myAppointments}  />
         <Content>
           {this.props.appointments != null && this.props.appointments.length > 0 ? (
             <View>

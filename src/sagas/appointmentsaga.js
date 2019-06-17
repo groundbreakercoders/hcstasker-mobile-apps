@@ -5,6 +5,7 @@ import Permissions from 'react-native-permissions';
 import firebase from 'react-native-firebase';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import AppointmentActions, { AppointmentTypes }  from '../Redux/appointmentstore';
+import moment from "moment";
 
 import { getDirections } from '../utils/userutils';
 
@@ -36,10 +37,60 @@ function* getAppointments({ userid, usertype }) {
   } catch (error) {
     console.log('ERR', error);
   }
-
-
 }
 
+function* saveAppointment({appointment}) {
+  try {
+    let uniqueId;
+    let dateCreated;
+    if(appointment.uniqueId)  {
+      uniqueId = appointment.uniqueId;
+      dateCreated = appointment.dateCreated;
+    } else {
+      var newAppointmentRef = firebase
+                     .firestore()
+                     .collection("appointments").doc();
+      uniqueId=newAppointmentRef.id;
+      dateCreated = moment(new Date()).format("MMM DD YYYY");
+    }
+  // newAppointmentRef.set({uniqueId:newAppointmentRef.id,patientName:"testAutoIDPN",serviceCategory:"testAutoIDSC",sponsorName:"testAutoIDSN",status:"testAutoIDS",userId:"testAutoIDUD@gmail.com"});
+
+
+    yield call(() =>
+      firebase
+        .firestore()
+        .collection("appointments")
+        .doc(uniqueId)
+        .set(
+          {
+            uniqueId:uniqueId,
+            patientName:appointment.patientName,
+            sponsorName:appointment.sponsorName,
+            status:appointment.status,
+            userid:appointment.userId,
+            dateCreated: dateCreated
+          },
+          {
+            merge: true
+          }
+        )
+        .catch(error => console.log("Catch", error))
+    );
+
+
+
+    Alert.alert("Appointment Updated Successfully");
+    NavigationActions.user();
+
+  } catch (error) {
+        console.log("ERROR", error);
+  }
+}
+
+
+function* saveAppointmentListener() {
+	yield takeLatest(AppointmentTypes.SAVE_APPOINTMENT, saveAppointment);
+}
 
 function* getAppointmentsListener() {
 	yield takeLatest(AppointmentTypes.GET_APPOINTMENTS, getAppointments);
@@ -47,4 +98,5 @@ function* getAppointmentsListener() {
 
 export default function* userSagas() {
   yield fork(getAppointmentsListener);
+  yield fork(saveAppointmentListener);
 }

@@ -293,7 +293,8 @@ class Home extends Component {
               fontWeight: "bold"
 
               }}>
-                Create Appointment
+
+                {this.props.strings.createAppointment}
               </Text>
           </Button>
           </View>

@@ -25,6 +25,7 @@ const lang = {
     Enterfee: "Enter Fee",
     Address: "Address",
     Update: "Update",
+    Save: "Save",
     Search: "Search",
     payment: "Payment",
     changepassword: "Change Password",
@@ -144,7 +145,18 @@ const lang = {
     paymentFailed: "Payment Failed. please pay in Cash",
     accept: "Accept",
     seconds: "SEC",
-    reject: "Reject"
+    reject: "Reject",
+    AFPatientName:"Patient Name",
+    AFGender:"Gender",
+    AFAge:"Age",
+    AFMedicalConditions:"Medical conditions",
+    AFAddress:"Address",
+    AFSponsorName:"Sponsor Name",
+    AFPhoneNumber:"Phone number",
+    createAppointment:"Create Appointment",
+    editAppointment:"Edit Appointment",
+    myAppointments:"My Appointments",
+    medicalCondition: "Please enter medical conditions",
   }
 };
 

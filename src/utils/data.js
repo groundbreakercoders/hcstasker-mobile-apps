@@ -1,11 +1,11 @@
 const categories = [
   {
-    name: "nurse",
+    name: "Nurse",
     family: "Ionicons",
     Icon: "heart"
   },
   {
-    name: "physiotherapist",
+    name: "Physiotherapist",
     family: "Ionicons",
     Icon: "ios-medical"
   }

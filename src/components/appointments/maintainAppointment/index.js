@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, Button } from 'native-base';
+import { Button, Text, Icon, Container, Content } from "native-base";
+import { Dimensions, View, Item, Input } from "react-native";
+import TaskerServiceForm from "./form";
+import { Actions } from "react-native-router-flux";
+import styles from "./styles";
 import { connect } from "react-redux";
-
+import MaintainAppointmentForm from "./form";
 
 
 class MaintainAppointment extends Component {
@@ -19,56 +23,57 @@ class MaintainAppointment extends Component {
       this.setState({ loading: false });
   }
   render() {
-
-    console.log(this.state.data,"Data@@@@@@@@@@@")
-    console.log(this.props,"TaskerServices")
-    const styles = {
-  wrapper: {
-    flex: 1,
-    marginTop: 150,
-  },
-  submitButton: {
-    paddingHorizontal: 10,
-    paddingTop: 20,
-  },
-};
-// These Fields will create a login form with three fields
-const fields = [
-  {
-    type: 'text',
-    name: 'user_name',
-    required: true,
-    icon: 'ios-person',
-    label: 'Username',
-  },
-  {
-    type: 'password',
-    name: 'password',
-    icon: 'ios-lock',
-    required: true,
-    label: 'Password',
-  },
-  {
-    type: 'picker',
-    name: 'country',
-    mode: 'dialog',
-    label: 'Select Country',
-    defaultValue: 'INDIA',
-    options: ['US', 'INDIA', 'UK', 'CHINA', 'FRANCE'],
-  },
-];
-    const { strings } = this.props;
+    const { strings, appointment } = this.props;
     return (
-      <View style={styles.wrapper}>
-       <View>
+      <Container>
+        <Content scrollEnabled style={{ backgroundColor: "#fff" }}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "column",
+              paddingHorizontal: 20,
+              paddingBottom: 40
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: 20
+              }}
+            >
+              <Button
+                style={{ paddingLeft: 0 }}
+                transparent
+                onPress={() => Actions.pop()}
+              >
+                <Icon
+                  name="ios-arrow-back"
+                  style={{
+                    fontSize: 35,
+                    marginLeft: 0,
+                    color: "#43496a"
+                  }}
+                />
+              </Button>
+            </View>
+            <View style={{ flexDirection: "column", marginTop: 25 }}>
+              <Text
+                style={{ fontSize: 28, fontWeight: "bold", color: "#43496a" }}
+              >
+              {this.props.appointment ? (
+                strings.editAppointment
+              ) : (
+                strings.createAppointment
+              )}
 
-       </View>
-       <View style={styles.submitButton}>
-         <Button block onPress={() => this.login()}>
-           <Text>Login</Text>
-         </Button>
-       </View>
-     </View>
+
+              </Text>
+            </View>
+            <MaintainAppointmentForm strings={strings} appointment={appointment} />
+          </View>
+        </Content>
+      </Container>
     );
   }
 }
