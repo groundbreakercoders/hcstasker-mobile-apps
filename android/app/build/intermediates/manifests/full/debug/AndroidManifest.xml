@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.market.nativebase.geekyants.taskman"
+    package="io.market.nativebase.hcs"
     android:versionCode="9"
     android:versionName="1.2" >
 
@@ -22,10 +22,10 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="io.market.nativebase.geekyants.taskman.permission.C2D_MESSAGE"
+        android:name="io.market.nativebase.hcs.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="io.market.nativebase.geekyants.taskman.permission.C2D_MESSAGE" />
+    <uses-permission android:name="io.market.nativebase.hcs.permission.C2D_MESSAGE" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -55,7 +55,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="io.market.nativebase.geekyants.taskman.MainApplication"
+        android:name="io.market.nativebase.hcs.MainApplication"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
@@ -76,7 +76,7 @@
       </activity>
         -->
         <activity
-            android:name="io.market.nativebase.geekyants.taskman.MainActivity"
+            android:name="io.market.nativebase.hcs.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" >
@@ -93,10 +93,10 @@
             android:value="468405990567287" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA1X0l-9EMKxhZJ1T7IiajI5FTiKFez6pI" />
+            android:value="AIzaSyA1qyPf2mncV3BYMdYJR14yBqv4MkhYCjE" />
 
         <!--
-        <meta-data 
+        <meta-data
         AIzaSyCXENFN7bOV0hMc0UsZ24gWJKX2PGntRa4
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id"/>
@@ -116,7 +116,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.provider"
+            android:authorities="io.market.nativebase.hcs.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -135,7 +135,7 @@
 
         <provider
             android:name="com.crashlytics.android.CrashlyticsInitProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.crashlyticsinitprovider"
+            android:authorities="io.market.nativebase.hcs.crashlyticsinitprovider"
             android:exported="false"
             android:initOrder="100" />
         <!--
@@ -175,7 +175,7 @@
 
         <provider
             android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.firebaseperfprovider"
+            android:authorities="io.market.nativebase.hcs.firebaseperfprovider"
             android:exported="false"
             android:initOrder="101" />
 
@@ -211,7 +211,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="io.market.nativebase.geekyants.taskman" />
+                <category android:name="io.market.nativebase.hcs" />
             </intent-filter>
         </receiver>
         <!--
@@ -239,7 +239,7 @@
 
         <provider
             android:name="com.facebook.marketing.internal.MarketingInitProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.MarketingInitProvider"
+            android:authorities="io.market.nativebase.hcs.MarketingInitProvider"
             android:exported="false" />
         <!--
          The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
@@ -252,7 +252,7 @@
         -->
         <provider
             android:name="com.facebook.internal.FacebookInitProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.FacebookInitProvider"
+            android:authorities="io.market.nativebase.hcs.FacebookInitProvider"
             android:exported="false" />
 
         <receiver
@@ -265,7 +265,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="io.market.nativebase.geekyants.taskman.firebaseinitprovider"
+            android:authorities="io.market.nativebase.hcs.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity

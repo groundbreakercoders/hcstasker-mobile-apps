@@ -103,7 +103,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "io.market.nativebase.geekyants.taskman"
+        applicationId "io.market.nativebase.hcs"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 9
@@ -192,7 +192,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:4.34.0'
     implementation project(':react-native-fbsdk')
     implementation project(':react-native-fetch-blob')
-    implementation(project(':react-native-firebase')) 
+    implementation(project(':react-native-firebase'))
     {
         transitive = false
     }
@@ -201,7 +201,7 @@ dependencies {
     }
 
     implementation 'com.google.android.gms:play-services-places:15.0.0'
-    implementation 'com.google.android.gms:play-services-location:15.0.0' 
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
     // RNFirebase required dependencies
     implementation "com.google.firebase:firebase-core:15.0.2"
     implementation "com.google.android.gms:play-services-base:15.0.1"

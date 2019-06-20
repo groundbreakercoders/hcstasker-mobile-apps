@@ -1,3 +1,3 @@
 # view AndroidManifest.xml #generated:57
--keep class io.market.nativebase.geekyants.taskman.MainApplication { <init>(...); }
+-keep class io.market.nativebase.hcs.MainApplication { <init>(...); }
 

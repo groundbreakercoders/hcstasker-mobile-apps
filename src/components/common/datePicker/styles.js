@@ -7,7 +7,7 @@ const deviceWidth = Dimensions.get("window").width;
 
 export default {
   itemstyle: {
-    height: 56,
+    height: 80,
     borderColor: "#c2c6da"
   },
   pickerStyle: {
@@ -21,7 +21,7 @@ export default {
       alignItems: "flex-start"
     },
     dateText: {
-      fontSize: 18,
+      fontSize: 24,
       color: "#44466B"
     }
   }

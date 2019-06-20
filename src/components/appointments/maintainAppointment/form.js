@@ -165,6 +165,10 @@ class MaintainAppointmentForm extends Component {
       return '';
     }
   }
+  setPatientName(patientName) {
+    console.log(patientName);
+    this.setState({ appointment: { ...this.state.appointment, patientName: patientName} });
+  }
   render() {
     const { strings, appointment } = this.props;
     return (
@@ -177,10 +181,12 @@ class MaintainAppointmentForm extends Component {
             <Item style={{ flex: 1 }}>
 
             <Input
-              onChangeText={text => _.set(this.state,'appointment.patientName',text)}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, patientName: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.patientName?this.state.appointment.patientName:''}
               placeholderTextColor="#8B8DAC"
               style={styles.input}
-              value={(_.get(this.state,'appointment.patientName') === null) ? '' : (_.get(this.state,'appointment.patientName'))}
               editable={true}
               // value={this.state.cost.toString()}
             />
@@ -194,13 +200,13 @@ class MaintainAppointmentForm extends Component {
           <View style={{ flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
-              //onChangeText={text => this.setState({cost:text})}
-              onChangeText={text => _.set(this.state,'appointment.sponsorName',text)}
               placeholderTextColor="#8B8DAC"
               style={styles.input}
-              value={(_.get(this.state,'appointment.sponsorName') === null) ? '' : (_.get(this.state,'appointment.sponsorName'))}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
               editable={true}
-              // value={this.state.cost.toString()}
             />
 
             </Item>
@@ -219,7 +225,7 @@ class MaintainAppointmentForm extends Component {
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
               <RadioButton style={{alignItems: "center",  justifyContent: "center",  flexDirection: "row",  marginRight:10}} value={"M"}>
-                  <Text style={{ marginRight:10}} >Male</Text><Radio/>
+                  <Text style={{ marginRight:10, fontSize:20}} >Male</Text><Radio/>
               </RadioButton>
               <RadioButton style={styles.radioButton} value={"F"}>
                  <Radio/><Text style={{ marginLeft:10}}> Female</Text>
@@ -241,7 +247,6 @@ class MaintainAppointmentForm extends Component {
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
                       mode="date"
                       placeholder="Please select date"
-                      placeholderTextColor="#8B8DAC"
                       format="DD-MM-YYYY"
                       confirmBtnText="Confirm"
                       cancelBtnText="Cancel"
@@ -253,9 +258,18 @@ class MaintainAppointmentForm extends Component {
                           marginLeft: 0
                         },
                         dateInput: {
-                          marginLeft: 36,
-                            borderWidth: 0,
-                        }
+                          fontSize: 25,
+                          marginLeft: 20,
+                            borderWidth: 0
+                        },dateText: {
+                          fontSize: 25
+                        },
+
+
+                  placeholderText: {
+                      fontSize: 20,
+                      color: '#234456'
+                  }
                         // ... You can check the source to find the other keys.
                       }}
                       onDateChange={(date) => {
@@ -276,11 +290,10 @@ class MaintainAppointmentForm extends Component {
           <View style={{ flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
               <Input
-                // placeholder={strings.Address}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:strings.Address}
-                // defaultValue={this.state.data&&this.state.data.address?this.state.data.address:""}
                 placeholderTextColor="#8B8DAC"
                 style={styles.input}
+
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
               />
@@ -294,12 +307,14 @@ class MaintainAppointmentForm extends Component {
           <View style={{  marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
-                    onChangeText={text => _.set(this.state,'appointment.phoneno',text)}
                     placeholderTextColor='#adb4bc'
                     keyboardType={'phone-pad'}
                     returnKeyType='done'
                     autoCapitalize='none'
-                    value={(_.get(this.state,'appointment.phoneno') === null) ? '' : (_.get(this.state,'appointment.phoneno'))}
+                    onChangeText={text => {
+                      this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
+                    }}
+                    value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
                     autoCorrect={false}
                     secureTextEntry={false}
                     style={styles.input}
@@ -316,10 +331,12 @@ class MaintainAppointmentForm extends Component {
             <Item style={{ flex: 1 }}>
             <Input
               //onChangeText={text => this.setState({cost:text})}
-              onChangeText={text => _.set(this.state,'appointment.relationship',text)}
               placeholderTextColor="#8B8DAC"
               style={styles.input}
-              value={(_.get(this.state,'appointment.relationship') === null) ? '' : (_.get(this.state,'appointment.relationship'))}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, relationship: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.relationship?this.state.appointment.relationship:''}
               editable={true}
               // value={this.state.cost.toString()}
             />
@@ -336,9 +353,11 @@ class MaintainAppointmentForm extends Component {
             <Item style={{ flex: 1 }}>
             <TextInput
               style={styles.textArea}
-              onChangeText={text => _.set(this.state,'appointment.medicalCondition',text)}
               placeholder={strings.medicalCondition}
-              value={(_.get(this.state,'appointment.medicalCondition') === null) ? '' : (_.get(this.state,'appointment.medicalCondition'))}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
               editable={true}
               multiline={true}
               numberOfLines={4}
@@ -358,8 +377,10 @@ class MaintainAppointmentForm extends Component {
             <Item style={{ flex: 1 }}>
             <TextInput
               style={styles.textArea}
-              onChangeText={text => _.set(this.state,'appointment.otherInstructions',text)}
-              value={(_.get(this.state,'appointment.otherInstructions') === null) ? '' : (_.get(this.state,'appointment.otherInstructions'))}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
               placeholder={strings.otherInstructions}
               editable={true}
               multiline={true}

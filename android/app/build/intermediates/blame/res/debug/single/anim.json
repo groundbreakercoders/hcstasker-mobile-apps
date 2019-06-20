@@ -1,82 +1,82 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_push_up_in.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_popup_enter.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_exit.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_tooltip_exit.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_in_top.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_out.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_fade_out.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_in.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_fade_in.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_push_up_out.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/ucrop_loader_circle_scale.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/anim/ucrop_loader_circle_scale.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_enter.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_tooltip_enter.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_popup_exit.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_out_top.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_fade_out.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_fade_in.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/ucrop_loader_circle_path.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/anim/ucrop_loader_circle_path.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
         "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_up.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_slide_up.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
         "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_down.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/48ec93ef9140ca0d9986c0b81006b89a/res/anim/catalyst_slide_down.xml"
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_down.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_slide_down.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_in.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_fade_in.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_slide_up.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_slide_up.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_enter.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/ucrop_loader_circle_scale.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/anim/ucrop_loader_circle_scale.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/ucrop_loader_circle_path.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/anim/ucrop_loader_circle_path.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_tooltip_exit.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_fade_out.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_fade_out.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/anim/abc_shrink_fade_out_from_bottom.xml"
     }
 ]

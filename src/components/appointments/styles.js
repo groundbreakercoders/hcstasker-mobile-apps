@@ -17,8 +17,8 @@ export default {
     borderColor: '#ddd'
   },
   cardCardItem: {
-    paddingTop: 30,
-    paddingBottom: 30,
+    paddingTop: 5,
+    paddingBottom: 5,
     height: 125
   },
   cardCardItemView: {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-id/values-id.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-id/values-id.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/c83f1f1eeee03125f99b95531aee5106/res/values-id/values-id.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/values-id/values-id.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-id/values-id.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/c83f1f1eeee03125f99b95531aee5106/res/values-id/values-id.xml",

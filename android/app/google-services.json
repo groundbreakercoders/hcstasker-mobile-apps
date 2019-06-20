@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:20283485698:android:dbdbec57bdc3df56",
+        "mobilesdk_app_id": "1:20283485698:android:107c5091c54a5667",
         "android_client_info": {
-          "package_name": "io.market.nativebase.geekyants.taskman"
+          "package_name": "io.market.nativebase.hcs"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "20283485698-2ev327mvh2c1uh3ouvpuq3unp8jncoqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.market.nativebase.hcs",
+            "certificate_hash": "78fc309cb8ba7279294f0d7464614b9689273958"
+          }
+        },
         {
           "client_id": "20283485698-uudo1fujc1bap372sofa2et2b5gfoqj8.apps.googleusercontent.com",
           "client_type": 3
@@ -32,10 +40,10 @@
               "client_type": 3
             },
             {
-              "client_id": "20283485698-7d94j12anlpbvpnih3u06mss23m2felp.apps.googleusercontent.com",
+              "client_id": "20283485698-h852m911dlphh3fa92279ho8jv09k5jc.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "io.market.nativebase.geekyants.taskman"
+                "bundle_id": "io.market.nativebase.hcs"
               }
             }
           ]

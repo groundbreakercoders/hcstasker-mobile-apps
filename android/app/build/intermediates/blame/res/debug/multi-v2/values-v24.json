@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/edddd7902b6e797ea57670f9047c0bf2/res/values-v24/values-v24.xml",
@@ -33,7 +33,7 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/values-v24/values-v24.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/edddd7902b6e797ea57670f9047c0bf2/res/values-v24/values-v24.xml",

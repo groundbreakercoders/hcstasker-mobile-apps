@@ -54,128 +54,128 @@ class Appointments extends Component {
       <Container>
         <Header title={this.props.strings.myAppointments}  />
         <Content>
-          {this.props.appointments != null && this.props.appointments.length > 0 ? (
-            <View>
-              {_.map(this.props.appointments, (appointment, key) => (
-                <Card  style={styles.card} key={key}>
-                  <CardItem
-                    style={ styles.cardCardItem }
-                  >
-
-                    <Item
-                       onPress={() => Actions.maintainappointment({"appointment":appointment})}
-                       style={{ borderBottomWidth: 0 }}
-                    >
-
-                    <View style={styles.cardCardItemView}>
-
-                        <View  style={{ paddingBottom: 5 }}>
-                        <Text
-                          style={{
-                            fontSize: 15,
-                            color: "#44466B",
-                            fontWeight: "500",
-                            fontWeight: "bold"
-                          }}
-                        >
-                          Patient Name
-                        </Text>
-                        </View>
-                        <View style={{ paddingBottom: 5 }}>
-                        <Text
-                          style={{
-                            fontSize: 15,
-                            color: "#44466B",
-                            fontWeight: "bold"
-                          }}
-                        >
-                          Sponsor Name
-                        </Text>
-                        </View>
-                        <View style={{ paddingBottom: 5 }}>
-                        <Text
-                          style={{
-                            fontSize: 15,
-                            color: "#44466B",
-                            fontWeight: "bold"
-                          }}
-                        >
-                          Created
-                        </Text>
-                        </View>
-                        <View style={{ paddingBottom: 5 }}>
-                        <Text
-                          style={{
-                            fontSize: 15,
-                            color: "#44466B",
-                            fontWeight: "bold"
-                          }}
-                        >
-                          Status
-                        </Text>
-                        </View>
-                      </View>
-                      <View style={styles.cardCardItemView}>
-
-                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
-                          <Text
-                            style={{
-                              fontSize: 15,
-                              color: "#44466B",
-                              fontWeight: "500"
-                            }}
+                  {this.props.appointments != null && this.props.appointments.length > 0 ? (
+                    <View>
+                      {_.map(this.props.appointments, (appointment, key) => (
+                        <Card  style={styles.card} key={key}>
+                          <CardItem
+                            style={ styles.cardCardItem }
                           >
-                            : {appointment.patientName}
-                          </Text>
-                          </View>
-                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
-                          <Text
-                            style={{
-                              fontSize: 15,
-                              color: "#44466B",
-                              fontWeight: "500"
-                            }}
-                          >
-                            : {appointment.sponsorName}
-                          </Text>
-                          </View>
-                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
-                          <Text
-                            style={{
-                              fontSize: 15,
-                              color: "#44466B",
-                              fontWeight: "500"
-                            }}
-                          >
-                            : {appointment.dateCreated}
-                          </Text>
-                          </View>
-                          <View style={{ paddingBottom: 5, paddingLeft:5 }}>
-                          <Text
-                            style={{
-                              fontSize: 15,
-                              color: "#44466B",
-                              fontWeight: "500"
-                            }}
-                          >
-                            : {appointment.status}
-                          </Text>
-                          </View>
-                        </View>
-                    </Item>
+
+                            <Item
+                               onPress={() => Actions.maintainappointment({"appointment":appointment})}
+                               style={{ borderBottomWidth: 0 }}
+                            >
+
+                            <View style={styles.cardCardItemView}>
+
+                                <View  style={{ paddingBottom: 5 }}>
+                                <Text
+                                  style={{
+                                    fontSize: 18,
+                                    color: "#44466B",
+
+                                    fontWeight: "bold"
+                                  }}
+                                >
+                                  Patient Name
+                                </Text>
+                                </View>
+                                <View style={{ paddingBottom: 5 }}>
+                                <Text
+                                  style={{
+                                    fontSize: 18,
+                                    color: "#44466B",
+                                    fontWeight: "bold"
+                                  }}
+                                >
+                                  Sponsor Name
+                                </Text>
+                                </View>
+                                <View style={{ paddingBottom: 5 }}>
+                                <Text
+                                  style={{
+                                    fontSize: 18,
+                                    color: "#44466B",
+                                    fontWeight: "bold"
+                                  }}
+                                >
+                                  Created
+                                </Text>
+                                </View>
+                                <View style={{ paddingBottom: 5 }}>
+                                <Text
+                                  style={{
+                                    fontSize: 18,
+                                    color: "#44466B",
+                                    fontWeight: "bold"
+                                  }}
+                                >
+                                  Status
+                                </Text>
+                                </View>
+                              </View>
+                              <View style={styles.cardCardItemView}>
+
+                                  <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                                  <Text
+                                    style={{
+                                      fontSize: 18,
+                                      color: "#44466B",
+                                      fontWeight: "500"
+                                    }}
+                                  >
+                                    : {appointment.patientName}
+                                  </Text>
+                                  </View>
+                                  <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                                  <Text
+                                    style={{
+                                      fontSize: 18,
+                                      color: "#44466B",
+                                      fontWeight: "500"
+                                    }}
+                                  >
+                                    : {appointment.sponsorName}
+                                  </Text>
+                                  </View>
+                                  <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                                  <Text
+                                    style={{
+                                      fontSize: 18,
+                                      color: "#44466B",
+                                      fontWeight: "500"
+                                    }}
+                                  >
+                                    : {appointment.dateCreated}
+                                  </Text>
+                                  </View>
+                                  <View style={{ paddingBottom: 5, paddingLeft:5 }}>
+                                  <Text
+                                    style={{
+                                      fontSize: 18,
+                                      color: "#44466B",
+                                      fontWeight: "500"
+                                    }}
+                                  >
+                                    : {appointment.status}
+                                  </Text>
+                                  </View>
+                                </View>
+                            </Item>
 
 
 
-                  </CardItem>
-                </Card>
-              ))}
-            </View>
-          ) : (
-            <View style={ styles.cardCardItem }>
-              <Text>No appointment available</Text>
-            </View>
-          )}
-        </Content>
+                          </CardItem>
+                        </Card>
+                      ))}
+                    </View>
+                  ) : (
+                    <View style={ styles.cardCardItem }>
+                      <Text>No appointment available</Text>
+                    </View>
+                  )}
+                </Content>
       </Container>
     );
 

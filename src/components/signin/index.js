@@ -161,7 +161,7 @@ class Signin extends Component {
                   paddingRight: 0,
                   alignContent: "center",
                   alignSelf: "center",
-                  matginTop: -5,
+                  marginTop: -5,
                   paddingTop: 0,
                   paddingBottom: Platform.OS === "ios" ? 6 : 10
                 }}
@@ -260,7 +260,7 @@ class Signin extends Component {
                   paddingRight: 0,
                   alignContent: "center",
                   alignSelf: "center",
-                  matginTop: -5,
+                  marginTop: -5,
                   paddingTop: 0,
                   paddingBottom: Platform.OS === "ios" ? 6 : 10
                 }}

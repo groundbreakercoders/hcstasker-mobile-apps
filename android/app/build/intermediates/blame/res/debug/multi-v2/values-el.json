@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-ads-15.0.1.aar/663165de87bb77af1c0d625ea8a439d4/res/values-el/values.xml",
@@ -142,7 +142,7 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/values-el/values-el.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-el/values-el.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-ads-15.0.1.aar/663165de87bb77af1c0d625ea8a439d4/res/values-el/values.xml",

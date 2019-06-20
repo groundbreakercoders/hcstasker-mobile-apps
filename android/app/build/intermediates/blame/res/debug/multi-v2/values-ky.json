@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/values-ky/values-ky.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/6822f801af7ae99b9290cd258b9e3ca2/res/values-ky/values.xml",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-ky/values-ky.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/6822f801af7ae99b9290cd258b9e3ca2/res/values-ky/values.xml",

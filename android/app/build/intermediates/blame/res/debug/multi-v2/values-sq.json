@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sq/values-sq.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sq/values-sq.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/values-sq/values-sq.xml",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/reactproject/hcstasker/MobileApp/android/app/build/intermediates/res/merged/debug/values-sq/values-sq.xml",
+            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-sq/values-sq.xml",
             "map": [
                 {
                     "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/values-sq/values-sq.xml",

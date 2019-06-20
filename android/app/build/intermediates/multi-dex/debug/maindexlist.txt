@@ -371,9 +371,9 @@ io/invertase/firebase/messaging/RNFirebaseMessagingPackage.class
 io/invertase/firebase/notifications/RNFirebaseNotificationsPackage.class
 io/invertase/firebase/perf/RNFirebasePerformancePackage.class
 io/invertase/firebase/storage/RNFirebaseStoragePackage.class
-io/market/nativebase/geekyants/taskman/BuildConfig.class
-io/market/nativebase/geekyants/taskman/MainApplication$1.class
-io/market/nativebase/geekyants/taskman/MainApplication.class
+io/market/nativebase/hcs/BuildConfig.class
+io/market/nativebase/hcs/MainApplication$1.class
+io/market/nativebase/hcs/MainApplication.class
 io/opencensus/common/ExperimentalApi.class
 io/opencensus/common/Internal.class
 io/reactivex/Completable.class

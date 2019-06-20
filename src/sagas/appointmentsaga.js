@@ -23,14 +23,23 @@ function* getAppointments({ userid, usertype }) {
                   .where("supervisorId", "==", userid);
      }
     yield call(() =>
-        query
-        .get()
-        .then(data => {
-          data.docs.forEach(item => {
-            appointments.push(item.data());
+
+
+        firebase
+          .firestore()
+          .collection("appointments")
+          .where("userId", "==", userid)
+          .get()
+          .then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+              const data = doc.data();
+              appointments.push(data);
+              console.log(data,"inside login")
             });
-        })
-        .catch(error => console.log('Catch', error))
+          }).catch(error => {
+              console.log("Catch", error);
+
+            })
     );
 
     yield put(AppointmentActions.setAppointments(appointments));
