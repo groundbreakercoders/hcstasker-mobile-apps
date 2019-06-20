@@ -16,19 +16,13 @@ function* getAppointments({ userid, usertype }) {
                   .firestore()
                   .collection("appointments");
     if(usertype === 'user') {
-      query=query.where("status", "!=", 'Completed')
-                 .where("userId", "==", userid);
+      query=query.where("userId", "==", userid);
      } else if(usertype === 'supervisor') {
-       query=query.where("status", "==", 'Evaluation In Progress')
-                  .where("supervisorId", "==", userid);
+       query=query.where("supervisorId", "==", userid);
      }
+
     yield call(() =>
-
-
-        firebase
-          .firestore()
-          .collection("appointments")
-          .where("userId", "==", userid)
+          query
           .get()
           .then(querySnapshot => {
             querySnapshot.forEach(doc => {
@@ -68,8 +62,6 @@ function* saveAppointment({appointment}) {
       status = 'Registered';
       dateCreated = moment(new Date()).format("MMM DD YYYY");
     }
-  // newAppointmentRef.set({uniqueId:newAppointmentRef.id,patientName:"testAutoIDPN",serviceCategory:"testAutoIDSC",sponsorName:"testAutoIDSN",status:"testAutoIDS",userId:"testAutoIDUD@gmail.com"});
-
 
     yield call(() =>
       firebase
@@ -98,33 +90,8 @@ function* saveAppointment({appointment}) {
         )
         .catch(error => console.log("Catch", error))
     );
+    yield put(AppointmentActions.getAppointments({userId,userType}));
 
-    AppointmentActions.getAppointments(userId,userType);
-
-      //
-      // const appointments = [];
-      // var query =   firebase
-      //               .firestore()
-      //               .collection("appointments");
-      // if(userType === 'user') {
-      //   query=query.where("status", "!=", 'Completed')
-      //              .where("userId", "==", userId);
-      //  } else if(userType === 'supervisor') {
-      //    query=query.where("status", "==", 'Evaluation In Progress')
-      //               .where("supervisorId", "==", userId);
-      //  }
-      // yield call(() =>
-      //     query
-      //     .get()
-      //     .then(data => {
-      //       data.docs.forEach(item => {
-      //         appointments.push(item.data());
-      //         });
-      //     })
-      //     .catch(error => console.log('Catch', error))
-      // );
-      //
-      // yield put(AppointmentActions.setAppointments(appointments));
     Alert.alert("Appointment Updated Successfully");
     Actions.homepage();
 
