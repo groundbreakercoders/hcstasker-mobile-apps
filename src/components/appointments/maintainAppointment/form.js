@@ -32,103 +32,37 @@ import moment from "moment";
 import DatePicker from "react-native-datepicker";
 class MaintainAppointmentForm extends Component {
   constructor(props) {
-    super(props);
+      super(props);
 
-    this.state = {
-      loading: true,
-      data: null,
-      cost: "",
-      date: ""
-    };
-    if(props.appointment) {
-        this.state = {
-          loading: true,
-          data: null,
-          cost: "",
-          appointment:props.appointment,
-          isEditMode: true
-        };
-      } else {
-        this.state = {
-          loading: true,
-          data: null,
-          cost: "",
-          appointment:{},
-          isEditMode: true
-        };
+      this.state = {
+        loading: true,
+        data: null,
+        cost: "",
+        date: ""
+      };
+      if(props.appointment) {
+          this.state = {
+            loading: true,
+            data: null,
+            cost: "",
+            appointment:props.appointment,
+            isEditMode: true
+          };
+        } else {
+          this.state = {
+            loading: true,
+            data: null,
+            cost: "",
+            appointment:{},
+            isEditMode: true
+          };
 
-    }
-  }
-
-  setAppointmentState(appointment) {
-
+      }
   }
 
   componentDidMount() {
   }
 
-
-  setServices() {
-    const address = Object.assign(
-      {},
-      {
-        lat: this.state.latitude,
-        lng: this.state.longitude,
-        add: this.state.address
-      }
-    );
-
-    console.log(address, "Address", this.state)
-
-    this.props.setServiceAndCategory(
-      this.state.cat,
-      this.state.subcat,
-      // this.state.cost,
-      // console.log(typeof this.state.cost,"before Change"),
-      parseInt(this.state.cost,10),
-      // console.log(typeof parseInt(this.state.cost,10),"after Change"),
-      // this.state.cost,
-      // 300,
-      address
-    );
-  }
-
-  handleCostText(text) {
-    this.setState({ cost: text });
-  }
-  _dropdown_2_onSelect(idx, value) {
-    // console.log(value,"here*****")
-    this.setState({ cat: value,subcat:[],flag:1 });
-  }
-
-  renderCats() {
-    const options = [];
-    _.map(data, (data, ind) => options.push(data.name));
-    // this.setState({subcat:''})
-    return options;
-
-  }
-
-  clearText = () => {
-    this.setState({
-      searchInput: "",
-      loading: false,
-      createTagError: false
-    });
-  };
-  setsubcategories(subcat) {
-    // console.log(subcat,"SUBca888888888888")
-    var Subcat = this.state.subcat
-    // console.log(this.state.subcat,"HHHHHHHH")
-    subcat.forEach(element =>{
-      // console.log(element,Subcat,"compare")
-      var id = Subcat.findIndex(x=>x.name == element.name)
-      // console.log(id,"compare")
-      if(id===-1)
-      Subcat.push(element)
-    })
-    this.setState({ subcat: Subcat });
-  }
 
   openLocationSearch() {
     RNGooglePlaces.openAutocompleteModal()
@@ -143,12 +77,6 @@ class MaintainAppointmentForm extends Component {
       }).catch(error => {
         console.log(error.message);
       });
-  }
-  clearSubCat(text){
-    console.log(text,'here')
-  }
-  changeInput(){
-    this.state.flag===1?this.modal.open():Alert.alert("Select Category")
   }
   onChooseGender(value,index) {
     this.setState({ appointment: { ...this.state.appointment, gender: value} });

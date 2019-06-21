@@ -738,7 +738,6 @@ function* getTaskers({ loc, cat, subCat }) {
 
 function* loginUser({ email, password, launchUserType}) {
   try {
-    console.log("loginUser Call!!!!!!!!!!!!!!!"+launchUserType)
     yield put(startSubmit("login"));
     yield put(UserActions.setSpinner(true));
     let matchedChild;
@@ -775,7 +774,7 @@ function* loginUser({ email, password, launchUserType}) {
             const data = doc.data();
             console.log(data,"inside login")
             isExist = true;
-            const { userType } = data;
+            const userType = data['userType'];
             matchedChild = data;
             tempUserType = userType;
             if(userType != launchUserType) {

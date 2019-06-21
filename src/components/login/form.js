@@ -36,13 +36,11 @@ export const input = props => {
 class LoginForm extends Component {
   submit(values) {
     // this.setState({loading:true})
-    console.log("Hello",values)
     this.props.dispatch(UserActions.login(values.email, values.password,"user"));
   }
   render() {
     const locale = this.props.lang;
     const { loading } = this.props;
-    console.log(this.props,"LoginPage!!!!!!!!!!!!!")
     return (
       <View style={{ marginTop: 20 }}>
         <View style={{ marginTop: 15 }}>

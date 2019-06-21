@@ -9,16 +9,16 @@ import moment from "moment";
 
 import { getDirections } from '../utils/userutils';
 
-function* getAppointments({ userid, usertype }) {
+function* getAppointments(filter) {
   try {
     const appointments = [];
     var query =   firebase
                   .firestore()
                   .collection("appointments");
-    if(usertype === 'user') {
-      query=query.where("userId", "==", userid);
-     } else if(usertype === 'supervisor') {
-       query=query.where("supervisorId", "==", userid);
+    if(filter.usertype === 'user') {
+      query=query.where("userId", "==", filter.userid);
+    } else if(filter.usertype === 'supervisor') {
+       query=query.where("supervisorId", "==", filter.userid);
      }
 
     yield call(() =>
@@ -28,7 +28,6 @@ function* getAppointments({ userid, usertype }) {
             querySnapshot.forEach(doc => {
               const data = doc.data();
               appointments.push(data);
-              console.log(data,"inside login")
             });
           }).catch(error => {
               console.log("Catch", error);
@@ -59,7 +58,7 @@ function* saveAppointment({appointment}) {
                      .firestore()
                      .collection("appointments").doc();
       uniqueId=newAppointmentRef.id;
-      status = 'Registered';
+      status = 'Service Requested';
       dateCreated = moment(new Date()).format("MMM DD YYYY");
     }
 
@@ -90,7 +89,7 @@ function* saveAppointment({appointment}) {
         )
         .catch(error => console.log("Catch", error))
     );
-    yield put(AppointmentActions.getAppointments({userId,userType}));
+    yield put(AppointmentActions.getAppointments(userId,userType));
 
     Alert.alert("Appointment Updated Successfully");
     Actions.homepage();

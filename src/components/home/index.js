@@ -185,7 +185,6 @@ class Home extends Component {
         .getToken()
         .then(fcm => {
           if (fcm) {
-            console.log(fcm,"fcmToken UserHome")
             this.props.storeToken(fcm);
           } else {
             console.log("User does not have token");

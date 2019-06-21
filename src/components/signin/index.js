@@ -100,7 +100,6 @@ class Signin extends Component {
   );
 
   render() {
-    console.log(this.props.User,"From redux")
     // setTimeout(()=>{this.setState({loader:false})},3000)
     const lang = this.props.strings;
     // console.log(this.props,"HelloSignIN#############!!!!!!!!!!!!!!!")
