@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import RNGooglePlaces from "react-native-google-places";
+
 import { TextInput,Text, TouchableHighlight, Modal, Keyboard,Alert, Dimensions} from "react-native";
 import {
   Item,
@@ -30,11 +30,14 @@ import DatePickerCustom from "../../common/datePicker";
 const { height, width } = Dimensions.get("window");
 import moment from "moment";
 import DatePicker from "react-native-datepicker";
+import MapInput from '../../common/maps';
+
 class MaintainAppointmentForm extends Component {
   constructor(props) {
       super(props);
 
       this.state = {
+        placesModal:false,
         loading: true,
         data: null,
         cost: "",
@@ -63,21 +66,23 @@ class MaintainAppointmentForm extends Component {
   componentDidMount() {
   }
 
-
-  openLocationSearch() {
-    RNGooglePlaces.openAutocompleteModal()
-      .then(place => {
-        let userLocation = {
-                            latitude: place.latitude,
-                            longitude: place.longitude,
-                            address: place.address
-                          }
-        this.setState({ appointment: { ...this.state.appointment, userLocation: userLocation} });
-        console.log(this.state);
-      }).catch(error => {
-        console.log(error.message);
-      });
-  }
+openLocationSearch(){
+this.setState({placesModal:true});
+}
+  // openLocationSearch() {
+  //   RNGooglePlaces.openAutocompleteModal()
+  //     .then(place => {
+  //       let userLocation = {
+  //                           latitude: place.latitude,
+  //                           longitude: place.longitude,
+  //                           address: place.address
+  //                         }
+  //       this.setState({ appointment: { ...this.state.appointment, userLocation: userLocation} });
+  //       console.log(this.state);
+  //     }).catch(error => {
+  //       console.log(error.message);
+  //     });
+  // }
   onChooseGender(value,index) {
     this.setState({ appointment: { ...this.state.appointment, gender: value} });
   }
@@ -97,9 +102,27 @@ class MaintainAppointmentForm extends Component {
     console.log(patientName);
     this.setState({ appointment: { ...this.state.appointment, patientName: patientName} });
   }
+
+  getPlaces(details) {
+    let userLocation = {
+                       latitude: details.geometry.location.lat,
+                       longitude: details.geometry.location.lng,
+                       address: details.formatted_address
+                       }
+    this.setState({ appointment: { ...this.state.appointment, userLocation: userLocation} });
+    this.setState({placesModal:false});
+  }
+
+
   render() {
     const { strings, appointment } = this.props;
     return (
+      <View>
+      {this.state.placesModal === true ? (
+        <View style={{ marginTop: 20 }}>
+          <MapInput notifyChange={details => this.getPlaces(details)} />
+        </View>
+      ) : (
       <View style={{ marginTop: 20 }}>
         <View style={{ marginTop: 15 }}>
           <Text style={{ color: "#44466B", fontSize: 24 }}>
@@ -186,9 +209,8 @@ class MaintainAppointmentForm extends Component {
                           marginLeft: 0
                         },
                         dateInput: {
-                          fontSize: 25,
                           marginLeft: 20,
-                            borderWidth: 0
+                          borderWidth: 0
                         },dateText: {
                           fontSize: 25
                         },
@@ -217,14 +239,14 @@ class MaintainAppointmentForm extends Component {
           </Text>
           <View style={{ flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
-              <Input
-                placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:strings.Address}
-                placeholderTextColor="#8B8DAC"
-                style={styles.input}
+            <Input
+              placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:strings.Address}
+              placeholderTextColor="#8B8DAC"
+              style={styles.input}
 
-                value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
-                onFocus={() => this.openLocationSearch()}
-              />
+              value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
+              onFocus={() => this.openLocationSearch()}
+            />
             </Item>
           </View>
         </View>
@@ -330,6 +352,8 @@ class MaintainAppointmentForm extends Component {
 
         </Button>
       </View>
+)}
+</View>
     );
   }
 }
@@ -339,7 +363,8 @@ MaintainAppointmentForm = reduxForm({
 })(MaintainAppointmentForm);
 
 const mapStateToProps = state => ({
-  email: state.user.email
+  email: state.user.email,
+  isAddressClicked:false
 });
 
 

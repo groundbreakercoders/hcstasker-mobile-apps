@@ -1,5 +1,4 @@
 import { call, put, fork, takeLatest, select } from 'redux-saga/effects';
-import RNGooglePlaces from 'react-native-google-places';
 import { Alert } from 'react-native';
 import Permissions from 'react-native-permissions';
 import firebase from 'react-native-firebase';

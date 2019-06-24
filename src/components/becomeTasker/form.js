@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import RNGooglePlaces from "react-native-google-places";
-import { Text, TouchableHighlight, Modal, Keyboard,Alert} from "react-native";
+import { Text, TouchableHighlight, Modal, Keyboard,Alert,TouchableOpacity} from "react-native";
 import {
   Item,
   Input,
@@ -17,6 +16,7 @@ import {
 import PropTypes from "prop-types";
 import _ from "lodash";
 import ModalDropdown from "react-native-modal-dropdown";
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import UserActions from "../../Redux/userstore";
 import Header from "../common/header";
 import MIcon from "../common/mIcon";
@@ -26,14 +26,17 @@ import SubCategorySelect from "./subCategorySelect";
 import styles from "./styles";
 import firebase from "react-native-firebase";
 import data from "../../utils/data";
+import apiKey from "../../utils/config";
 
+const keys = apiKey.apiKey
 class TaskerServiceForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
       data: null,
-      cost: ""
+      cost: "",
+      placesModal: false
     };
   }
   componentDidMount() {
@@ -67,7 +70,7 @@ class TaskerServiceForm extends Component {
       this.setState({ loading: false });
     });
   }
-  
+
 
   setServices() {
     const address = Object.assign(
@@ -76,7 +79,7 @@ class TaskerServiceForm extends Component {
         lat: this.state.latitude,
         lng: this.state.longitude,
         add: this.state.address
-      }    
+      }
     );
 
     console.log(address, "Address", this.state)
@@ -107,7 +110,7 @@ class TaskerServiceForm extends Component {
     _.map(data, (data, ind) => options.push(data.name));
     // this.setState({subcat:''})
     return options;
-    
+
   }
 
   clearText = () => {
@@ -118,30 +121,15 @@ class TaskerServiceForm extends Component {
     });
   };
   setsubcategories(subcat) {
-    // console.log(subcat,"SUBca888888888888")
     var Subcat = this.state.subcat
-    // console.log(this.state.subcat,"HHHHHHHH")
     subcat.forEach(element =>{
-      // console.log(element,Subcat,"compare")
       var id = Subcat.findIndex(x=>x.name == element.name)
-      // console.log(id,"compare")
       if(id===-1)
       Subcat.push(element)
     })
     this.setState({ subcat: Subcat });
   }
 
-  openTripLocationSearch() {
-    RNGooglePlaces.openAutocompleteModal()
-      .then(place => {
-        this.setState({
-          latitude: place.latitude,
-          longitude: place.longitude,
-          address: place.address
-        });
-      })
-      .catch(error => console.log(error.message));
-  }
   clearSubCat(text){
     console.log(text,'here')
   }
@@ -153,15 +141,12 @@ class TaskerServiceForm extends Component {
     var SubCategory = ""
     if(this.state.data && this.state.data.subCategory &&!this.state.flag ){
       this.state.data.subCategory.forEach(element => {
-        // console.log(element,"subCat element")
         SubCategory =SubCategory + element.name +","
       });
     }
     if(SubCategory){
-      // console.log("here")
       SubCategory=SubCategory.slice(0,-1)
     }
-    // console.log(this.state.flag,"FlagValue!!!!!!!!!!!!!!")
     return (
       <View style={{ marginTop: 20 }}>
         <View style={{}}>
@@ -170,9 +155,7 @@ class TaskerServiceForm extends Component {
           </Text>
           <ModalDropdown
             ref="dropdown_2"
-            // defaultValue={strings.SelectCategory}
             defaultValue={this.state.data&&this.state.cat?this.state.cat:strings.SelectCategory}
-            // defaultValue={this.state.data&&this.state.cat?strings.SelectCategory:""}
             options={this.renderCats()}
             style={styles.dropdown_2}
             textStyle={styles.dropdown_2_text}
@@ -190,13 +173,9 @@ class TaskerServiceForm extends Component {
               <Input
                 maxLength={15}
                 onTouchStart={()=>this.changeInput()}
-                // onFocus={()=>this.modal.open()}
-                // placeholder={SubCategory}
                 placeholder={strings.SelectSubCategories}
-                // defaultValue={SubCategory}
-                // onTouchStart = {()=>this.setState({flag:1})}
                 placeholderTextColor="#8B8DAC"
-                style={styles.input}                
+                style={styles.input}
               />
             </Item>
           </View>
@@ -211,15 +190,11 @@ class TaskerServiceForm extends Component {
               <Input
                 maxLength={15}
                 keyboardType="numeric"
-                // onChangeText={text => this.handleCostText(text)}
                 onChangeText={text => this.setState({cost:text})}
                 placeholder={JSON.stringify(
                   (_.get(this.state,'data.fee') === null) ? 0 : (_.get(this.state,'data.fee')))}
-                // placeholder={strings.Enterfee}
-                // placeholder={this.state.data&&this.state.cost?this.state.cost:strings.Enterfee}
                 placeholderTextColor="#8B8DAC"
                 style={styles.input}
-                // value={this.state.cost.toString()}
               />
             </Item>
           </View>
@@ -231,13 +206,11 @@ class TaskerServiceForm extends Component {
           <View style={{ flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
               <Input
-                // placeholder={strings.Address}
                 placeholder={this.state.data&&this.state.data.address?this.state.data.address:strings.Address}
-                // defaultValue={this.state.data&&this.state.data.address?this.state.data.address:""}
                 placeholderTextColor="#8B8DAC"
                 style={styles.input}
                 value={this.state.address}
-                onFocus={() => this.openTripLocationSearch()}
+                onFocus={() => this.setState({placesModal:true})}
               />
             </Item>
           </View>
@@ -261,6 +234,69 @@ class TaskerServiceForm extends Component {
           }}
           strings={strings}
         />
+         {this.state.placesModal === true &&
+    <Modal
+                        animationType="slide"
+                        visible={this.state.placesModal}>
+                           <View style={{ flex: 1, backgroundColor: "white", padding: 6}}>
+                             <View style={{ flex: 1 }}>
+                          <View style={{ height: 40 }}>
+                        <TouchableOpacity style={{marginLeft:15, marginTop: 10 }} onPress={()=>this.setState({placesModal:false})}>
+                        <Icon name="ios-arrow-back"></Icon>
+                        </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 0.9 }}>
+                        <GooglePlacesAutocomplete
+                            placeholder='Enter Location'
+                            minLength={2}
+                            autoFocus={true}
+                            returnKeyType={'default'}
+                            fetchDetails={true}
+                            currentLocationLabel="Current location"
+                            onPress={(data, details = null) => {
+                              this.setState({
+                                      latitude: details.geometry.location.lat,
+                                      longitude: details.geometry.location.lng,
+                                      address: details.formatted_address
+                                    });
+
+                                this.setState({placesModal:false});
+                            }}
+                            query={{
+                                key: keys,
+                                language: 'en',
+                            }}
+                            styles={{
+                                textInputContainer: {
+                                backgroundColor: 'rgba(0,0,0,0)',
+                                borderTopWidth: 0,
+                                borderBottomWidth:0
+                            },
+                            textInput: {
+                                marginRight: 0,
+                                height: 38,
+                                color: '#5d5d5d',
+                                fontSize: 16
+                            },
+                            predefinedPlacesDescription: {
+                                color: '#1faadb'
+                            },
+                            }}
+                            currentLocation={false}
+                            currentLocationLabel="Current location"
+                            nearbyPlacesAPI='GooglePlacesSearch'
+                            GooglePlacesSearchQuery={{
+                                rankby: 'distance',
+                            }}
+                            filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']}
+                            debounce={200}
+
+                      />
+
+                      </View>
+                      </View>
+                      </View>
+        </Modal> }
       </View>
     );
   }

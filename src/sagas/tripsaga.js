@@ -1,5 +1,6 @@
 import { call, put, fork, takeLatest, select } from 'redux-saga/effects';
-import RNGooglePlaces from 'react-native-google-places';
+// import RNGooglePlaces from 'react-native-google-places';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Alert } from 'react-native';
 import Permissions from 'react-native-permissions';
 import firebase from 'react-native-firebase';
@@ -10,22 +11,24 @@ import UserActions from '../Redux/userstore';
 import PaymentActions from '../Redux/paymentmethodsstore';
 import { getDirections } from '../utils/userutils';
 
-function* setCurrentAddress() {
+function* setCurrentAddress({detailsAddress}) {
+	console.log(detailsAddress,"inside set address")
 	try {
 		const response = Permissions.check('location');
 		if (response === 'authorized') {
-			yield put(TripActions.updateCurrentLocation());
+			yield put(TripActions.updateCurrentLocation(detailsAddress));
 		} else {
 			Permissions.request('location');
-			yield put(TripActions.updateCurrentLocation());
+			yield put(TripActions.updateCurrentLocation(detailsAddress));
 		}
 	} catch (error) {
 		console.log('ERR', error);
 	}
 }
 
-function* updateCurrentLocation() {
+function* updateCurrentLocation({detailsAddress}) {
 	try {
+		console.log("updateCurrentLocation Called",detailsAddress)
 		const getTripOrigin = state => state.trip.origin;
 		const tripOrigin = yield select(getTripOrigin);
 		// console.log(tripOrigin,"TripOrigin")
@@ -33,8 +36,17 @@ function* updateCurrentLocation() {
 		const uniqueId = yield select(getid);
 		// console.log(uniqueId,"UniqueId")
 
-		const results = yield call(RNGooglePlaces.getCurrentPlace);
-		const { latitude, longitude, address, placeID, name } = results[0];
+		// const results = yield call(RNGooglePlaces.getCurrentPlace);
+		// console.log(results,"Result!!!!!!!!!!!!!!!!!")
+		// const { latitude, longitude, address, placeID, name } = results[0];
+	 	// console.log(detailsAddress.details.geometry.location.lat, detailsAddress.details.geometry.location.lng, detailsAddress.details.formatted_address, detailsAddress.details.place_id, detailsAddress.details.name,"updateCurrentLocation Details" )
+		let latitude = detailsAddress.details.geometry.location.lat
+		let longitude = detailsAddress.details.geometry.location.lng
+		let address =  detailsAddress.details.formatted_address
+		let placeID =  detailsAddress.details.place_id
+		let name =  detailsAddress.details.name
+		// console.log(latitude,longitude,address,placeID,name,"details in userLOcation")
+		// console.log(uniqueId,"UniqueId");
 		if (tripOrigin == null || tripOrigin.placeID !== placeID) {
 			yield call(() =>
 				firebase
@@ -74,6 +86,7 @@ function* updateCurrentLocation() {
 
 function* openTripLocationSearch({ key }) {
 	try {
+		console.log("open trip location called")
 		const getid = state => state.user.id;
 		const uniqueId = yield select(getid);
 		const getTrip = state => state.trip;
@@ -89,7 +102,7 @@ function* openTripLocationSearch({ key }) {
 		const place = yield call(
 			() =>
 				new Promise(resolve => {
-					const result = RNGooglePlaces.openAutocompleteModal(searchRadius);
+					// const result = RNGooglePlaces.openAutocompleteModal(searchRadius);
 					resolve(result);
 				})
 		);
@@ -422,7 +435,11 @@ function* requestTrip() {
 		const allTaskers = yield select(taskers);
 		const loc = state => state.trip.origin;
 		const location = yield select(loc);
+
+		console.log(allTaskers, '&&&&&&&&&&&&&&&&&&&&&&&&');
+
 		const requestTasker = firebase.functions().httpsCallable('requestTasker');
+		console.log(requestTasker,"tripSagaRequest")
 
 		yield call(() =>
 			requestTasker({
@@ -440,6 +457,7 @@ function* requestTrip() {
 					if (res.data.success === false) {
 						Alert.alert(res.data.message);
 					}
+					console.log(res,"response from ")
 
 				})
 				.catch(err => {
@@ -575,7 +593,9 @@ function* acceptTrip() {
 		const getfcmtoken = state => state.user.userDetails.userData.fcmToken;
 		const getStates = state => state;
 		const userDetail = yield select(getStates);
+		console.log(userDetail,"Aceept Trip")
 		const token = yield select(getfcmtoken);
+		console.log(token,"TOKEN@@@@@@@@@!!!!!!!!!!!!")
 		let taskername;
 
 		const useruserRef = firebase
@@ -585,6 +605,8 @@ function* acceptTrip() {
 			.collection('taskerDetails')
 			.doc('tasker');
 
+			console.log(useruserRef,"REFFFF**************")
+
 		const usertaskerRef = firebase
 			.firestore()
 			.collection('users')
@@ -592,6 +614,7 @@ function* acceptTrip() {
 			.collection('userDetails')
 			.doc('user');
 
+			console.log(usertaskerRef,"USErTaskerRef&&&&&&&&&&&&&&&")
 
 		yield call(() =>
 			useruserRef.set(
