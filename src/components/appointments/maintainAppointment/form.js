@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 
-import { TextInput,Text, TouchableHighlight, Modal, Keyboard,Alert, Dimensions} from "react-native";
+import { TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions} from "react-native";
 import {
   Item,
   Input,
@@ -31,25 +31,19 @@ const { height, width } = Dimensions.get("window");
 import moment from "moment";
 import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
+import RNPickerSelect from 'react-native-picker-select';
 
 class MaintainAppointmentForm extends Component {
   constructor(props) {
       super(props);
 
-      this.state = {
-        placesModal:false,
-        loading: true,
-        data: null,
-        cost: "",
-        date: ""
-      };
       if(props.appointment) {
           this.state = {
             loading: true,
             data: null,
             cost: "",
             appointment:props.appointment,
-            isEditMode: true
+            isEditMode: true,
           };
         } else {
           this.state = {
@@ -57,7 +51,8 @@ class MaintainAppointmentForm extends Component {
             data: null,
             cost: "",
             appointment:{},
-            isEditMode: true
+            isEditMode: true,
+            relationship:undefined
           };
 
       }
@@ -116,6 +111,47 @@ this.setState({placesModal:true});
 
   render() {
     const { strings, appointment } = this.props;
+    const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+});
+const relationships = [
+  {
+    label: 'Father',
+    value: 'father'
+  },{
+    label: 'Mother',
+    value: 'mother'
+  },
+  {
+    label: 'Brother',
+    value: 'brother'
+  },
+  {
+    label: 'Sister',
+    value: 'sister'
+  },
+  {
+    label: 'Friend',
+    value: 'friend'
+  },
+  {
+    label: 'Other',
+    value: ''
+  }
+];
     return (
       <View>
       {this.state.placesModal === true ? (
@@ -279,18 +315,18 @@ this.setState({placesModal:true});
           </Text>
           <View style={{ flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
-            <Input
-              //onChangeText={text => this.setState({cost:text})}
-              placeholderTextColor="#8B8DAC"
-              style={styles.input}
-              onChangeText={text => {
-                this.setState({ appointment: { ...this.state.appointment, relationship: text} });
-              }}
-              value={this.state.appointment&&this.state.appointment.relationship?this.state.appointment.relationship:''}
-              editable={true}
-              // value={this.state.cost.toString()}
-            />
 
+            <RNPickerSelect
+                    placeholder={{}}
+                      items={relationships}
+                      onValueChange={value => {
+                                      this.setState({
+                                        appointment: { ...this.state.appointment, relationship: value}
+                                      });
+                                    }}
+                      style={  styles.inputIOS,styles.inputAndroid}
+                      value={this.state.appointment.relationship}
+                    />
             </Item>
           </View>
         </View>

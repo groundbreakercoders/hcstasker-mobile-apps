@@ -88,7 +88,20 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#009688',
     marginBottom: 10
-}  
+},inputIOS: {
+  fontSize: 16,
+  paddingVertical: 12,
+  paddingHorizontal: 10,
+  color: 'black',
+  paddingRight: 30, // to ensure the text is never behind the icon
+},
+inputAndroid: {
+  fontSize: 16,
+  paddingHorizontal: 10,
+  paddingVertical: 8,
+  color: 'black',
+  paddingRight: 30, // to ensure the text is never behind the icon
+}
 });
 
 export default styles;
