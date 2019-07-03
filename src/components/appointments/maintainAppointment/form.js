@@ -52,7 +52,8 @@ class MaintainAppointmentForm extends Component {
             cost: "",
             appointment:{},
             isEditMode: true,
-            relationship:undefined
+            relationship:undefined,
+            serviceType:undefined
           };
 
       }
@@ -127,6 +128,17 @@ this.setState({placesModal:true});
     paddingRight: 30, // to ensure the text is never behind the icon
   },
 });
+
+const serviceType = [
+  {
+    label: 'Place Holder1',
+    value: 'PH'
+  },{
+    label: 'Place Holder2',
+    value: 'mother'
+  },
+]
+
 const relationships = [
   {
     label: 'Father',
@@ -161,10 +173,10 @@ const relationships = [
       ) : (
       <View style={{ marginTop: 20 }}>
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFPatientName}
           </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <View style={{height: 20, borderColor: 'gray', borderWidth: 0, flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
 
             <Input
@@ -181,10 +193,10 @@ const relationships = [
           </View>
         </View>
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFSponsorName}
           </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
               placeholderTextColor="#8B8DAC"
@@ -201,7 +213,7 @@ const relationships = [
         </View>
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFGender}
           </Text>
           <View style={{  marginTop: 10 }}>
@@ -212,10 +224,10 @@ const relationships = [
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
               <RadioButton style={{alignItems: "center",  justifyContent: "center",  flexDirection: "row",  marginRight:10}} value={"M"}>
-                  <Text style={{ marginRight:10, fontSize:20}} >Male</Text><Radio/>
+                  <Text style={{ color:'#234456',marginRight:10, fontSize:15}} >Male</Text><Radio/>
               </RadioButton>
               <RadioButton style={styles.radioButton} value={"F"}>
-                 <Radio/><Text style={{ marginLeft:10}}> Female</Text>
+                 <Radio/><Text style={{ color:'#234456',marginLeft:10,fontSize:15}}> Female</Text>
               </RadioButton>
             </RadioGroup>
             </Item>
@@ -224,13 +236,13 @@ const relationships = [
 
 
           <View style={{ marginTop: 15 }}>
-            <Text style={{ color: "#44466B", fontSize: 24 }}>
+            <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
               {strings.AFDOB}
             </Text>
-            <View style={{ flexDirection: "row", marginTop: 10 }}>
+            <View style={{ height: 30, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
               <Item style={{ flex: 1 }}>
               <DatePicker
-                      style={{width: 200}}
+                      style={{width: 175}}
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
                       mode="date"
                       placeholder="Please select date"
@@ -245,15 +257,19 @@ const relationships = [
                           marginLeft: 0
                         },
                         dateInput: {
-                          marginLeft: 20,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          padding: 5,
+                          marginLeft: 10,
                           borderWidth: 0
                         },dateText: {
-                          fontSize: 25
+                          fontSize: 20
                         },
 
 
                   placeholderText: {
-                      fontSize: 20,
+                      fontSize: 15,
+                      marginLeft: 15,
                       color: '#234456'
                   }
                         // ... You can check the source to find the other keys.
@@ -270,27 +286,29 @@ const relationships = [
 
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.Address}
           </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
-              placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:strings.Address}
+              placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
               placeholderTextColor="#8B8DAC"
+              style={{fontSize: 10,color: '#234456'}}
               style={styles.input}
 
               value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
               onFocus={() => this.openLocationSearch()}
+              
             />
             </Item>
           </View>
         </View>
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.phoneno}
           </Text>
-          <View style={{  marginTop: 10 }}>
+          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0, marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
             <Input
                     placeholderTextColor='#adb4bc'
@@ -310,10 +328,10 @@ const relationships = [
         </View>
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFRelationship}
           </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
             <Item style={{ flex: 1 }}>
 
             <RNPickerSelect
@@ -324,7 +342,7 @@ const relationships = [
                                         appointment: { ...this.state.appointment, relationship: value}
                                       });
                                     }}
-                      style={  styles.inputIOS,styles.inputAndroid}
+                      style={ styles.inputIOSstyles,styles.inputAndroid}
                       value={this.state.appointment.relationship}
                     />
             </Item>
@@ -332,7 +350,29 @@ const relationships = [
         </View>
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
+            {strings.AFServiceType}
+          </Text>
+          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
+            <Item style={{ flex: 1 }}>
+
+            <RNPickerSelect
+                    placeholder={{}}
+                      items={serviceType}
+                      onValueChange={value => {
+                                      this.setState({
+                                        appointment: { ...this.state.appointment, serviceType: value}
+                                      });
+                                    }}
+                      style={ styles.inputIOSstyles,styles.inputAndroid}
+                      value={this.state.appointment.serviceType}
+                    />
+            </Item>
+          </View>
+        </View>
+
+        <View style={{ marginTop: 15 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFMedicalConditions}
           </Text>
           <View style={{ flexDirection: "row", marginTop: 10 }}>
@@ -356,7 +396,7 @@ const relationships = [
 
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#44466B", fontSize: 24 }}>
+          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
             {strings.AFOtherInstructions}
           </Text>
           <View style={{ flexDirection: "row", marginTop: 10 }}>

@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
   radioButton: {
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+    
   },
   radioText: {
 

@@ -154,6 +154,7 @@ const lang = {
     AFSponsorName:"Sponsor Name",
     AFPhoneNumber:"Phone number",
     AFRelationship:"Relationship",
+    AFServiceType:"Service Type",
     AFOtherInstructions:"Any other instructions",
     AFDOB:"Date Of Birth",
     createAppointment:"Create Appointment",

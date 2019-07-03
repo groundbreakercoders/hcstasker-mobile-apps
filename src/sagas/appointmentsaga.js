@@ -77,6 +77,7 @@ function* saveAppointment({appointment}) {
             userLocation:appointment.userLocation,
             phoneno:appointment.phoneno,
             relationship:appointment.relationship,
+            serviceType:appointment.serviceType,
             medicalCondition:appointment.medicalCondition,
             otherInstructions:appointment.otherInstructions,
             dob:appointment.dob,

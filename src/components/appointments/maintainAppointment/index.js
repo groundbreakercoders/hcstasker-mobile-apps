@@ -38,8 +38,8 @@ class MaintainAppointment extends Component {
             <View
               style={{
                 flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: 20
+                //justifyContent: "space-between",
+                marginTop: 40
               }}
             >
               <Button
@@ -56,19 +56,18 @@ class MaintainAppointment extends Component {
                   }}
                 />
               </Button>
-            </View>
-            <View style={{ flexDirection: "column", marginTop: 25 }}>
+              <View style={{ flexDirection: "column",marginTop: 5,alignContent:'center',justifyContent:'center'}}>
               <Text
-                style={{ fontSize: 28, fontWeight: "bold", color: "#43496a" }}
+                style={{fontSize: 28, fontWeight: "bold", color: "#43496a" }}
               >
               {this.props.appointment ? (
                 strings.editAppointment
               ) : (
                 strings.createAppointment
               )}
-
-
               </Text>
+            </View>
+            
             </View>
             <MaintainAppointmentForm strings={strings} appointment={appointment} />
           </View>
