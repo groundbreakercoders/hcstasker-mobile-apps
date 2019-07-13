@@ -31,19 +31,22 @@ class MaintainAppointment extends Component {
             style={{
               flex: 1,
               flexDirection: "column",
-              paddingHorizontal: 20,
-              paddingBottom: 40
+              //paddingHorizontal: 20,
+              //paddingBottom: 40,
             }}
           >
             <View
               style={{
+                backgroundColor: commonColor.brandPrimary,
                 flexDirection: "row",
-                //justifyContent: "space-between",
-                marginTop: 40
+                //alignContent: "center",
+                //marginTop: 40,
+                paddingLeft: 0
+
               }}
             >
               <Button
-                style={{ paddingLeft: 0 }}
+                style={{ paddingLeft: 0, marginTop:40 }}
                 transparent
                 onPress={() => Actions.pop()}
               >
@@ -51,14 +54,14 @@ class MaintainAppointment extends Component {
                   name="ios-arrow-back"
                   style={{
                     fontSize: 35,
-                    marginLeft: 0,
-                    color: "#43496a"
+                    marginLeft: 5,
+                    color: "white",
+                    width: 65
                   }}
                 />
               </Button>
-              <View style={{ flexDirection: "column",marginTop: 5,alignContent:'center',justifyContent:'center'}}>
               <Text
-                style={{fontSize: 28, fontWeight: "bold", color: "#43496a" }}
+                style={{fontSize: 28, fontWeight: "bold", color: "white", marginTop: 50 }}
               >
               {this.props.appointment ? (
                 strings.editAppointment
@@ -66,8 +69,7 @@ class MaintainAppointment extends Component {
                 strings.createAppointment
               )}
               </Text>
-            </View>
-            
+
             </View>
             <MaintainAppointmentForm strings={strings} appointment={appointment} />
           </View>
