@@ -66,7 +66,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop:10,
     marginRight:10
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7114207412b5792f264461f54ec383896f9210eb
   },
   radioText: {
 
@@ -106,10 +110,17 @@ inputAndroid: {
   paddingRight: 30, // to ensure the text is never behind the icon
 },
 inputStyle: {
+<<<<<<< HEAD
   height: 40,
   borderColor: 'gray',
   borderWidth: 1,
   flexDirection: "row",
+=======
+  height: 40, 
+  borderColor: 'gray', 
+  borderWidth: 1, 
+  flexDirection: "row", 
+>>>>>>> 7114207412b5792f264461f54ec383896f9210eb
   marginTop: 10,
   borderRadius: 10,
   fontSize:20,
