@@ -42,11 +42,6 @@ class MaintainAppointmentForm extends Component {
       this.inputRefs = {
         relationships: null,
       };
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
   const validate = ({ patientName }) => {
     const errors = {}
     if (patientName.trim() == null){
@@ -196,11 +191,6 @@ const relationships = [
         </View>
       ) : (
       <View style={ styles.header}>
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
         <View style={{ marginTop: 20 }}>
           <View style={{alignSelf: 'stretch'}}>
           <TextInput style={styles.textInput}
@@ -215,11 +205,6 @@ const relationships = [
               {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
           </View>
         </View>
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
         <View style={{ marginTop: 15 }}>
           <View style={{ alignSelf: 'stretch' }}>
           <TextInput style={styles.textInput}
@@ -311,11 +296,7 @@ const relationships = [
             />
           </View>
         </View>
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
         <View style={{ marginTop: 20 }}>
           <View style={{ alignSelf: 'stretch' }}>
             <TextInput style={styles.textInput}
@@ -411,22 +392,16 @@ const relationships = [
           onPress={() => {
             if (this.state.appointment.patientName == null){
               this.setState(() => ({ nameError: "Patient Name required"}));
-<<<<<<< HEAD
             }
-=======
-            } 
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
+
             if (this.state.appointment.sponsorName == null){
               this.setState(() => ({ nameError1: "Sponsor Name required"}));
             } else {
               this.setState(() => ({ nameError: null}))
               this.submit()
             }
-<<<<<<< HEAD
           }}
-=======
-          }} 
->>>>>>> 7114207412b5792f264461f54ec383896f9210eb
+
           rounded
           style={styles.updateButton}
         >
