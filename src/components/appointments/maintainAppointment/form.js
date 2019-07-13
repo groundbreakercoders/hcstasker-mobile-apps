@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 
-import { TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions} from "react-native";
+import { TouchableOpacity, TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions, StatusBar, YellowBox} from "react-native";
 import {
   Item,
   Input,
@@ -33,10 +33,23 @@ import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 
+
 class MaintainAppointmentForm extends Component {
+
   constructor(props) {
       super(props);
 
+      this.inputRefs = {
+        relationships: null,
+      };
+  
+  const validate = ({ patientName }) => {
+    const errors = {}
+    if (patientName.trim() == null){
+      errors.patientName = 'Must not be blank'
+    }
+    return errors;
+  };
       if(props.appointment) {
           this.state = {
             loading: true,
@@ -117,25 +130,32 @@ this.setState({placesModal:true});
     fontSize: 16,
     paddingVertical: 12,
     paddingHorizontal: 10,
-    color: 'black',
+    color: 'white',
+    borderBottomColor: '#f8f8f8',
+    borderBottomWidth: 1,
     paddingRight: 30, // to ensure the text is never behind the icon
   },
   inputAndroid: {
     fontSize: 16,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    color: 'black',
+    color: 'white',
+    borderBottomColor: '#f8f8f8',
+    borderBottomWidth: 1,
     paddingRight: 30, // to ensure the text is never behind the icon
   },
 });
 
 const serviceType = [
   {
-    label: 'Place Holder1',
-    value: 'PH'
+    label: 'Nurse',
+    value: 'Nurse'
   },{
-    label: 'Place Holder2',
-    value: 'mother'
+    label: 'physiotherapist',
+    value: 'physiotherapist'
+  },{
+    label: 'Baby Sitter',
+    value: 'Baby Sitter'
   },
 ]
 
@@ -165,87 +185,70 @@ const relationships = [
   }
 ];
     return (
-      <View>
+      <View style={styles.container}>
       {this.state.placesModal === true ? (
         <View style={{ marginTop: 20 }}>
           <MapInput notifyChange={details => this.getPlaces(details)} />
         </View>
       ) : (
-      <View style={{ marginTop: 20 }}>
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFPatientName}
-          </Text>
-          <View style={{height: 20, borderColor: 'gray', borderWidth: 0, flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-
-            <Input
+      <View style={ styles.header}>
+        
+        <View style={{ marginTop: 20 }}>
+          <View style={{alignSelf: 'stretch'}}>
+          <TextInput style={styles.textInput}
+                placeholder="Patient Name"
+                placeholderTextColor="#000000"
+                underlineColorAndroid={'transparent'}
               onChangeText={text => {
                 this.setState({ appointment: { ...this.state.appointment, patientName: text} });
               }}
               value={this.state.appointment&&this.state.appointment.patientName?this.state.appointment.patientName:''}
-              placeholderTextColor="#8B8DAC"
-              style={styles.input}
-              editable={true}
-              // value={this.state.cost.toString()}
-            />
-            </Item>
+              />
+              {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
           </View>
         </View>
+        
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFSponsorName}
-          </Text>
-          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-            <Input
-              placeholderTextColor="#8B8DAC"
-              style={styles.input}
-              onChangeText={text => {
-                this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
-              }}
-              value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
-              editable={true}
-            />
-
-            </Item>
+          <View style={{ alignSelf: 'stretch' }}>
+          <TextInput style={styles.textInput}
+                placeholder="Sponsor Name"
+                placeholderTextColor="#000000"
+                underlineColorAndroid={'transparent'}
+                onChangeText={text => {
+                  this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
+                }}
+                value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
+                />
+                {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
           </View>
         </View>
 
         <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFGender}
-          </Text>
-          <View style={{  marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
+          <View style={{  alignSelf: 'stretch' }}>
               <RadioGroup
                 defaultChoice={this.genderIdx()}
-                style={{ flexDirection: "row",  marginTop: 10, marginBottom: 10  }}
+                style={{ color: '#fff', flexDirection: "row", marginBottom: 30 , borderBottomColor: '#000000',borderBottomWidth: 1 }}
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
-              <RadioButton style={{alignItems: "center",  justifyContent: "center",  flexDirection: "row",  marginRight:10}} value={"M"}>
-                  <Text style={{ color:'#234456',marginRight:10, fontSize:15}} >Male</Text><Radio/>
+              <RadioButton style={styles.radioButton} value={"M"}>
+                  <Text style={{ color:'#000000',marginRight:10, marginTop:10, fontSize:15}} >Male</Text><Radio/>
               </RadioButton>
               <RadioButton style={styles.radioButton} value={"F"}>
-                 <Radio/><Text style={{ color:'#234456',marginLeft:10,fontSize:15}}> Female</Text>
+                 <Radio/><Text style={{ color:'#000000',marginLeft:10, marginTop:10, fontSize:15}}> Female</Text>
               </RadioButton>
             </RadioGroup>
-            </Item>
           </View>
         </View>
 
 
           <View style={{ marginTop: 15 }}>
-            <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-              {strings.AFDOB}
-            </Text>
-            <View style={{ height: 30, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
-              <Item style={{ flex: 1 }}>
+            <View style={{ alignSelf: 'stretch',borderBottomColor: '#000000',borderBottomWidth: 1,marginBottom:20 }}>
               <DatePicker
                       style={{width: 175}}
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
                       mode="date"
                       placeholder="Please select date"
+                      placeholderTextColor="#000000"
                       format="DD-MM-YYYY"
                       confirmBtnText="Confirm"
                       cancelBtnText="Cancel"
@@ -266,12 +269,11 @@ const relationships = [
                           fontSize: 20
                         },
 
-
-                  placeholderText: {
-                      fontSize: 15,
-                      marginLeft: 15,
-                      color: '#234456'
-                  }
+                        placeholderText: {
+                            color: '#000000',
+                            fontSize: 15,
+                            marginLeft: 15
+                        }
                         // ... You can check the source to find the other keys.
                       }}
                       onDateChange={(date) => {
@@ -279,83 +281,65 @@ const relationships = [
                       }
                       }
                     />
-
-              </Item>
             </View>
           </View>
 
 
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.Address}
-          </Text>
-          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-            <Input
-              placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
-              placeholderTextColor="#8B8DAC"
-              style={{fontSize: 10,color: '#234456'}}
-              style={styles.input}
 
-              value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
-              onFocus={() => this.openLocationSearch()}
-              
+
+        <View style={{ marginTop: 20 }}>
+          <View style={{ alignSelf: 'stretch' }}>
+            <TextInput style={styles.textInput}
+                placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
+                placeholder="Address"
+                placeholderTextColor="#000000"
+                underlineColorAndroid={'transparent'}
+                value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
+                onFocus={() => this.openLocationSearch()}
             />
-            </Item>
           </View>
         </View>
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.phoneno}
-          </Text>
-          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0, marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-            <Input
-                    placeholderTextColor='#adb4bc'
-                    keyboardType={'phone-pad'}
-                    returnKeyType='done'
-                    autoCapitalize='none'
-                    onChangeText={text => {
-                      this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
-                    }}
-                    value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
-                    autoCorrect={false}
-                    secureTextEntry={false}
-                    style={styles.input}
-                  />
-            </Item>
+        
+        <View style={{ marginTop: 20 }}>
+          <View style={{ alignSelf: 'stretch' }}>
+            <TextInput style={styles.textInput}
+                placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
+                placeholder="Phone Number"
+                placeholderTextColor="#000000"
+                underlineColorAndroid={'transparent'}
+                keyboardType={'phone-pad'}
+                returnKeyType='done'
+                autoCapitalize='none'
+                onChangeText={text => {
+                  this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
+                }}
+                value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
+                autoCorrect={false}
+                secureTextEntry={false}
+            />
           </View>
         </View>
 
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFRelationship}
-          </Text>
-          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
 
+        <View style={{ marginTop: 35 }}>
+          <View style={{ alignSelf: 'stretch' ,borderBottomColor: '#000000',borderBottomWidth: 1, marginBottom:20}}>
             <RNPickerSelect
-                    placeholder={{}}
-                      items={relationships}
-                      onValueChange={value => {
-                                      this.setState({
-                                        appointment: { ...this.state.appointment, relationship: value}
-                                      });
-                                    }}
-                      style={ styles.inputIOSstyles,styles.inputAndroid}
-                      value={this.state.appointment.relationship}
-                    />
-            </Item>
+                placeholder={{}}
+                items={relationships}
+                onValueChange={value => {
+                                this.setState({
+                                  appointment: { ...this.state.appointment, relationship: ''}
+                                });
+                              }}
+                style={ styles.inputIOS,styles.inputAndroid}
+                value={this.state.appointment.relationship}
+              />
           </View>
         </View>
 
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFServiceType}
-          </Text>
-          <View style={{ height: 20, borderColor: 'gray', borderWidth: 0,flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
 
+        <View style={{ marginTop: 45 }}>
+          <View style={{ alignSelf: 'stretch' ,borderBottomColor: '#000000',borderBottomWidth: 1, marginBottom:20 }}>
             <RNPickerSelect
                     placeholder={{}}
                       items={serviceType}
@@ -364,62 +348,61 @@ const relationships = [
                                         appointment: { ...this.state.appointment, serviceType: value}
                                       });
                                     }}
-                      style={ styles.inputIOSstyles,styles.inputAndroid}
+                      style={ styles.inputIOS,styles.inputAndroid}
                       value={this.state.appointment.serviceType}
                     />
-            </Item>
           </View>
         </View>
 
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFMedicalConditions}
-          </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-            <TextInput
-              style={styles.textArea}
-              placeholder={strings.medicalCondition}
-              onChangeText={text => {
-                this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
-              }}
-              value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
-              editable={true}
-              multiline={true}
-              numberOfLines={4}
-              selectionColor={commonColor.lightThemePlaceholder}
-            />
-
-            </Item>
+        <View style={{ marginTop: 50 }}>
+          <View style={{ alignSelf: 'stretch' }}>
+            <TextInput style={styles.textArea}
+              placeholderTextColor="#000000"
+              underlineColorAndroid={'transparent'}
+                placeholder={strings.medicalCondition}
+                onChangeText={text => {
+                  this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
+                }}
+                value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
+                editable={true}
+                multiline={true}
+                numberOfLines={4}
+                selectionColor={commonColor.lightThemePlaceholder}
+              />
           </View>
         </View>
 
 
-        <View style={{ marginTop: 15 }}>
-          <Text style={{ color: "#a9a9a9", fontSize: 15 }}>
-            {strings.AFOtherInstructions}
-          </Text>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
-            <Item style={{ flex: 1 }}>
-            <TextInput
-              style={styles.textArea}
+        <View style={{ marginTop: 30 }}>
+          <View style={{ alignSelf: 'stretch' }}>
+            <TextInput style={styles.textArea}
+            placeholderTextColor="#000000"
+            underlineColorAndroid={'transparent'}
+            placeholder={strings.otherInstructions}
               onChangeText={text => {
                 this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
               }}
               value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
-              placeholder={strings.otherInstructions}
               editable={true}
               multiline={true}
               numberOfLines={4}
               selectionColor={commonColor.lightThemePlaceholder}
             />
-
-            </Item>
           </View>
-        </View>
+         </View>
 
         <Button
-          onPress={() => this.submit()}
+          onPress={() => {
+            if (this.state.appointment.patientName == null){
+              this.setState(() => ({ nameError: "Patient Name required"}));
+            } 
+            if (this.state.appointment.sponsorName == null){
+              this.setState(() => ({ nameError1: "Sponsor Name required"}));
+            } else {
+              this.setState(() => ({ nameError: null}))
+              this.submit()
+            }
+          }} 
           rounded
           style={styles.updateButton}
         >

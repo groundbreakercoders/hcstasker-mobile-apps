@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
+    marginTop:10,
+    marginRight:10
     
   },
   radioText: {
@@ -71,16 +73,16 @@ const styles = StyleSheet.create({
   },
   textArea: {
     height: 150,
-    borderColor: "#AEB1C5",
+    borderColor: "#000000",
     borderWidth: 1,
-    width: Dimensions.get("window").width - 55,
-    backgroundColor: "#fff",
+    width: Dimensions.get("window").width - 75,
+    backgroundColor: 'white',
     padding: 10,
     paddingRight: 0,
-    alignSelf: "center",
+    //alignSelf: "center",
     fontSize: 17,
     textAlignVertical: "top",
-    marginBottom:10
+    marginBottom:20,
   },
   TextInputStyle: {
     textAlign: 'center',
@@ -102,7 +104,67 @@ inputAndroid: {
   paddingVertical: 8,
   color: 'black',
   paddingRight: 30, // to ensure the text is never behind the icon
+},
+inputStyle: {
+  height: 40, 
+  borderColor: 'gray', 
+  borderWidth: 1, 
+  flexDirection: "row", 
+  marginTop: 10,
+  borderRadius: 10,
+  fontSize:20,
+},
+container: {
+  marginTop: 15,
+  flex:1,
+  justifyContent: 'flex-start',
+  backgroundColor: 'white',
+  paddingLeft: 10,
+  paddingRight: 10
+},
+header:{
+  fontSize: 24,
+  color: '#fff',
+  paddingBottom: 10,
+  marginBottom: 40,
+  borderBottomColor: '#199187',
+  borderBottomWidth: 1
+},
+textInput: {
+  alignSelf: 'stretch',
+  height: 40,
+  color: '#000000',
+  borderBottomColor: '#000000',
+  borderBottomWidth: 1,
+  marginBottom: 30,
+},
+headerStyle: {
+  fontSize: 10,
+  backgroundColor: "#2196f3",
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: 50,
+  shadowColor: '#000',
+  shadowOffset: {width:0,height:2},
+  shadowOpacity: 0.2
+},
+topHeader: {
+  backgroundColor: "#3cb371",
+  height: 100
+},
+headerContainer: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#e5e5e5"
+},
+headerStyleText: {
+  fontSize: 20,
+  textAlign: "center",
+  margin: 10,
+  fontWeight: "bold"
 }
+
 });
 
 export default styles;

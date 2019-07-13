@@ -161,6 +161,7 @@ const lang = {
     editAppointment:"Edit Appointment",
     myAppointments:"My Appointments",
     medicalCondition: "Please enter medical conditions",
+    otherInstructions: "Please enter Other Instructions"
   }
 };
 
