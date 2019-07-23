@@ -37,7 +37,7 @@ class MaintainAppointment extends Component {
           >
             <View
               style={{
-                backgroundColor: "#db7093",
+                backgroundColor: "#6495ed",
                 flexDirection: "row",
                 //alignContent: "center",
                 //marginTop: 40,

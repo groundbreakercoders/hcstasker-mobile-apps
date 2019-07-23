@@ -15,9 +15,10 @@ const PageHeader = ({
 }) => (
   <Header
     style={{
-      backgroundColor: "#fff",
-      borderBottomWidth: borderBottom ? 1 : 0,
-      borderBottomColor: "#C2C5DB"
+      backgroundColor: "#6495ed",
+      //borderBottomWidth: borderBottom ? 1 : 0,
+      borderBottomColor: "#C2C5DB",
+      marginTop: 0
     }}
   >
     {backButton ? (
@@ -28,7 +29,11 @@ const PageHeader = ({
       </Left>
     ) : null}
     <Body style={{ flex: Platform.OS === "ios" ? 1 : 0.7 }}>
-      <Text style={main ? styles.headerTextMain : styles.headerText}>
+      <Text style={{ marginTop:10,
+        fontSize: 28,
+        fontWeight: "bold",
+        color: "white"
+        }}>
         {title}
       </Text>
     </Body>

@@ -16,7 +16,7 @@ import {
 } from "native-base";
 import Booking from "../booking";
 import _ from "lodash";
-import { Dimensions, View } from "react-native";
+import { Dimensions, View,StatusBar } from "react-native";
 import { connect } from "react-redux";
 import Header from "../common/header";
 import { Actions } from "react-native-router-flux";
@@ -51,8 +51,8 @@ class Appointments extends Component {
   render() {
     const { strings } = this.props;
     return (
-      <Container>
-        <Header title={this.props.strings.myAppointments}  />
+      <Container >
+        <Header title={this.props.strings.myAppointments}/>
         <Content>
                   {this.props.appointments != null && this.props.appointments.length > 0 ? (
                     <View>

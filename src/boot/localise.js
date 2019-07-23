@@ -58,7 +58,7 @@ const lang = {
     task: "Task",
     History: "History",
     bookingHistory: "Booking History",
-    Upcoming: "Upcoming",
+    AppointmentHistory: "AppointmentHistory",
     Past: "Past",
     NoUpcomingTasks: "No Upcoming Tasks",
     NoTaskHistory: "No Task History",

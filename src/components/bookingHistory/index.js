@@ -66,15 +66,15 @@ class BookingHistory extends Component {
             style={{ flex: 0, backgroundColor: "#fff", borderTopWidth: 0 }}
             onChangeTab={({ i }) => this.getHistory(i)}
           >
-            <Tab heading={strings.Upcoming}>
+            <Tab heading={strings.AppointmentHistory}>
 
             </Tab>
-            <Tab
+            {/*<Tab
               heading={strings.Past}
               style={{ backgroundColor: "#fff", borderTopWidth: 0 }}
             >
 
-            </Tab>
+            </Tab>*/}
           </Tabs>
         </Content>
       </Container>

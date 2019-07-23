@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingRight: 0,
     //alignSelf: "center",
-    fontSize: 17,
+    fontSize: 18,
     textAlignVertical: "top",
     marginBottom:20,
   },
@@ -137,6 +137,7 @@ textInput: {
   borderBottomColor: '#000000',
   borderBottomWidth: 1,
   marginBottom: 30,
+  fontSize: 18,
 },
 headerStyle: {
   fontSize: 10,
@@ -163,7 +164,7 @@ headerStyleText: {
   textAlign: "center",
   margin: 10,
   fontWeight: "bold"
-}
+},
 
 });
 
