@@ -37,12 +37,16 @@ class MaintainAppointment extends Component {
           >
             <View
               style={{
+<<<<<<< HEAD
                 backgroundColor: "#6495ed",
+=======
+                backgroundColor: commonColor.brandPrimary,
+>>>>>>> 89eb6ea336833b1486f83765f7dbc0668a08852a
                 flexDirection: "row",
                 //alignContent: "center",
                 //marginTop: 40,
                 paddingLeft: 0
-                
+
               }}
             >
               <Button
@@ -69,7 +73,7 @@ class MaintainAppointment extends Component {
                 strings.createAppointment
               )}
               </Text>
-            
+
             </View>
             <MaintainAppointmentForm strings={strings} appointment={appointment} />
           </View>
