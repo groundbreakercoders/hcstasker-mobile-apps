@@ -66,34 +66,7 @@ class MaintainAppointmentForm extends Component {
       this.inputRefs = {
         relationship: null,
       };
-<<<<<<< HEAD
-      
-    const validate = ({ patientName }) => {
-      const errors = {}
-      if (patientName.trim() == null){
-        errors.patientName = 'Must not be blank'
-      }
-      return errors;
-    };
-    if(props.appointment) {
-        this.state = {
-          loading: true,
-          data: null,
-          cost: "",
-          appointment:props.appointment,
-          isEditMode: true,
-        };
-      } else {
-        this.state = {
-          loading: true,
-          data: null,
-          cost: "",
-          appointment:{},
-          isEditMode: true,
-          relationship:undefined,
-          serviceType:undefined
-        };
-=======
+
   const validate = ({ patientName }) => {
     const errors = {}
     if (patientName.trim() == null){
@@ -119,15 +92,13 @@ class MaintainAppointmentForm extends Component {
             relationship:undefined,
             serviceType:undefined
           };
-
->>>>>>> 89eb6ea336833b1486f83765f7dbc0668a08852a
       }
   }
 
   componentDidMount() {
   }
 
-  
+
   openLocationSearch(){
     this.setState({placesModal:true});
   }
@@ -198,7 +169,7 @@ class MaintainAppointmentForm extends Component {
       },
     });
     const { strings, appointment } = this.props;
-    
+
     const serviceType = [
       {
         label: 'Nurse',
@@ -211,21 +182,10 @@ class MaintainAppointmentForm extends Component {
         value: 'Baby Sitter'
       },
     ]
-    
-    
+
+
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
-        {this.state.placesModal === true ? (
-          <View style={{ marginTop: 20 }}>
-            <MapInput notifyChange={details => this.getPlaces(details)} />
-          </View>
-        ) : (
-        <View style={ styles.header}>
-          <View style={{ marginTop: 20 }}>
-            <View>
-              <TextInput style={styles.textInput}
-=======
       {this.state.placesModal === true ? (
         <View style={{ marginTop: 20 }}>
           <MapInput notifyChange={details => this.getPlaces(details)} />
@@ -235,7 +195,6 @@ class MaintainAppointmentForm extends Component {
         <View style={{ marginTop: 20 }}>
           <View style={{alignSelf: 'stretch'}}>
           <TextInput style={styles.textInput}
->>>>>>> 89eb6ea336833b1486f83765f7dbc0668a08852a
                 placeholder="Patient Name"
                 placeholderTextColor="#000000"
                 underlineColorAndroid={'transparent'}
@@ -247,23 +206,7 @@ class MaintainAppointmentForm extends Component {
               {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
             </View>
           </View>
-<<<<<<< HEAD
-        
-          <View style={{ marginTop: 15 }}>
-            <View style={{ alignSelf: 'stretch' }}>
-              <TextInput style={styles.textInput}
-                  placeholder="Sponsor Name"
-                  placeholderTextColor="#000000"
-                  underlineColorAndroid={'transparent'}
-                  onChangeText={text => {
-                    this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
-                  }}
-                  value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
-              />
-              {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
-            </View>
-=======
-        </View>
+
         <View style={{ marginTop: 15 }}>
           <View style={{ alignSelf: 'stretch' }}>
           <TextInput style={styles.textInput}
@@ -276,8 +219,8 @@ class MaintainAppointmentForm extends Component {
                 value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
                 />
                 {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
->>>>>>> 89eb6ea336833b1486f83765f7dbc0668a08852a
           </View>
+        </View>
 
         <View style={{ marginTop: 15 }}>
           <View style={{  alignSelf: 'stretch' }}>
@@ -450,13 +393,6 @@ class MaintainAppointmentForm extends Component {
           onPress={() => {
             if (this.state.appointment.patientName == null ){
               this.setState(() => ({ nameError: "Patient Name required"}));
-<<<<<<< HEAD
-=======
-            }
-
-            if (this.state.appointment.sponsorName == null){
-              this.setState(() => ({ nameError1: "Sponsor Name required"}));
->>>>>>> 89eb6ea336833b1486f83765f7dbc0668a08852a
             } else {
               this.setState(() => ({ nameError: null}))
             }
