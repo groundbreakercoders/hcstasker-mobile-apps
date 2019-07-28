@@ -242,10 +242,10 @@ class MaintainAppointmentForm extends Component {
           <View style={{ marginTop: 15 }}>
             <View style={{ alignSelf: 'stretch',borderBottomColor: '#000000',borderBottomWidth: 1,marginBottom:20 }}>
               <DatePicker
-                      style={{width: 175}}
+                      style={{width: 200}}
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
                       mode="date"
-                      placeholder="Please select date"
+                      placeholder="Please select DOB"
                       placeholderTextColor="#000000"
                       format="DD-MM-YYYY"
                       confirmBtnText="Confirm"
@@ -270,7 +270,8 @@ class MaintainAppointmentForm extends Component {
                         placeholderText: {
                             color: '#000000',
                             fontSize: 17,
-                            marginLeft: 15
+                            marginLeft: 15,
+                            paddingLeft:5
                         }
                         // ... You can check the source to find the other keys.
                       }}
