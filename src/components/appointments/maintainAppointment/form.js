@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { TouchableOpacity, TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions, StatusBar, YellowBox} from "react-native";
+import { Picker, TouchableOpacity, TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions, StatusBar, YellowBox} from "react-native";
 import {
   Item,
   Input,
@@ -34,6 +34,9 @@ import RNPickerSelect from 'react-native-picker-select';
 
 const relationships = [
   {
+    label: 'Select a Relationship ...',
+    value: ''
+  },{
     label: 'Father',
     value: 'father'
   },{
@@ -54,7 +57,7 @@ const relationships = [
   },
   {
     label: 'Other',
-    value: ''
+    value: 'Other'
   }
 ];
 
@@ -149,28 +152,20 @@ class MaintainAppointmentForm extends Component {
 
   render() {
     const pickerSelectStyles = StyleSheet.create({
-      inputIOS: {
-        fontSize: 18,
-        paddingVertical: 12,
-        paddingHorizontal: 10,
-        color: 'white',
-        borderBottomColor: '#f8f8f8',
-        borderBottomWidth: 1,
-        paddingRight: 30, // to ensure the text is never behind the icon
-      },
-      inputAndroid: {
-        fontSize: 16,
-        paddingHorizontal: 10,
-        paddingVertical: 8,
-        color: 'white',
-        borderBottomColor: '#f8f8f8',
-        borderBottomWidth: 1,
-        paddingRight: 30, // to ensure the text is never behind the icon
-      },
-    });
+  inputIOS: {
+    fontSize: 18
+  },
+  inputAndroid: {
+    fontSize: 18
+  },
+});
     const { strings, appointment } = this.props;
 
     const serviceType = [
+      {
+        label: 'Select a ServiceType ...',
+        value: ''
+      },
       {
         label: 'Nurse',
         value: 'Nurse'
@@ -181,7 +176,12 @@ class MaintainAppointmentForm extends Component {
         label: 'Baby Sitter',
         value: 'Baby Sitter'
       },
-    ]
+    ];
+
+    const placeholder = {
+      label: 'Select a sport...',
+      value: ''
+    };
 
 
     return (
@@ -206,7 +206,6 @@ class MaintainAppointmentForm extends Component {
               {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
             </View>
           </View>
-
         <View style={{ marginTop: 15 }}>
           <View style={{ alignSelf: 'stretch' }}>
           <TextInput style={styles.textInput}
@@ -322,16 +321,17 @@ class MaintainAppointmentForm extends Component {
       <View style={{ marginTop: 35 }}>
           <View style={{ alignSelf: 'stretch' ,borderBottomColor: '#000000',borderBottomWidth: 1, marginBottom:20, height: 30}}>
             <RNPickerSelect
-                placeholder={{ }}
+                placeholder={{}}
                 items={relationships}
                 onValueChange={value => {
                                 this.setState({
                                   appointment: { ...this.state.appointment, relationship: value}
                                 });
                               }}
-                style={ {}}
+                style={pickerSelectStyles}
                 value={this.state.appointment.relationship}
               />
+
           </View>
         </View>
 
@@ -346,7 +346,7 @@ class MaintainAppointmentForm extends Component {
                                         appointment: { ...this.state.appointment, serviceType: value}
                                       });
                                     }}
-                      style={ styles.inputIOS,styles.inputAndroid}
+                        style={pickerSelectStyles}
                       value={this.state.appointment.serviceType}
                     />
           </View>
