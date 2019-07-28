@@ -214,6 +214,15 @@ class Home extends Component {
     };
 
   }
+  createAppointment() {
+    const now = Date.now();
+    if (this.lastTap && (now - this.lastTap) < 500) {
+      console.log('Double Clicked!');
+    } else {
+      Actions.maintainappointment({"appointment":null})
+      this.lastTap = now;
+    }
+}
 
 
   render() {
@@ -284,7 +293,7 @@ class Home extends Component {
                 alignSelf: "center",
                 justifyContent: "center"
               }}
-              onPress={() => Actions.maintainappointment({"appointment":null})}
+              onPress={() => this.createAppointment()}
             >
               <Text style={{ fontSize: 18,
               color: "#fff",

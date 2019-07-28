@@ -30,6 +30,7 @@ import firebase from "react-native-firebase";
 import AppointmentActions from "../../Redux/appointmentstore";
 
 class Appointments extends Component {
+  lastTap = null;
   constructor(props) {
     super(props);
     this.state = {};
@@ -48,6 +49,16 @@ class Appointments extends Component {
     return Math.ceil(total / length);
   }
 
+  pressItem(appointment) {
+    const now = Date.now();
+    if (this.lastTap && (now - this.lastTap) < 500) {
+      console.log('Double Clicked!');
+    } else {
+      Actions.maintainappointment({"appointment":appointment})
+      this.lastTap = now;
+    }
+}
+
   render() {
     const { strings } = this.props;
     return (
@@ -63,7 +74,7 @@ class Appointments extends Component {
                           >
 
                             <Item
-                               onPress={() => Actions.maintainappointment({"appointment":appointment})}
+                               onPress={() => this.pressItem(appointment)}
                                style={{ borderBottomWidth: 0 }}
                             >
 
