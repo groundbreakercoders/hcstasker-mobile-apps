@@ -196,7 +196,7 @@ class MaintainAppointmentForm extends Component {
           <View style={{alignSelf: 'stretch'}}>
           <TextInput style={styles.textInput}
                 placeholder="Patient Name"
-                placeholderTextColor="#000000"
+                placeholderTextColor="#44466B"
                 underlineColorAndroid={'transparent'}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
@@ -210,7 +210,7 @@ class MaintainAppointmentForm extends Component {
           <View style={{ alignSelf: 'stretch' }}>
           <TextInput style={styles.textInput}
                 placeholder="Sponsor Name"
-                placeholderTextColor="#000000"
+                placeholderTextColor="#44466B"
                 underlineColorAndroid={'transparent'}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
@@ -229,10 +229,10 @@ class MaintainAppointmentForm extends Component {
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
               <RadioButton style={styles.radioButton} value={"M"}>
-                  <Text style={{ color:'#000000',marginRight:10, marginTop:10, fontSize:18, height: 30}} >Male</Text><Radio/>
+                  <Text style={{ color:'#44466B',marginRight:10, marginTop:10, fontSize:18, height: 30}} >Male</Text><Radio/>
               </RadioButton>
               <RadioButton style={styles.radioButton} value={"F"}>
-                 <Radio/><Text style={{ color:'#000000',marginLeft:10, marginTop:10, fontSize:18, height: 30}}> Female</Text>
+                 <Radio/><Text style={{ color:'#44466B',marginLeft:10, marginTop:10, fontSize:18, height: 30}}> Female</Text>
               </RadioButton>
             </RadioGroup>
           </View>
@@ -240,7 +240,7 @@ class MaintainAppointmentForm extends Component {
 
 
           <View style={{ marginTop: 15 }}>
-            <View style={{ alignSelf: 'stretch',borderBottomColor: '#000000',borderBottomWidth: 1,marginBottom:20 }}>
+            <View style={{ alignSelf: 'stretch',borderBottomColor: '#44466B',borderBottomWidth: 1,marginBottom:20 }}>
               <DatePicker
                       style={{width: 200}}
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
