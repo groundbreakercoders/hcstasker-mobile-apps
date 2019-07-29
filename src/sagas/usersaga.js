@@ -786,7 +786,7 @@ function* loginUser({ email, password, launchUserType}) {
               }
               throw new Error("Authorization Failed");
             } else {
-                NavigationActions.reset(userType);
+                NavigationActions.reset("user");
             }
 
           });
@@ -820,7 +820,7 @@ function* loginUser({ email, password, launchUserType}) {
         }
           throw new Error("Authorization Failed");
       } else {
-        NavigationActions.reset(userType);
+        NavigationActions.reset("user");
       }
     }
     if (success === true || success === "error") {

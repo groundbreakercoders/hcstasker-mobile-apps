@@ -16,7 +16,7 @@ function* getAppointments(filter) {
                   .collection("appointments");
     if(filter.usertype === 'user') {
       query=query.where("userId", "==", filter.userid);
-    } else if(filter.usertype === 'supervisor') {
+    } else if(filter.usertype === 'tasker') {
        query=query.where("supervisorId", "==", filter.userid);
      }
 
