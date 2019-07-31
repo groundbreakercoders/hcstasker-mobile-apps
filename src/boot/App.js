@@ -76,7 +76,7 @@ class App extends Component {
       <Scene
         key="user"
         initial={
-          this.props.user.userType === "user" && this.props.user.isLoggedIn
+          //this.props.user.userType === "user" && this.props.user.isLoggedIn
           (this.props.user.userType === "user" || this.props.user.userType === "tasker") && this.props.user.isLoggedIn
         }
         hideNavBar
