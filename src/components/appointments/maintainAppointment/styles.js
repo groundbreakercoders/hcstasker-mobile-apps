@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
   radioButton: {
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
-    marginTop:10,
+    flexDirection: "row", 
     marginRight:10
   },
   radioText: {
@@ -73,15 +72,15 @@ const styles = StyleSheet.create({
   textArea: {
     height: 150,
     borderColor: "#000000",
-    borderWidth: 1,
+    borderWidth: 2,
     width: Dimensions.get("window").width - 75,
     backgroundColor: 'white',
-    padding: 10,
+    padding: 5,
     paddingRight: 0,
     //alignSelf: "center",
     fontSize: 18,
     textAlignVertical: "top",
-    marginBottom:20,
+    marginBottom:10,
   },
   TextInputStyle: {
     textAlign: 'center',
@@ -117,18 +116,27 @@ header:{
   fontSize: 24,
   color: '#fff',
   paddingBottom: 10,
-  marginBottom: 40,
-  borderBottomColor: '#199187',
-  borderBottomWidth: 1
+  marginBottom: 40
 },
-textInput: {
-  alignSelf: 'stretch',
+textInput:{
+  margin:15,
   height: 40,
-  color: '#000000',
-  borderBottomColor: '#000000',
-  borderBottomWidth: 1,
-  marginBottom: 30,
+  color:'#44466B',
+  fontWeight: "bold",
+  marginBottom:1,
   fontSize: 18,
+},
+input: {
+      margin: 15,
+      height: 40,
+      marginTop:1,
+      borderColor: '#000000',
+      borderWidth: 2,
+      fontSize: 18,
+      fontWeight: "500",
+      color: "#44466B",
+      padding:5
+      //borderBottomWidth: 1,
 },
 headerStyle: {
   fontSize: 10,

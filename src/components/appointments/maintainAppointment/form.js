@@ -34,7 +34,7 @@ import RNPickerSelect from 'react-native-picker-select';
 
 const relationships = [
   {
-    label: 'Select a Relationship ...',
+    label: '',
     value: ''
   },{
     label: 'Father',
@@ -153,7 +153,9 @@ class MaintainAppointmentForm extends Component {
   render() {
     const pickerSelectStyles = StyleSheet.create({
   inputIOS: {
-    fontSize: 18
+    fontSize: 18,
+    color:'#44466B',
+    padding:5
   },
   inputAndroid: {
     fontSize: 18
@@ -163,7 +165,7 @@ class MaintainAppointmentForm extends Component {
 
     const serviceType = [
       {
-        label: 'Select a ServiceType ...',
+        label: '',
         value: ''
       },
       {
@@ -193,11 +195,9 @@ class MaintainAppointmentForm extends Component {
       ) : (
       <View style={ styles.header}>
         <View style={{ marginTop: 20 }}>
-          <View style={{alignSelf: 'stretch'}}>
-          <TextInput style={styles.textInput}
-                placeholder="Patient Name"
-                placeholderTextColor="#44466B"
-                underlineColorAndroid={'transparent'}
+            <Text style={styles.textInput}>{strings.AFPatientName}</Text>
+            <View style={{marginTop:1}}>
+              <TextInput style={styles.input}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
                 }}
@@ -206,12 +206,11 @@ class MaintainAppointmentForm extends Component {
               {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
             </View>
           </View>
-        <View style={{ marginTop: 15 }}>
-          <View style={{ alignSelf: 'stretch' }}>
-          <TextInput style={styles.textInput}
-                placeholder="Sponsor Name"
-                placeholderTextColor="#44466B"
-                underlineColorAndroid={'transparent'}
+
+        <View style={{}}>
+            <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
+            <View style={{marginTop:1}}>
+            <TextInput style={styles.input}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
                 }}
@@ -221,32 +220,32 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-        <View style={{ marginTop: 15 }}>
-          <View style={{  alignSelf: 'stretch' }}>
+        <View style={{ }}>
+            <Text style={styles.textInput}>{strings.AFGender}</Text>
+            <View style={{ marginTop:1}}>
               <RadioGroup
                 defaultChoice={this.genderIdx()}
-                style={{ color: '#fff', flexDirection: "row", marginBottom: 30 , borderBottomColor: '#000000',borderBottomWidth: 1 }}
+                style={{ marginTop: 5, margin:15, height:20, color: '#fff', flexDirection: "row"}}
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
               <RadioButton style={styles.radioButton} value={"M"}>
-                  <Text style={{ color:'#44466B',marginRight:10, marginTop:10, fontSize:18, height: 30}} >Male</Text><Radio/>
+                  <Text style={{ color:'#44466B',marginRight:10,fontSize:18, height: 25}} >Male</Text><Radio/>
               </RadioButton>
               <RadioButton style={styles.radioButton} value={"F"}>
-                 <Radio/><Text style={{ color:'#44466B',marginLeft:10, marginTop:10, fontSize:18, height: 30}}> Female</Text>
+                 <Radio/><Text style={{ color:'#44466B',marginLeft:10, fontSize:18, height: 25}}> Female</Text>
               </RadioButton>
             </RadioGroup>
           </View>
         </View>
 
 
-          <View style={{ marginTop: 15 }}>
-            <View style={{ alignSelf: 'stretch',borderBottomColor: '#44466B',borderBottomWidth: 1,marginBottom:20 }}>
+          <View style={{ }}>
+              <Text style={styles.textInput}>{strings.AFDOB}</Text>
+              <View style={{ marginTop:1}}>
               <DatePicker
-                      style={{width: 200}}
+                      style={{margin:15,marginTop:1, width: 200}}
                       date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
                       mode="date"
-                      placeholder="Please select DOB"
-                      placeholderTextColor="#000000"
                       format="DD-MM-YYYY"
                       confirmBtnText="Confirm"
                       cancelBtnText="Cancel"
@@ -268,7 +267,7 @@ class MaintainAppointmentForm extends Component {
                         },
 
                         placeholderText: {
-                            color: '#000000',
+                            color: '#44466B',
                             fontSize: 17,
                             marginLeft: 15,
                             paddingLeft:5
@@ -283,29 +282,22 @@ class MaintainAppointmentForm extends Component {
             </View>
           </View>
 
-
-
-
-        <View style={{ marginTop: 20 }}>
-          <View style={{ alignSelf: 'stretch' }}>
-            <TextInput style={styles.textInput}
+        <View style={{ }}>
+            <Text style={styles.textInput}>{strings.AFAddress}</Text>
+            <View style={{ marginTop:1}}>
+            <TextInput style={styles.input}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
-                placeholder="Address"
-                placeholderTextColor="#000000"
-                underlineColorAndroid={'transparent'}
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
             />
           </View>
         </View>
 
-        <View style={{ marginTop: 20 }}>
-          <View style={{ alignSelf: 'stretch' }}>
-            <TextInput style={styles.textInput}
+        <View style={{ }}>
+          <View style={{ }}>
+            <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
+            <TextInput style={styles.input}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
-                placeholder="Phone Number"
-                placeholderTextColor="#000000"
-                underlineColorAndroid={'transparent'}
                 keyboardType={'phone-pad'}
                 returnKeyType='done'
                 autoCapitalize='none'
@@ -319,8 +311,15 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-      <View style={{ marginTop: 35 }}>
-          <View style={{ alignSelf: 'stretch' ,borderBottomColor: '#000000',borderBottomWidth: 1, marginBottom:20, height: 30}}>
+      <View style={{ }}>
+        <Text style={styles.textInput}>{strings.AFRelationship}</Text>
+          <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}> 
+            <Icon
+              name='ios-arrow-down'
+              size={20}
+              color='white'
+              style={[{right: 18, top: 1, position: 'absolute'}]}
+            />
             <RNPickerSelect
                 placeholder={{}}
                 items={relationships}
@@ -336,9 +335,15 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-
-        <View style={{ marginTop: 45 }}>
-          <View style={{ alignSelf: 'stretch' ,borderBottomColor: '#000000',borderBottomWidth: 1, marginBottom:20, height: 30 }}>
+        <View style={{}}>
+          <Text style={styles.textInput}>{strings.AFServiceType}</Text>
+          <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}> 
+            <Icon
+              name='ios-arrow-down'
+              size={20}
+              color='white'
+              style={[{right: 18, top: 1, position: 'absolute'}]}
+            />
             <RNPickerSelect
                     placeholder={{}}
                       items={serviceType}
@@ -353,18 +358,17 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-    <View style={{ marginTop: 50 }}>
-          <View style={{ alignSelf: 'stretch' }}>
+    <View style={{ }}>
+          <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
+          <View style={{ margin:15,marginTop:1}}>
             <TextInput style={styles.textArea}
-              placeholderTextColor="#000000"
-              underlineColorAndroid={'transparent'}
-                placeholder={strings.medicalCondition}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
                 }}
                 value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
                 editable={true}
                 multiline={true}
+                scrollEnabled = {false}
                 numberOfLines={4}
                 selectionColor={commonColor.lightThemePlaceholder}
               />
@@ -372,20 +376,18 @@ class MaintainAppointmentForm extends Component {
         </View>
 
 
-        <View style={{ marginTop: 30 }}>
-          <View style={{ alignSelf: 'stretch' }}>
+        <View style={{ }}>
+          <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
+          <View style={{ margin:15,marginTop:1}}>            
             <TextInput style={styles.textArea}
-            placeholderTextColor="#000000"
-            underlineColorAndroid={'transparent'}
-            placeholder={strings.otherInstructions}
-              onChangeText={text => {
-                this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
-              }}
-              value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
-              editable={true}
-              multiline={true}
-              numberOfLines={4}
-              selectionColor={commonColor.lightThemePlaceholder}
+                onChangeText={text => {
+                  this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
+                }}
+                value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
+                editable={true}
+                multiline={true}
+                numberOfLines={4}
+                selectionColor={commonColor.lightThemePlaceholder}
             />
           </View>
          </View>
