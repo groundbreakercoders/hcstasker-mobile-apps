@@ -16,14 +16,14 @@ const TabBar = props => {
   const { activeTintColor, inactiveTintColor, strings } = props;
   const icons = [
     "ios-compass-outline",
-    "ios-heart-outline",
+    "ios-notifications-outline",
     "ios-book-outline",
     "ios-person-outline"
   ];
-  const activeIcons = ["ios-compass", "ios-heart", "ios-book", "ios-person"];
+  const activeIcons = ["ios-compass", "ios-notifications", "ios-book", "ios-person"];
   const title = [
     strings.Appointments,
-    strings.favourite,
+    strings.notifications,
     strings.booking,
     strings.account
   ];
@@ -50,12 +50,14 @@ const TabBar = props => {
               zIndex: -1000
             }}
           >
-            {routes.map((route, idx) => {
+            {
+              routes.map((route, idx) => {
               const color = index === idx ? activeTintColor : inactiveTintColor;
               return (
                 <TouchableOpacity
                   key={idx}
                   onPress={() => {
+                    console.log(routes);
                     Actions[route.key].call();
                   }}
                   style={{ flex: 1, backgroundColor: color }}
@@ -92,59 +94,7 @@ const TabBar = props => {
           </View>
         ) : null}
 
-        {props.userPageStatus === "bookingpage" ? (
-          <View
-            style={{
-              backgroundColor: commonColor.brandPrimary,
-              flexDirection: "row",
-              zIndex: -1000
-            }}
-          >
-            <TouchableOpacity
-              style={[styles.fullButton, styles.bookLater]}
-              onPress={() => {
-                props.requestTrip();
-              }}
-            >
-              {props.loading ? (
-                <Spinner color="#fff" />
-              ) : (
-                <Text style={styles.btnText}>{strings.confirmbook}</Text>
-              )}
-            </TouchableOpacity>
-          </View>
-        ) : null}
-        {props.userPageStatus === "bookingConfirmed" ? (
-          <View
-            style={{
-              flexDirection: "row",
-              zIndex: -1000
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => props.cancelBooking()}
-              style={[styles.fullButton, styles.cancelbtn]}
-            >
-              <Text style={styles.btnTextCancel}>{strings.CancelBooking}</Text>
-            </TouchableOpacity>
-          </View>
-        ) : null}
-        {props.userPageStatus === "inprogress" ? (
-          <View
-            style={{
-              flexDirection: "row",
-              zIndex: -1000
-            }}
-          >
-            <TouchableOpacity
-              disabled
-              onPress={() => Alert.alert("Task in progress")}
-              style={[styles.fullButton, styles.bookLater]}
-            >
-              <Text style={styles.btnText}>{strings.taskInProgress}</Text>
-            </TouchableOpacity>
-          </View>
-        ) : null}
+
       </View>
     </View>
   );
