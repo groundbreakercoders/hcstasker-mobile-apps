@@ -42,6 +42,7 @@ const lang = {
     show: "show",
     Explore: "Explore",
     favourite: "Favourite",
+    notifications: "Notifications",
     NoFavourite: "Oops! No Favourite CareTakers",
     fetchTaskers: "Fetching CareTakers",
     Home: "Home",

@@ -22,6 +22,7 @@ import PaymentPage from "../components/payment";
 import ChangePassword from "../components/changePassword";
 import EditProfile from "../components/editProfile";
 import SavedTaskers from "../components/savedTaskers";
+import Notifications from "../components/notifications";
 import TaskerServices from "../components/taskerServices";
 import BecomeTasker from "../components/becomeTasker";
 import Account from "../components/account";
@@ -76,6 +77,7 @@ class App extends Component {
         key="user"
         initial={
           this.props.user.userType === "user" && this.props.user.isLoggedIn
+          (this.props.user.userType === "user" || this.props.user.userType === "tasker") && this.props.user.isLoggedIn
         }
         hideNavBar
       >
@@ -108,6 +110,9 @@ class App extends Component {
             key="savedtaskers"
             component={SavedTaskers}
             title="SavedTaskers Page"
+            key="notifications"
+            component={Notifications}
+            title="Notifications Page"
           />
           <Scene
             hideNavBar

@@ -371,6 +371,7 @@ class MaintainAppointmentForm extends Component {
                 scrollEnabled = {false}
                 numberOfLines={4}
                 selectionColor={commonColor.lightThemePlaceholder}
+                enableAutoAutomaticScroll={false}
               />
           </View>
         </View>
@@ -388,6 +389,7 @@ class MaintainAppointmentForm extends Component {
                 multiline={true}
                 numberOfLines={4}
                 selectionColor={commonColor.lightThemePlaceholder}
+                enableAutoAutomaticScroll={false}
             />
           </View>
          </View>
