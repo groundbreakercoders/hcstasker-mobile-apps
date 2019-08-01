@@ -32,35 +32,6 @@ import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 
-const relationships = [
-  {
-    label: '',
-    value: ''
-  },{
-    label: 'Father',
-    value: 'father'
-  },{
-    label: 'Mother',
-    value: 'mother'
-  },
-  {
-    label: 'Brother',
-    value: 'brother'
-  },
-  {
-    label: 'Sister',
-    value: 'sister'
-  },
-  {
-    label: 'Friend',
-    value: 'friend'
-  },
-  {
-    label: 'Other',
-    value: 'Other'
-  }
-];
-
 class MaintainAppointmentForm extends Component {
 
   constructor(props) {
@@ -70,20 +41,34 @@ class MaintainAppointmentForm extends Component {
         relationship: null,
       };
 
-  const validate = ({ patientName }) => {
-    const errors = {}
-    if (patientName.trim() == null){
-      errors.patientName = 'Must not be blank'
-    }
-    return errors;
-  };
+      const validate = ({ patientName }) => {
+        const errors = {}
+        if (patientName.trim() == null){
+          errors.patientName = 'Must not be blank'
+        }
+        return errors;
+      };
+
+        let isEditable;
+        let isDisabled;
+        if(props.appointment.status === 'Under Review' ||
+            props.appointment.status === 'Service Requested') {
+            isEditable=true;
+            isDisabled=false;
+        } else {
+            isEditable=false;
+            isDisabled=true;
+
+        }
+
       if(props.appointment) {
           this.state = {
             loading: true,
             data: null,
             cost: "",
             appointment:props.appointment,
-            isEditMode: true,
+            isEditMode: isEditable,
+           isDisabled: isDisabled
           };
         } else {
           this.state = {
@@ -91,7 +76,8 @@ class MaintainAppointmentForm extends Component {
             data: null,
             cost: "",
             appointment:{},
-            isEditMode: true,
+            isEditMode: isEditable,
+            isDisabled: isDisabled,
             relationship:undefined,
             serviceType:undefined
           };
@@ -152,16 +138,45 @@ class MaintainAppointmentForm extends Component {
 
   render() {
     const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    fontSize: 18,
-    color:'#44466B',
-    padding:5
-  },
-  inputAndroid: {
-    fontSize: 18
-  },
-});
+      inputIOS: {
+        fontSize: 18,
+        color:'#44466B',
+        padding:5
+      },
+      inputAndroid: {
+        fontSize: 18
+      }
+    });
     const { strings, appointment } = this.props;
+
+    const relationships = [
+      {
+        label: '',
+        value: ''
+      },{
+        label: 'Father',
+        value: 'father'
+      },{
+        label: 'Mother',
+        value: 'mother'
+      },
+      {
+        label: 'Brother',
+        value: 'brother'
+      },
+      {
+        label: 'Sister',
+        value: 'sister'
+      },
+      {
+        label: 'Friend',
+        value: 'friend'
+      },
+      {
+        label: 'Other',
+        value: 'Other'
+      }
+    ];
 
     const serviceType = [
       {
@@ -202,6 +217,7 @@ class MaintainAppointmentForm extends Component {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
                 }}
                 value={this.state.appointment&&this.state.appointment.patientName?this.state.appointment.patientName:''}
+                editable={this.state.isEditMode}
               />
               {!!this.state.nameError && (<Text style={{ color: "red"}}>{this.state.nameError}</Text>)}
             </View>
@@ -214,6 +230,7 @@ class MaintainAppointmentForm extends Component {
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
                 }}
+                editable={this.state.isEditMode}
                 value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
                 />
                 {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
@@ -289,6 +306,7 @@ class MaintainAppointmentForm extends Component {
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
+                editable={this.state.isEditMode}
             />
           </View>
         </View>
@@ -313,7 +331,7 @@ class MaintainAppointmentForm extends Component {
 
       <View style={{ }}>
         <Text style={styles.textInput}>{strings.AFRelationship}</Text>
-          <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}> 
+          <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}>
             <Icon
               name='ios-arrow-down'
               size={20}
@@ -330,6 +348,7 @@ class MaintainAppointmentForm extends Component {
                               }}
                 style={pickerSelectStyles}
                 value={this.state.appointment.relationship}
+                disabled={this.state.isDisabled}
               />
 
           </View>
@@ -337,7 +356,7 @@ class MaintainAppointmentForm extends Component {
 
         <View style={{}}>
           <Text style={styles.textInput}>{strings.AFServiceType}</Text>
-          <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}> 
+          <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}>
             <Icon
               name='ios-arrow-down'
               size={20}
@@ -354,6 +373,7 @@ class MaintainAppointmentForm extends Component {
                                     }}
                         style={pickerSelectStyles}
                       value={this.state.appointment.serviceType}
+                      disabled={this.state.isDisabled}
                     />
           </View>
         </View>
@@ -366,7 +386,7 @@ class MaintainAppointmentForm extends Component {
                   this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
                 }}
                 value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
-                editable={true}
+                editable={this.state.isEditMode}
                 multiline={true}
                 scrollEnabled = {false}
                 numberOfLines={4}
@@ -379,13 +399,13 @@ class MaintainAppointmentForm extends Component {
 
         <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
-          <View style={{ margin:15,marginTop:1}}>            
+          <View style={{ margin:15,marginTop:1}}>
             <TextInput style={styles.textArea}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
                 }}
                 value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
-                editable={true}
+                editable={this.state.isEditMode}
                 multiline={true}
                 numberOfLines={4}
                 selectionColor={commonColor.lightThemePlaceholder}

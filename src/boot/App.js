@@ -107,9 +107,6 @@ class App extends Component {
 
           <Scene
             hideNavBar
-            key="savedtaskers"
-            component={SavedTaskers}
-            title="SavedTaskers Page"
             key="notifications"
             component={Notifications}
             title="Notifications Page"
@@ -222,67 +219,6 @@ class App extends Component {
     );
   }
 
-  renderTaskerStack() {
-    return (
-      <Scene
-        key="tasker"
-        initial={
-          this.props.user.userType === "tasker" && this.props.user.isLoggedIn
-        }
-        hideNavBar
-      >
-        <Stack
-          tabs
-          tabBarPosition="bottom"
-          lazy={Platform.select({
-            ios: true,
-            android: false
-          })}
-          swipeEnabled={false}
-          key="User"
-          initial
-          renderBackButton={NavElement.BackButton}
-          tabBarComponent={TabBarTasker}
-          strings={strings}
-          activeTintColor="#649fff"
-          inactiveTintColor="#6495ed"
-        >
-          <Scene
-            initial
-            key="taskerhomepage"
-            component={TaskerHome}
-            title={strings.tasker}
-            titleStyle={{
-              marginTop: 5,
-              fontWeight: "bold",
-              fontSize: 20,
-              color: "#43496a"
-            }}
-            renderRightButton={() => <DriverOnlineStatusSwitch />}
-          />
-          <Scene
-            hideNavBar
-            key="taskerEarnings"
-            component={TaskerEarnings}
-            title="Earnings"
-          />
-          <Scene
-            hideNavBar
-            key="bookinghistory"
-            component={BookingHistory}
-            title="BookingHistory Page"
-          />
-          <Scene
-            hideNavBar
-            key="accountpage"
-            component={Account}
-            title="Account Page"
-            strings={strings}
-          />
-        </Stack>
-      </Scene>
-    );
-  }
 
   render() {
     return (
@@ -335,7 +271,6 @@ class App extends Component {
           </Scene>
 
           {this.renderUserStack()}
-          {this.renderTaskerStack()}
         </Modal>
       </RouterWithRedux>
     );
