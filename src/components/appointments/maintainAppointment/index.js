@@ -6,7 +6,7 @@ import { Actions } from "react-native-router-flux";
 import styles from "./styles";
 import { connect } from "react-redux";
 import MaintainAppointmentForm from "./form";
-
+import Header from "../../common/header";
 import commonColor from "../../../../native-base-theme/variables/commonColor";
 class MaintainAppointment extends Component {
 
@@ -19,13 +19,13 @@ class MaintainAppointment extends Component {
     };
   }
   componentDidMount() {
-
       this.setState({ loading: false });
   }
   render() {
     const { strings, appointment } = this.props;
     return (
       <Container>
+      <Header title={strings.appointment} backButton />
         <Content scrollEnabled style={{ backgroundColor: "#fff" }}>
           <View
             style={{
@@ -41,34 +41,11 @@ class MaintainAppointment extends Component {
                 flexDirection: "row",
                 //alignContent: "center",
                 //marginTop: 40,
-                paddingLeft: 0
-
+                paddingLeft: 0,
+                flex: 6
               }}
             >
-              <Button
-                style={{ paddingLeft: 0, marginTop:40 }}
-                transparent
-                onPress={() => Actions.pop()}
-              >
-                <Icon
-                  name="ios-arrow-back"
-                  style={{
-                    fontSize: 35,
-                    marginLeft: 5,
-                    color: "white",
-                    width: 65
-                  }}
-                />
-              </Button>
-              <Text
-                style={{fontSize: 28, fontWeight: "bold", color: "white", marginTop: 50 }}
-              >
-              {this.props.appointment ? (
-                strings.editAppointment
-              ) : (
-                strings.createAppointment
-              )}
-              </Text>
+
 
             </View>
             <MaintainAppointmentForm strings={strings} appointment={appointment} />

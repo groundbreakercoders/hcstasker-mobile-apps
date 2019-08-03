@@ -145,6 +145,7 @@ const lang = {
     paymentsuccess: "Payment Success",
     paymentFailed: "Payment Failed. please pay in Cash",
     accept: "Accept",
+    decline: "Decline",
     seconds: "SEC",
     reject: "Reject",
     AFPatientName:"Patient Name",
@@ -160,6 +161,7 @@ const lang = {
     AFDOB:"Date Of Birth",
     createAppointment:"Create Appointment",
     editAppointment:"Edit Appointment",
+    appointment:"Appointment",
     myAppointments:"My Appointments",
     medicalCondition: "Please enter medical conditions",
     otherInstructions: "Please enter Other Instructions"

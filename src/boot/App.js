@@ -124,22 +124,23 @@ class App extends Component {
             title="Account Page"
             strings={strings}
           />
+          <Scene
+            hideNavBar
+            key="appointments"
+            component={Appointments}
+            title="Appointments Page"
+          />
+
+          <Scene
+            hideNavBar
+            key="maintainappointment"
+            component={MaintainAppointment}
+            title="Appointment Form Page"
+            strings={strings}
+          />
         </Stack>
         <Scene key="taskerpage" component={TaskerPage} title="Tasker Page" />
-        <Scene
-          hideNavBar
-          key="appointments"
-          component={Appointments}
-          title="Appointments Page"
-        />
 
-        <Scene
-          hideNavBar
-          key="maintainappointment"
-          component={MaintainAppointment}
-          title="Appointment Form Page"
-          strings={strings}
-        />
         <Scene
           key="PaymentPage"
           strings={strings}

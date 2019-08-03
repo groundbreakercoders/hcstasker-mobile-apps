@@ -51,8 +51,8 @@ class MaintainAppointmentForm extends Component {
 
         let isEditable;
         let isDisabled;
-        if(props.appointment.status === 'Under Review' ||
-            props.appointment.status === 'Service Requested') {
+        if(props.appointment && (props.appointment.status === 'Under Review' ||
+            props.appointment.status === 'Service Requested')) {
             isEditable=true;
             isDisabled=false;
         } else {
@@ -438,7 +438,9 @@ class MaintainAppointmentForm extends Component {
             <Text style={styles.buttonText}>{strings.Save}</Text>
 
         </Button>
+
       </View>
+
 )}
 </View>
     );

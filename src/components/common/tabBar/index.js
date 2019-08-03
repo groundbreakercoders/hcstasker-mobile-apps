@@ -20,6 +20,7 @@ const TabBar = props => {
     "ios-book-outline",
     "ios-person-outline"
   ];
+  const routemaps = [];
   const activeIcons = ["ios-compass", "ios-notifications", "ios-book", "ios-person"];
   const title = [
     strings.Appointments,
@@ -27,6 +28,13 @@ const TabBar = props => {
     strings.booking,
     strings.account
   ];
+  {
+    routes.map((route, idx) => {
+      if(idx<4){
+      routemaps.push(route.key);
+      }
+    })
+  }
   const iconWithName = (name, color) => (
     <Icon name={name}  style={{ color: "white", fontSize: 28 }} />
   );
@@ -41,7 +49,6 @@ const TabBar = props => {
   return (
     <View style={{ height: 55 }}>
       <View style={{ height : 55 }}>
-
         {props.userPageStatus === "home" ? (
           <View
             style={{
@@ -51,44 +58,50 @@ const TabBar = props => {
             }}
           >
             {
-              routes.map((route, idx) => {
+
+              routemaps.map((route, idx) => {
               const color = index === idx ? activeTintColor : inactiveTintColor;
-              return (
-                <TouchableOpacity
-                  key={idx}
-                  onPress={() => {
-                    console.log(routes);
-                    Actions[route.key].call();
-                  }}
-                  style={{ flex: 1, backgroundColor: color }}
-                >
-                  <SafeAreaView
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: Platform.OS === "android" ? 55 : Dimensions.get('screen').height*10/100
-                      // height:Dimensions.get('screen').height*10/100,
-                      // height: 55
+                return (
+                  <TouchableOpacity
+                    key={idx}
+                    onPress={() => {
+                      Actions[route].call();
                     }}
+                    style={{ flex: 1, backgroundColor: color }}
                   >
-                    {iconWithName(
-                      index === idx ? activeIcons[idx] : icons[idx],
-                      color
-                    )}
-                    <Text
+                    <SafeAreaView
                       style={{
-                       color: "white",
-                       fontSize: 10,
-                       textAlign: "center",
-                       // flex: 0.7
-                     }}
-                      numberOfLines={1}
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: Platform.OS === "android" ? 55 : Dimensions.get('screen').height*10/100
+                        // height:Dimensions.get('screen').height*10/100,
+                        // height: 55
+                      }}
                     >
-                      {title[idx]}
-                    </Text>
-                  </SafeAreaView>
-                </TouchableOpacity>
-              );
+                      {iconWithName(
+                        index === idx ? activeIcons[idx] : icons[idx],
+                        color
+                      )}
+                      <Text
+                        style={{
+                         color: "white",
+                         fontSize: 10,
+                         textAlign: "center",
+                         // flex: 0.7
+                       }}
+                        numberOfLines={1}
+                      >
+
+                        {title[idx]}
+                      </Text>
+
+                    </SafeAreaView>
+
+                  </TouchableOpacity>
+                );
+
+
+
             })}
 
           </View>

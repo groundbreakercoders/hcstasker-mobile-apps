@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   radioButton: {
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row", 
+    flexDirection: "row",
     marginRight:10
   },
   radioText: {
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
 },
 inputAndroid: {
-  
+
 },
 inputStyle: {
   height: 40,
@@ -164,7 +164,38 @@ headerStyleText: {
   margin: 10,
   fontWeight: "bold"
 },
-
+containerbtn: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+buttonContainer: {
+        flex: 1,
+},
+acceptButton: {
+  alignSelf: "center",
+  marginTop: 40,
+  marginLeft:10,
+  paddingLeft: 25,
+  paddingRight: 25,
+  width: width - 250,
+  height: 45,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: commonColor.brandPrimary
+},
+declineButton: {
+  alignSelf: "center",
+  marginTop: 40,
+  paddingLeft: 25,
+  paddingRight: 25,
+  width: width - 250,
+  height: 45,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: '#000000'
+}
 });
 
 export default styles;
