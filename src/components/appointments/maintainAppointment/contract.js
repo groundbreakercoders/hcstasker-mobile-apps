@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { Picker, TouchableOpacity, TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions, StatusBar, YellowBox, Platform} from "react-native";
+import { WebView, Picker, TouchableOpacity, TextInput,Text,StyleSheet, TouchableHighlight, Modal, Keyboard,Alert, Dimensions, StatusBar, YellowBox, Platform} from "react-native";
 import {
   Item,
   Input,
@@ -35,64 +35,41 @@ import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 import CustomModal from "../../common/modal";
 import platform from "../../../../native-base-theme/variables/platform";
-import Pdf from 'react-native-pdf';
+
 class Contract extends Component {
 
   constructor(props) {
       super(props);
-
-      this.inputRefs = {
-        relationship: null,
+      this.state = {
+        loading: true,
+        appointment:props.appointment,
       };
 
-      const validate = ({ patientName }) => {
-        const errors = {}
-        if (patientName.trim() == null){
-          errors.patientName = 'Must not be blank'
-        }
-        return errors;
-      };
-
-        let isEditable;
-        let isDisabled;
-        if(props.appointment && (props.appointment.status === 'Under Review' ||
-            props.appointment.status === 'Service Requested')) {
-            isEditable=true;
-            isDisabled=false;
-        } else {
-            isEditable=false;
-            isDisabled=true;
-
-        }
-
-      if(props.appointment) {
-          this.state = {
-            loading: true,
-            data: null,
-            cost: "",
-            appointment:props.appointment,
-            isEditMode: isEditable,
-           isDisabled: isDisabled
-          };
-        } else {
-          this.state = {
-            loading: true,
-            data: null,
-            cost: "",
-            appointment:{},
-            isEditMode: isEditable,
-            isDisabled: isDisabled,
-            relationship:undefined,
-            serviceType:undefined
-          };
-      }
   }
 
   componentDidMount() {
   }
 
 
+updateContractStatus(contractStatus) {
+  this.state.appointment["contractStatus"] = contractStatus;
+  let uniqueId=this.state.appointment.uniqueId;
 
+  firebase
+    .firestore()
+    .collection("appointments")
+    .doc(uniqueId)
+    .set(
+      {
+        uniqueId:uniqueId,
+        contractStatus:contractStatus
+      },
+      {
+        merge: true
+      }
+    );
+
+}
 
   render() {
     const { strings } = this.props;
@@ -116,13 +93,18 @@ class Contract extends Component {
             }}
           >
             <View style={{ flex: 1, flexDirection: "column" }}>
-              <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,
-                borderWidth: 1,borderColor: 'black', shadowColor: 'black',
+              <Text style={styles.useragreement}>{strings.useragreement}</Text>
+              <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,marginBottom:10,
+                borderWidth: 0,borderColor: 'black', shadowColor: 'black',
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.8,
                 shadowRadius: 6,
                 }}>
-                
+
+                <WebView
+                          bounces={false}
+                          scrollEnabled={false}
+                          source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/hcstasker-app.appspot.com/o/Contracts%2Fexample.pdf?alt=media&token=9b63c7df-47b2-456f-99b0-ea2ae56dcfef' }} />
               </View>
               <View
               style={{
@@ -145,6 +127,9 @@ class Contract extends Component {
                   <Button
                   bordered
                   style={styles.acceptButton}
+                  onPress={() => {
+                    this.updateContractStatus("accepted");
+                  }}
                   >
                   <Text style={{ fontSize: 18,
                   color: "#fff",
@@ -159,9 +144,12 @@ class Contract extends Component {
               </View>
               <View style={styles.buttonContainer}>
               <Button
-            bordered
-            style={styles.declineButton}
-          >
+                bordered
+                style={styles.declineButton}
+                onPress={() => {
+                  this.updateContractStatus("declined");
+                }}
+              >
             <Text style={{ fontSize: 18,
             color: "#fff",
             fontWeight: "500",

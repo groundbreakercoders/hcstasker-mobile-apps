@@ -164,7 +164,8 @@ const lang = {
     appointment:"Appointment",
     myAppointments:"My Appointments",
     medicalCondition: "Please enter medical conditions",
-    otherInstructions: "Please enter Other Instructions"
+    otherInstructions: "Please enter Other Instructions",
+    useragreement: "User Agreement"
   }
 };
 

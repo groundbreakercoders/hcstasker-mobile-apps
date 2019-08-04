@@ -198,7 +198,15 @@ declineButton: {
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: '#000000'
-}
+},
+useragreement:{
+  margin:15,
+  height: 40,
+  color:'#44466B',
+  fontWeight: "bold",
+  marginBottom:1,
+  fontSize: 25,
+},
 });
 
 export default styles;

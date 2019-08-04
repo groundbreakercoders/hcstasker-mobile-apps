@@ -50,7 +50,7 @@ class MaintainAppointment extends Component {
 
 
             </View>
-            {appointment && appointment.status == 'Service Requested' ? (
+            {appointment && appointment.status == 'Contract Released' ? (
               <Contract strings={strings} appointment={appointment} />
             ):(
               <MaintainAppointmentForm strings={strings} appointment={appointment} />
