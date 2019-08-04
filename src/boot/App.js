@@ -84,10 +84,7 @@ class App extends Component {
         <Stack
           tabs
           tabBarPosition="bottom"
-          lazy={Platform.select({
-            ios: false,
-            android: false
-          })}
+
           swipeEnabled={false}
           key="User"
           initial
@@ -130,17 +127,22 @@ class App extends Component {
             component={Appointments}
             title="Appointments Page"
           />
-
-          <Scene
-            hideNavBar
-            key="maintainappointment"
-            component={MaintainAppointment}
-            title="Appointment Form Page"
-            strings={strings}
-          />
         </Stack>
         <Scene key="taskerpage" component={TaskerPage} title="Tasker Page" />
-
+        <Scene
+          hideNavBar
+          key="maintainappointment"
+          component={MaintainAppointment}
+          title="Appointment Form Page"
+          strings={strings}
+        />
+        <Scene
+          hideNavBar
+          key="maintainappointment"
+          component={MaintainAppointment}
+          title="Appointment Form Page"
+          strings={strings}
+        />
         <Scene
           key="PaymentPage"
           strings={strings}

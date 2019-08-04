@@ -6,6 +6,7 @@ import { Actions } from "react-native-router-flux";
 import styles from "./styles";
 import { connect } from "react-redux";
 import MaintainAppointmentForm from "./form";
+import Contract from "./contract";
 import Header from "../../common/header";
 import commonColor from "../../../../native-base-theme/variables/commonColor";
 class MaintainAppointment extends Component {
@@ -23,10 +24,11 @@ class MaintainAppointment extends Component {
   }
   render() {
     const { strings, appointment } = this.props;
+    const isScrollEnabled = this.props.appointment && this.props.appointment.status != "Contract Released";
     return (
       <Container>
       <Header title={strings.appointment} backButton />
-        <Content scrollEnabled style={{ backgroundColor: "#fff" }}>
+        <Content scrollEnabled={false} style={{ backgroundColor: "#fff" }}>
           <View
             style={{
               flex: 1,
@@ -48,7 +50,12 @@ class MaintainAppointment extends Component {
 
 
             </View>
-            <MaintainAppointmentForm strings={strings} appointment={appointment} />
+            {appointment && appointment.status == 'Service Requested' ? (
+              <Contract strings={strings} appointment={appointment} />
+            ):(
+              <MaintainAppointmentForm strings={strings} appointment={appointment} />
+            )}
+
           </View>
         </Content>
       </Container>

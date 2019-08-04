@@ -165,18 +165,19 @@ headerStyleText: {
   fontWeight: "bold"
 },
 containerbtn: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+    flex: 1,
+   flexDirection: 'row',
+   alignItems: 'center',
+   justifyContent: 'center',
     },
 buttonContainer: {
         flex: 1,
 },
 acceptButton: {
   alignSelf: "center",
-  marginTop: 40,
+  marginTop: 10,
   marginLeft:10,
+  marginBottom: 20,
   paddingLeft: 25,
   paddingRight: 25,
   width: width - 250,
@@ -187,7 +188,9 @@ acceptButton: {
 },
 declineButton: {
   alignSelf: "center",
-  marginTop: 40,
+  marginTop: 10,
+  marginLeft:10,
+  marginBottom: 20,
   paddingLeft: 25,
   paddingRight: 25,
   width: width - 250,
