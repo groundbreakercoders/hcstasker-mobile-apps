@@ -15,6 +15,7 @@ const PageHeader = ({
 }) => (
   <Header
     style={{
+      flexDirection:'row',
       backgroundColor: "#6495ed",
       //borderBottomWidth: borderBottom ? 1 : 0,
       borderBottomColor: "#C2C5DB",
@@ -30,6 +31,7 @@ const PageHeader = ({
     ) : null}
     <Body style={{ flex: Platform.OS === "ios" ? 1 : 0.7 }}>
       <Text style={{ marginTop:10,
+        marginRight: 40,
         fontSize: 28,
         fontWeight: "bold",
         color: "white"

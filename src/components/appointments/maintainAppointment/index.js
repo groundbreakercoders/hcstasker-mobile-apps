@@ -28,7 +28,7 @@ class MaintainAppointment extends Component {
     return (
       <Container>
       <Header title={strings.appointment} backButton />
-        <Content scrollEnabled={false} style={{ backgroundColor: "#fff" }}>
+        <Content scrollEnabled={true} style={{ backgroundColor: "#fff" }}>
           <View
             style={{
               flex: 1,

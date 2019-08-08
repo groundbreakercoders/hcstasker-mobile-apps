@@ -81,7 +81,8 @@ function* saveAppointment({appointment}) {
             medicalCondition:appointment.medicalCondition,
             otherInstructions:appointment.otherInstructions,
             dob:appointment.dob,
-            dateCreated: dateCreated
+            dateCreated: dateCreated,
+            supervisorComments:appointment.supervisorComments
           },
           {
             merge: true

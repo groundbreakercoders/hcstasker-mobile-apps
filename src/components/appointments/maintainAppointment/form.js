@@ -24,7 +24,8 @@ import commonColor from "../../../../native-base-theme/variables/commonColor";
 import styles from "./styles";
 import firebase from "react-native-firebase";
 import data from "../../../utils/data";
-import {RadioGroup, RadioButton, Radio} from "radio-react-native";
+//import {RadioGroup, RadioButton, Radio} from "radio-react-native";
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import DatePickerCustom from "../../common/datePicker";
 const { height, width } = Dimensions.get("window");
 import moment from "moment";
@@ -32,11 +33,15 @@ import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 
+var radio_props = [
+  {label: 'Male', value: "M"},
+  {label: 'Female', value: "F" }
+];
+
 class MaintainAppointmentForm extends Component {
 
   constructor(props) {
       super(props);
-
       this.inputRefs = {
         relationship: null,
       };
@@ -51,15 +56,18 @@ class MaintainAppointmentForm extends Component {
 
         let isEditable;
         let isDisabled;
-        if(props.appointment && (props.appointment.status === 'Under Review' ||
-            props.appointment.status === 'Service Requested')) {
-            isEditable=true;
-            isDisabled=false;
-        } else {
-            isEditable=false;
-            isDisabled=true;
-
-        }
+        if(props.appointment) {
+          if (props.appointment.status === 'Under Review' || props.appointment.status === 'Service Requested') {
+              isEditable=true;
+              isDisabled=false;
+          } else {
+              isEditable=false;
+              isDisabled=true;
+          }
+        } else{
+          isEditable=true;
+          isDisabled=false;
+      }
 
       if(props.appointment) {
           this.state = {
@@ -140,7 +148,8 @@ class MaintainAppointmentForm extends Component {
     const pickerSelectStyles = StyleSheet.create({
       inputIOS: {
         fontSize: 18,
-        color:'#44466B',
+        color: '#44466B',
+        backgroundColor: this.state.isDisabled ? '#C0C0C0':'#FFF',
         padding:5
       },
       inputAndroid: {
@@ -195,12 +204,6 @@ class MaintainAppointmentForm extends Component {
       },
     ];
 
-    const placeholder = {
-      label: 'Select a sport...',
-      value: ''
-    };
-
-
     return (
       <View style={styles.container}>
       {this.state.placesModal === true ? (
@@ -212,7 +215,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ marginTop: 20 }}>
             <Text style={styles.textInput}>{strings.AFPatientName}</Text>
             <View style={{marginTop:1}}>
-              <TextInput style={styles.input}
+              <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
                 }}
@@ -226,7 +229,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{}}>
             <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
             <View style={{marginTop:1}}>
-            <TextInput style={styles.input}
+            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
                 }}
@@ -239,19 +242,34 @@ class MaintainAppointmentForm extends Component {
 
         <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFGender}</Text>
-            <View style={{ marginTop:1}}>
-              <RadioGroup
+            <View style={{ marginTop:1, marginLeft:20}}>
+            <RadioForm
+              radio_props={radio_props}
+              initial={this.genderIdx()}
+              formHorizontal={false}
+              labelHorizontal={true}
+              buttonColor={'#44466B'}
+              animation={true}
+              selectedButtonColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
+              selectedLabelColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
+              labelStyle = {{ fontSize:18}}
+              disabled={this.state.isDisabled}
+              //onPress={(value,initial)=>this.onChooseGender(value,initial)}
+              onPress={(value,index)=>this.onChooseGender(value,index)}
+              
+            />
+              {/*<RadioGroup
                 defaultChoice={this.genderIdx()}
                 style={{ marginTop: 5, margin:15, height:20, color: '#fff', flexDirection: "row"}}
                 onChoose={(value,index)=>this.onChooseGender(value,index)}
                 >
-              <RadioButton style={styles.radioButton} value={"M"}>
+              <RadioButton style={styles.radioButton} value={"M"} disabled={this.state.isDisabled}>
                   <Text style={{ color:'#44466B',marginRight:10,fontSize:18, height: 25}} >Male</Text><Radio/>
               </RadioButton>
-              <RadioButton style={styles.radioButton} value={"F"}>
+              <RadioButton style={styles.radioButton} value={"F"} disabled={this.state.isDisabled}>
                  <Radio/><Text style={{ color:'#44466B',marginLeft:10, fontSize:18, height: 25}}> Female</Text>
               </RadioButton>
-            </RadioGroup>
+            </RadioGroup>*/}
           </View>
         </View>
 
@@ -266,6 +284,7 @@ class MaintainAppointmentForm extends Component {
                       format="DD-MM-YYYY"
                       confirmBtnText="Confirm"
                       cancelBtnText="Cancel"
+                      disabled={this.state.isDisabled}
                       customStyles={{
                         dateIcon: {
                           position: 'absolute',
@@ -284,7 +303,7 @@ class MaintainAppointmentForm extends Component {
                         },
 
                         placeholderText: {
-                            color: '#44466B',
+                            color: this.state.isDisabled ? '#C0C0C0' : '44466B',
                             fontSize: 17,
                             marginLeft: 15,
                             paddingLeft:5
@@ -302,7 +321,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFAddress}</Text>
             <View style={{ marginTop:1}}>
-            <TextInput style={styles.input}
+            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
@@ -314,7 +333,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
-            <TextInput style={styles.input}
+            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 keyboardType={'phone-pad'}
                 returnKeyType='done'
@@ -325,6 +344,7 @@ class MaintainAppointmentForm extends Component {
                 value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
                 autoCorrect={false}
                 secureTextEntry={false}
+                editable={this.state.isEditMode}
             />
           </View>
         </View>
@@ -381,7 +401,7 @@ class MaintainAppointmentForm extends Component {
     <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={styles.textArea}
+            <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
                 }}
@@ -400,7 +420,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={styles.textArea}
+            <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
                 }}
@@ -414,7 +434,29 @@ class MaintainAppointmentForm extends Component {
           </View>
          </View>
 
-        <Button
+        {this.props.usertype == 'Tasker' ? (
+          <View>
+            <Text style={styles.textInput}>{strings.AFSupervisorComments}</Text>
+            <View style={{ margin:15,marginTop:1}}>
+              <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+                onChangeText={text => {
+                  this.setState({ appointment: { ...this.state.appointment, supervisorComments: text} });
+                }}
+                value={this.state.appointment&&this.state.appointment.supervisorComments?this.state.appointment.supervisorComments:''}
+                editable={this.state.isEditMode}
+                multiline={true}
+                numberOfLines={4}
+                selectionColor={commonColor.lightThemePlaceholder}
+                enableAutoAutomaticScroll={false}
+              />
+            </View>
+        </View> ) : null }
+        
+   
+
+         {/*{this.state.isHidden ? (*/}
+         <Button
+          disabled = {this.state.isDisabled}
           onPress={() => {
             if (this.state.appointment.patientName == null ){
               this.setState(() => ({ nameError: "Patient Name required"}));
@@ -431,13 +473,14 @@ class MaintainAppointmentForm extends Component {
             }
           }}
 
-          rounded
-          style={styles.updateButton}
+          rounded 
+          style={[styles.updateButton, { backgroundColor: this.state.isDisabled ? '#C0C0C0' : commonColor.brandPrimary}]}
         >
 
             <Text style={styles.buttonText}>{strings.Save}</Text>
 
-        </Button>
+         </Button> 
+         {/*) : null}*/}
 
       </View>
 
