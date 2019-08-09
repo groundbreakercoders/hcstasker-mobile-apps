@@ -148,8 +148,8 @@ class MaintainAppointmentForm extends Component {
     const pickerSelectStyles = StyleSheet.create({
       inputIOS: {
         fontSize: 18,
-        color: '#44466B',
-        backgroundColor: this.state.isDisabled ? '#C0C0C0':'#FFF',
+        color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+        borderColor: this.state.isEditMode ? 1 : 0,
         padding:5
       },
       inputAndroid: {
@@ -211,11 +211,12 @@ class MaintainAppointmentForm extends Component {
           <MapInput notifyChange={details => this.getPlaces(details)} />
         </View>
       ) : (
-      <View style={ styles.header}>
+      <View style={styles.header}>
         <View style={{ marginTop: 20 }}>
             <Text style={styles.textInput}>{strings.AFPatientName}</Text>
             <View style={{marginTop:1}}>
-              <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+              <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
                 }}
@@ -229,7 +230,8 @@ class MaintainAppointmentForm extends Component {
         <View style={{}}>
             <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
             <View style={{marginTop:1}}>
-            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
                 }}
@@ -321,7 +323,8 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFAddress}</Text>
             <View style={{ marginTop:1}}>
-            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
                 onFocus={() => this.openLocationSearch()}
@@ -333,7 +336,8 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
-            <TextInput style={[styles.input, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 keyboardType={'phone-pad'}
                 returnKeyType='done'
@@ -401,7 +405,8 @@ class MaintainAppointmentForm extends Component {
     <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
                 }}
@@ -420,7 +425,8 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+                borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
                 }}

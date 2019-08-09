@@ -136,7 +136,7 @@ class Appointments extends Component {
                                       fontWeight: "500"
                                     }}
                                   >
-                                    : {appointment.patientName}
+                                    {appointment.patientName}
                                   </Text>
                                   </View>
                                   <View style={{ paddingBottom: 5, paddingLeft:5 }}>
@@ -147,7 +147,7 @@ class Appointments extends Component {
                                       fontWeight: "500"
                                     }}
                                   >
-                                    : {appointment.sponsorName}
+                                    {appointment.sponsorName}
                                   </Text>
                                   </View>
                                   <View style={{ paddingBottom: 5, paddingLeft:5 }}>
@@ -158,7 +158,7 @@ class Appointments extends Component {
                                       fontWeight: "500"
                                     }}
                                   >
-                                    : {appointment.dateCreated}
+                                    {appointment.dateCreated}
                                   </Text>
                                   </View>
                                   <View style={{ paddingBottom: 5, paddingLeft:5 }}>
@@ -169,7 +169,7 @@ class Appointments extends Component {
                                       fontWeight: "500"
                                     }}
                                   >
-                                    : {appointment.status}
+                                    {appointment.status}
                                   </Text>
                                   </View>
                                 </View>
