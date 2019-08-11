@@ -233,6 +233,7 @@ class Home extends Component {
       nearTaskers,
       userPageStatus,
       region,
+      usertype,
       strings
     } = this.props;
     let obj = {};
@@ -268,43 +269,42 @@ class Home extends Component {
           >
             <View style={{ flex: 1, flexDirection: "column" }}>
               <View style={{ flex: 6 }}>
-              <Appointments strings={strings} />
+                <Appointments strings={strings} />
               </View>
               <View
-              style={{
-                flex: Platform.OS === "ios"
-                    ? 0.6
-                    : 1.1
-                  }}
+                style={{
+                  flex: Platform.OS === "ios"
+                      ? 0.6
+                      : 1.1
+                    }}
+              >
+              <View
+                style={{
+                  flex: Platform.OS === "ios" ? 1.7 : 1.9,
+                  alignSelf: "center",
+                  justifyContent: "center"
+                }}
+              >
+              {this.props.usertype === "user"? ( 
+              <Button
+                bordered
+                style={{
+                  backgroundColor: commonColor.brandPrimary,
+                  width: width - 20,
+                  alignSelf: "center",
+                  justifyContent: "center"
+                }}
+                onPress={() => this.createAppointment()}
+              >
+                <Text style={{ fontSize: 18,
+                color: "#fff",
+                fontWeight: "500",
+                fontWeight: "bold"
 
-                  >
-            <View
-              style={{
-                flex: Platform.OS === "ios" ? 1.7 : 1.9,
-                alignSelf: "center",
-                justifyContent: "center"
-              }}
-            >
-            <Button
-              bordered
-              style={{
-                backgroundColor: commonColor.brandPrimary,
-                width: width - 20,
-                alignSelf: "center",
-                justifyContent: "center"
-              }}
-              onPress={() => this.createAppointment()}
-            >
-              <Text style={{ fontSize: 18,
-              color: "#fff",
-              fontWeight: "500",
-              fontWeight: "bold"
-
-              }}>
-
-                {this.props.strings.createAppointment}
-              </Text>
-          </Button>
+                }}>
+                  {this.props.strings.createAppointment}
+                </Text>
+              </Button> ) : null }
           </View>
           </View>
               {this.props.userPageStatus === "bookingpage" ? (
@@ -374,6 +374,7 @@ const bindActions = dispatch => ({
 
 const mapStateToProps = state => ({
   gps: state.user.gpsLoc,
+  usertype: state.user.userType,
   origin: state.trip.origin,
   region: state.trip.region,
   email: state.user.email,
@@ -384,7 +385,7 @@ const mapStateToProps = state => ({
   tripStatus: state.user.tripStatus,
   taskerDetails: state.user.taskerDetails,
   fcmtoken: state.user.fcmtoken,
-  fetchTaskers: state.user.fetchTaskers
+  fetchTaskers: state.user.fetchTaskers,
 });
 
 export default connect(

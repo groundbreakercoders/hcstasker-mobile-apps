@@ -215,7 +215,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ marginTop: 20 }}>
             <Text style={styles.textInput}>{strings.AFPatientName}</Text>
             <View style={{marginTop:1}}>
-              <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+              <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
@@ -230,7 +230,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{}}>
             <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
             <View style={{marginTop:1}}>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
@@ -323,7 +323,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFAddress}</Text>
             <View style={{ marginTop:1}}>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
@@ -336,7 +336,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
                 keyboardType={'phone-pad'}
@@ -405,7 +405,7 @@ class MaintainAppointmentForm extends Component {
     <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
@@ -425,7 +425,7 @@ class MaintainAppointmentForm extends Component {
         <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
           <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#FFF' : '#C0C0C0',
+            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
@@ -440,7 +440,7 @@ class MaintainAppointmentForm extends Component {
           </View>
          </View>
 
-        {this.props.usertype == 'Tasker' ? (
+        {this.props.user.userType === "tasker"? (
           <View>
             <Text style={styles.textInput}>{strings.AFSupervisorComments}</Text>
             <View style={{ margin:15,marginTop:1}}>
@@ -458,9 +458,6 @@ class MaintainAppointmentForm extends Component {
             </View>
         </View> ) : null }
         
-   
-
-         {/*{this.state.isHidden ? (*/}
          <Button
           disabled = {this.state.isDisabled}
           onPress={() => {
@@ -486,7 +483,6 @@ class MaintainAppointmentForm extends Component {
             <Text style={styles.buttonText}>{strings.Save}</Text>
 
          </Button> 
-         {/*) : null}*/}
 
       </View>
 
@@ -502,9 +498,9 @@ MaintainAppointmentForm = reduxForm({
 
 const mapStateToProps = state => ({
   email: state.user.email,
-  isAddressClicked:false
+  isAddressClicked:false,
+  user: state.user
 });
-
 
 const bindActions = dispatch => ({
   saveAppointment: (appointment) =>

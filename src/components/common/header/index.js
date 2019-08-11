@@ -16,14 +16,17 @@ const PageHeader = ({
   <Header
     style={{
       flexDirection:'row',
+      justifyContent:'center',
+      alignContent:'center',
       backgroundColor: "#6495ed",
       //borderBottomWidth: borderBottom ? 1 : 0,
       borderBottomColor: "#C2C5DB",
-      marginTop: 0
+      marginTop: 0,
+      height:75
     }}
   >
     {backButton ? (
-      <Left style={{ flex: Platform.OS === "ios" ? 0.2 : 0.3 }}>
+      <Left style={{ flex: Platform.OS === "ios" ? 0.08 : 0.3 }}>
         <Button onPress={() => Actions.pop()} transparent>
           <Icon name="ios-arrow-back" style={styles.arrowIcon} />
         </Button>
@@ -31,7 +34,8 @@ const PageHeader = ({
     ) : null}
     <Body style={{ flex: Platform.OS === "ios" ? 1 : 0.7 }}>
       <Text style={{ marginTop:10,
-        marginRight: 40,
+        marginRight: 10,
+        //justifyContent:'center',alignContent:'center',
         fontSize: 28,
         fontWeight: "bold",
         color: "white"
@@ -63,7 +67,9 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: Platform.OS === "ios" ? 22 : 20,
     color: "#44466B",
-    marginLeft: Platform.OS === "ios" ? -20 : 0
+    marginLeft: Platform.OS === "ios" ? -20 : 0,
+    flexDirection:'row',
+    marginRight:0,
   },
   arrowIcon: {
     fontSize: 35,

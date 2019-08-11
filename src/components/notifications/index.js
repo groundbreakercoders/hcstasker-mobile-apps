@@ -146,7 +146,14 @@ class Notifications extends Component {
   render() {
     const { strings } = this.props;
     return (
-      <Container>
+      <Card>
+        <CardSection>
+          <View style={styles.headerNotificationStyle}>
+            <Text> {strings.notifications}</Text>
+          </View>
+        </CardSection>
+      </Card>
+      /*<Container>
         <Header title={strings.favourite} />
         <Content>
           <View>
@@ -237,7 +244,7 @@ class Notifications extends Component {
                               {this.getRating(tasker.rating)} {"  "}$
                               {tasker.fee}
                                {/* <Icon name="ios-pin" style={{ color: '#44466B', fontSize: 18 }} />{' '}
-                         km away */}
+                         km away 
                             </Text>
                           </Body>
                         </Left>
@@ -292,7 +299,7 @@ class Notifications extends Component {
             )}
           </View>
         </Content>
-      </Container>
+      </Container>*/
     );
   }
 }

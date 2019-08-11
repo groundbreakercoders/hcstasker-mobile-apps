@@ -64,7 +64,8 @@ class MaintainAppointment extends Component {
 }
 
 const mapStateToProps = state => ({
-  email: state.user.email
+  email: state.user.email,
+  userType: state.user.userType
 });
 
 const bindActions = dispatch => ({});
