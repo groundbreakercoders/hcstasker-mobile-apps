@@ -28,10 +28,12 @@ import styles from "./styles";
 const { height } = Dimensions.get("window");
 
 class Notifications extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       list: [],
+      status:[],
       loading: true
     };
   }
@@ -39,24 +41,27 @@ class Notifications extends Component {
   componentDidMount() {
     firebase
       .firestore()
-      .collection("users")
+      .collection("activity")
       .doc(this.props.email)
-      .collection("favourites")
+      .collection("notifications")
+      .orderBy('time','desc')
       .get()
       .then(querySnapshot => {
         if (querySnapshot.docs.length) {
           querySnapshot.forEach(data => {
-            const user = data.data();
+            const appointment = data.data();
             firebase
               .firestore()
               .collection("users")
-              .doc(user.email)
+              .doc(appointment.user)
               .get()
               .then(datas => {
                 const userData = datas.data();
+                var notifMsg = appointment.status+'\n'+appointment.userNotifMessage;
                 if (userData) {
                   this.setState({
                     list: [...this.state.list, userData],
+                    status: [...this.state.status,notifMsg],
                     loading: false
                   });
                 }
@@ -131,6 +136,19 @@ class Notifications extends Component {
       });
   }
 
+  getNotficationText(status) {
+    let count = null;
+    let statusSize = status.length;
+    
+    for(var i=0;i<statusSize;i++){
+   
+      return status[statusSize-1];
+      
+    }
+     
+        
+  }
+
   getRating(rating) {
     let total = null;
     const length = rating.length;
@@ -139,29 +157,24 @@ class Notifications extends Component {
     });
     return Math.ceil(total / length);
   }
+
   getName(){
     console.log("hello");
   }
 
   render() {
     const { strings } = this.props;
+    
     return (
-      <Card>
-        <CardSection>
-          <View style={styles.headerNotificationStyle}>
-            <Text> {strings.notifications}</Text>
-          </View>
-        </CardSection>
-      </Card>
-      /*<Container>
-        <Header title={strings.favourite} />
+      <Container>
+        <Header title={strings.notifications} />
         <Content>
           <View>
             {this.state.loading ? (
               <Spinner color={commonColor.brandPrimary} />
             ) : (
               <View style={{ marginTop: 5 }}>
-                {!this.state.list.length ? (
+                {!this.state.status.length ? (
                   <View
                     style={{
                       marginTop: height / 3,
@@ -176,20 +189,21 @@ class Notifications extends Component {
                         color: "#8B8DAC"
                       }}
                     >
-                      {strings.NoFavourite}
+                      {strings.noNewNotifications}
                     </Text>
                   </View>
                 ) : (
-                  _.map(this.state.list, (tasker, index) => (
+                  _.map(this.state.status, (notifMsg,index) => (
                     <Card key={index} style={styles.card}>
                       <CardItem
                         style={{
                           flex:1,
                           paddingBottom: 50,
-                          height: 150
+                          height: 160,
+                          fontWeight: "bold"
                         }}
                       >
-                        <Left style={{flex: 1, flexDirection: "row", alignItems: "stretch", alignSelf: "stretch",}}>
+                        {/* <Left style={{flex: 1, flexDirection: "row", alignItems: "stretch", alignSelf: "stretch",}}>
                           {_.get(tasker, "profileUrl") ? (
                             <Image
                               source={{
@@ -209,18 +223,29 @@ class Notifications extends Component {
                                 color: commonColor.brandPrimary
                               }}
                             />
-                          )}
+                          )} */}
                           <Body>
-                            <Text
+                            
+                          
+                            {/* <Text
                               style={{
                                 fontSize: 20,
                                 color: "#44466B",
                                 fontWeight: "500"
                               }}
                             >
-                              {tasker.name}
+                              {setMessage}
+                            </Text> */}
+
+                            <Text style={styles.baseText}>
+                            <Text style={styles.titleText} onPress={this.onPressTitle}>
+                                                                                       
+                              {/* {this.getNotficationText(this.state.status)} */}
+                              {notifMsg}
                             </Text>
-                            <Text
+                         
+                          </Text>
+                            {/* <Text
                               note
                               style={{
                                 paddingVertical: 5,
@@ -245,10 +270,10 @@ class Notifications extends Component {
                               {tasker.fee}
                                {/* <Icon name="ios-pin" style={{ color: '#44466B', fontSize: 18 }} />{' '}
                          km away 
-                            </Text>
+                            </Text> */}
                           </Body>
-                        </Left>
-                        <Right
+                        {/* </Left> */}
+                        {/* <Right
                           style={{
                             flex: 0.3,
                             alignItems: "center",
@@ -290,7 +315,7 @@ class Notifications extends Component {
                           <Text note style={{ fontSize: 10, color: "red",paddingTop:7 }}>
                             Coming soon...
                           </Text>
-                        </Right>
+                        </Right> */}
                       </CardItem>
                     </Card>
                   ))
@@ -299,7 +324,7 @@ class Notifications extends Component {
             )}
           </View>
         </Content>
-      </Container>*/
+      </Container>
     );
   }
 }

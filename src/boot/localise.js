@@ -167,7 +167,8 @@ const lang = {
     myAppointments:"My Appointments",
     medicalCondition: "Please enter medical conditions",
     otherInstructions: "Please enter Other Instructions",
-    useragreement: "User Agreement"
+    useragreement: "User Agreement",
+    noNewNotifications: "No New Notifications"
   }
 };
 
