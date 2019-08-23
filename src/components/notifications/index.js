@@ -11,6 +11,7 @@ import {
   Card,
   CardItem,
   Icon,
+  Item,
   Spinner
 } from "native-base";
 import { Dimensions, View, Image, TouchableOpacity } from "react-native";
@@ -22,20 +23,26 @@ import firebase from "react-native-firebase";
 import commonColor from "../../../native-base-theme/variables/commonColor";
 import UserActions from "../../Redux/userstore";
 import TripActions from "../../Redux/tripstore";
+import { Actions } from "react-native-router-flux";
 import MIcon from "../common/mIcon";
 import styles from "./styles";
+import AppointmentActions from "../../Redux/appointmentstore";
 
 const { height } = Dimensions.get("window");
 
 class Notifications extends Component {
-  
+  lastTap = null;
+
   constructor(props) {
     super(props);
     this.state = {
       list: [],
       status:[],
+      count:0,
+      notification:[],
       loading: true
     };
+    
   }
 
   componentDidMount() {
@@ -57,13 +64,16 @@ class Notifications extends Component {
               .get()
               .then(datas => {
                 const userData = datas.data();
-                var notifMsg = appointment.status+'\n'+appointment.userNotifMessage;
+                var appntStatus = appointment.status;
+                var userNotifMessage =appointment.userNotifMessage;
                 if (userData) {
                   this.setState({
                     list: [...this.state.list, userData],
-                    status: [...this.state.status,notifMsg],
+                    status: [...this.state.status,appntStatus,userNotifMessage],
+                    notification: [...this.state.notification,appointment],
                     loading: false
                   });
+                  this.props.getAppointments(userid,usertype);
                 }
               });
           });
@@ -136,19 +146,6 @@ class Notifications extends Component {
       });
   }
 
-  getNotficationText(status) {
-    let count = null;
-    let statusSize = status.length;
-    
-    for(var i=0;i<statusSize;i++){
-   
-      return status[statusSize-1];
-      
-    }
-     
-        
-  }
-
   getRating(rating) {
     let total = null;
     const length = rating.length;
@@ -162,6 +159,16 @@ class Notifications extends Component {
     console.log("hello");
   }
 
+  pressItem(appointment) {
+    const now = Date.now();
+    if (this.lastTap && (now - this.lastTap) < 500) {
+      console.log('Double Clicked!');
+    } else {
+      Actions.maintainappointment({"appointment":appointment})
+      this.lastTap = now;
+    }
+}
+
   render() {
     const { strings } = this.props;
     
@@ -174,7 +181,7 @@ class Notifications extends Component {
               <Spinner color={commonColor.brandPrimary} />
             ) : (
               <View style={{ marginTop: 5 }}>
-                {!this.state.status.length ? (
+                {!this.state.notification.length ? (
                   <View
                     style={{
                       marginTop: height / 3,
@@ -193,16 +200,16 @@ class Notifications extends Component {
                     </Text>
                   </View>
                 ) : (
-                  _.map(this.state.status, (notifMsg,index) => (
+                  _.map(this.state.notification, (notification,index) => (
                     <Card key={index} style={styles.card}>
                       <CardItem
                         style={{
                           flex:1,
                           paddingBottom: 50,
-                          height: 160,
-                          fontWeight: "bold"
+                          height: 190,
+                          fontWeight: "bold",
                         }}
-                      >
+                        >
                         {/* <Left style={{flex: 1, flexDirection: "row", alignItems: "stretch", alignSelf: "stretch",}}>
                           {_.get(tasker, "profileUrl") ? (
                             <Image
@@ -236,15 +243,28 @@ class Notifications extends Component {
                             >
                               {setMessage}
                             </Text> */}
-
-                            <Text style={styles.baseText}>
-                            <Text style={styles.titleText} onPress={this.onPressTitle}>
-                                                                                       
+                            <Item
+                               onPress={() => this.pressItem(this.props.appointments[0])}
+                               style={{ borderBottomWidth: 0 }}
+                            >
+                            <Text style={{
+                                    fontSize: 18,
+                                    color: "#44466B",
+                                  }} >
+                            <Text style={{
+                              fontSize: 22,
+                              color: "#44466B",
+                              fontWeight: 'bold'}} >
+                            {notification.status}{'\n'}{'\n'}                                                      
                               {/* {this.getNotficationText(this.state.status)} */}
-                              {notifMsg}
+                             
                             </Text>
-                         
+                            <Text>{notification.userNotifMessage}</Text>
+                            
                           </Text>
+                          
+                          </Item>
+                          
                             {/* <Text
                               note
                               style={{
@@ -338,12 +358,17 @@ Notifications.defaultProps = {
 };
 const mapStateToProps = state => ({
   favourites: state.user.favourites,
-  email: state.user.email
+  email: state.user.email,
+  userid: state.user.id,
+  usertype: state.user.userType,
+  appointments:state.appointment.appointments
 });
 
 const bindActions = dispatch => ({
   getFavouritetaskers: () => dispatch(UserActions.getFavouritetaskers()),
-  bookFavourite: email => dispatch(TripActions.bookFavourite(email))
+  bookFavourite: email => dispatch(TripActions.bookFavourite(email)),
+  getAppointments: (userid, usertype) =>
+    dispatch(AppointmentActions.getAppointments(userid, usertype))
 });
 
 export default connect(
