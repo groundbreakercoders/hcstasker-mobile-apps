@@ -35,116 +35,104 @@ class Notifications extends Component {
 
   constructor(props) {
     super(props);
+    this.ref = firebase
+    .firestore()
+    .collection("activity")
+    .doc(this.props.email)
+    .collection("notifications")
+    .orderBy('time','desc');
+    
+    this.unsubscribe = null;
     this.state = {
-      list: [],
-      status:[],
-      count:0,
       notification:[],
       loading: true
     };
     
   }
 
-  componentDidMount() {
-    firebase
-      .firestore()
-      .collection("activity")
-      .doc(this.props.email)
-      .collection("notifications")
-      .orderBy('time','desc')
-      .get()
-      .then(querySnapshot => {
-        if (querySnapshot.docs.length) {
-          querySnapshot.forEach(data => {
-            const appointment = data.data();
-            firebase
-              .firestore()
-              .collection("users")
-              .doc(appointment.user)
-              .get()
-              .then(datas => {
-                const userData = datas.data();
-                var appntStatus = appointment.status;
-                var userNotifMessage =appointment.userNotifMessage;
-                if (userData) {
-                  this.setState({
-                    list: [...this.state.list, userData],
-                    status: [...this.state.status,appntStatus,userNotifMessage],
-                    notification: [...this.state.notification,appointment],
-                    loading: false
-                  });
-                  this.props.getAppointments(userid,usertype);
-                }
-              });
-          });
-        } else {
-          this.setState({ loading: false });
-        }
-      })
-      .catch(error => console.log("Catch", error));
+  onCollectionUpdate = (querySnapshot) => {
+    if (querySnapshot.docs.length) {
+      querySnapshot.forEach(data => {
+      const appointment = data.data();
+      if (appointment) {
+        this.setState({
+          notification: [...this.state.notification,appointment],
+          loading: false
+        });
+        this.props.getAppointments(this.props.userid,this.props.usertype);
+      }
+        
+    });
+    } else {
+      this.setState({ loading: false });
+    }
   }
 
-  async removeFromFavourites(email) {
-    this.setState({ loading: true });
-    const userEmail = this.props.email;
-    await firebase
-      .firestore()
-      .collection("users")
-      .doc(userEmail)
-      .collection("favourites")
-      .doc(email)
-      .delete()
-      .then(() => {
-        firebase
-          .firestore()
-          .collection("users")
-          .doc(userEmail)
-          .collection("tasks")
-          .where("taskDetails.taskerData.email", "==", email)
-          .get()
-          .then(querySnapshot => {
-            querySnapshot.forEach(data => {
-              console.log("data", data.favourite);
-              data.ref.update({
-                favourite: false
-              });
-            });
-            firebase
-              .firestore()
-              .collection("users")
-              .doc(this.props.email)
-              .collection("favourites")
-              .get()
-              .then(querySnapshot => {
-                if (querySnapshot.docs.length) {
-                  querySnapshot.forEach(data => {
-                    const user = data.data();
-                    firebase
-                      .firestore()
-                      .collection("users")
-                      .doc(user.email)
-                      .get()
-                      .then(datas => {
-                        const userData = datas.data();
-                        if (userData) {
-                          this.setState({
-                            list: [...[], userData],
-                            loading: false
-                          });
-                        }
-                      });
-                  });
-                } else {
-                  this.setState({ list: [], loading: false });
-                }
-              })
-              .catch(error => console.log("Catch", error));
-          })
-          .catch(error => {
-            console.log("Catch", error);
-          });
-      });
+  componentDidMount() {
+    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
+
+  // async removeFromFavourites(email) {
+  //   this.setState({ loading: true });
+  //   const userEmail = this.props.email;
+  //   await firebase
+  //     .firestore()
+  //     .collection("users")
+  //     .doc(userEmail)
+  //     .collection("favourites")
+  //     .doc(email)
+  //     .delete()
+  //     .then(() => {
+  //       firebase
+  //         .firestore()
+  //         .collection("users")
+  //         .doc(userEmail)
+  //         .collection("tasks")
+  //         .where("taskDetails.taskerData.email", "==", email)
+  //         .get()
+  //         .then(querySnapshot => {
+  //           querySnapshot.forEach(data => {
+  //             console.log("data", data.favourite);
+  //             data.ref.update({
+  //               favourite: false
+  //             });
+  //           });
+  //           firebase
+  //             .firestore()
+  //             .collection("users")
+  //             .doc(this.props.email)
+  //             .collection("favourites")
+  //             .get()
+  //             .then(querySnapshot => {
+  //               if (querySnapshot.docs.length) {
+  //                 querySnapshot.forEach(data => {
+  //                   const user = data.data();
+  //                   firebase
+  //                     .firestore()
+  //                     .collection("users")
+  //                     .doc(user.email)
+  //                     .get()
+  //                     .then(datas => {
+  //                       const userData = datas.data();
+  //                       if (userData) {
+  //                         this.setState({
+  //                           list: [...[], userData],
+  //                           loading: false
+  //                         });
+  //                       }
+  //                     });
+  //                 });
+  //               } else {
+  //                 this.setState({ list: [], loading: false });
+  //               }
+  //             })
+  //             .catch(error => console.log("Catch", error));
+  //         })
+  //         .catch(error => {
+  //           console.log("Catch", error);
+  //         });
+  //     });
+  // }
 
   getRating(rating) {
     let total = null;
@@ -159,14 +147,23 @@ class Notifications extends Component {
     console.log("hello");
   }
 
-  pressItem(appointment) {
+  pressItem(appointments,uid) {
     const now = Date.now();
+    var appointment = '';
+    for(var j=0;j<appointments.length;j++){
+    if(appointments[j].uniqueId=== uid){
+        appointment = appointments[j];
+        break
+    }
+    }
+    
     if (this.lastTap && (now - this.lastTap) < 500) {
       console.log('Double Clicked!');
     } else {
       Actions.maintainappointment({"appointment":appointment})
       this.lastTap = now;
     }
+
 }
 
   render() {
@@ -210,41 +207,9 @@ class Notifications extends Component {
                           fontWeight: "bold",
                         }}
                         >
-                        {/* <Left style={{flex: 1, flexDirection: "row", alignItems: "stretch", alignSelf: "stretch",}}>
-                          {_.get(tasker, "profileUrl") ? (
-                            <Image
-                              source={{
-                                uri: _.get(userDetails, "userData.profileUrl")
-                              }}
-                              style={{
-                                width: 80,
-                                height: 80,
-                                borderRadius: 40
-                              }}
-                            />
-                          ) : (
-                            <Icon
-                              name="md-contact"
-                              style={{
-                                fontSize: 80,
-                                color: commonColor.brandPrimary
-                              }}
-                            />
-                          )} */}
-                          <Body>
-                            
-                          
-                            {/* <Text
-                              style={{
-                                fontSize: 20,
-                                color: "#44466B",
-                                fontWeight: "500"
-                              }}
-                            >
-                              {setMessage}
-                            </Text> */}
-                            <Item
-                               onPress={() => this.pressItem(this.props.appointments[0])}
+                        <Body>
+                          <Item
+                               onPress={() => this.pressItem(this.props.appointments,notification.uid)}
                                style={{ borderBottomWidth: 0 }}
                             >
                             <Text style={{
@@ -256,42 +221,13 @@ class Notifications extends Component {
                               color: "#44466B",
                               fontWeight: 'bold'}} >
                             {notification.status}{'\n'}{'\n'}                                                      
-                              {/* {this.getNotficationText(this.state.status)} */}
-                             
                             </Text>
                             <Text>{notification.userNotifMessage}</Text>
                             
                           </Text>
                           
-                          </Item>
-                          
-                            {/* <Text
-                              note
-                              style={{
-                                paddingVertical: 5,
-                                color: "#8B8DAC",
-                                fontSize: 14
-                              }}
-                            > {tasker.category}
-                            </Text>
-                            <Text
-                              style={{
-                                fontSize: 14,
-                                color: "#44466B",
-                                fontWeight: "bold"
-                              }}
-                            >
-                              <MIcon
-                                family="Ionicons"
-                                name="ios-star"
-                                style={{ color: "#F3DE00", fontSize: 18 }}
-                              />
-                              {this.getRating(tasker.rating)} {"  "}$
-                              {tasker.fee}
-                               {/* <Icon name="ios-pin" style={{ color: '#44466B', fontSize: 18 }} />{' '}
-                         km away 
-                            </Text> */}
-                          </Body>
+                        </Item>
+                        </Body>
                         {/* </Left> */}
                         {/* <Right
                           style={{
