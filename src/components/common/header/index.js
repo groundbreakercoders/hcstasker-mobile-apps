@@ -3,6 +3,8 @@ import { StyleSheet, Platform, Image, TouchableOpacity } from "react-native";
 import { Header, Left, Button, Text, Right, Icon, Body } from "native-base";
 import { Actions } from "react-native-router-flux";
 import PropTypes from "prop-types";
+import { withNavigation } from 'react-navigation';
+
 
 const PageHeader = ({
   main,
@@ -25,6 +27,7 @@ const PageHeader = ({
       height:75
     }}
   >
+    
     {backButton ? (
       <Left style={{ flex: Platform.OS === "ios" ? 0.08 : 0.3 }}>
         <Button onPress={() => Actions.pop()} transparent>
@@ -74,7 +77,7 @@ const styles = StyleSheet.create({
   arrowIcon: {
     fontSize: 35,
     marginLeft: 0,
-    color: "#43496a"
+    color: "#FFF"
   }
 });
 

@@ -27,22 +27,19 @@ class MaintainAppointment extends Component {
     const isScrollEnabled = this.props.appointment && this.props.appointment.status != "Contract Released";
     return (
       <Container>
-      <Header title={strings.appointment} backButton />
+        {appointment && appointment.status == 'Contract Released' ? (<Header title={strings.useragreement} backButton />):
+        (<Header title={strings.appointment} backButton />)}
         <Content scrollEnabled={true} style={{ backgroundColor: "#fff" }}>
           <View
             style={{
               flex: 1,
               flexDirection: "column",
-              //paddingHorizontal: 20,
-              //paddingBottom: 40,
             }}
           >
             <View
               style={{
                 backgroundColor: commonColor.brandPrimary,
                 flexDirection: "row",
-                //alignContent: "center",
-                //marginTop: 40,
                 paddingLeft: 0,
                 flex: 6
               }}
