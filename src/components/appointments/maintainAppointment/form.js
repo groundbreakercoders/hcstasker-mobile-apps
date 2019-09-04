@@ -32,7 +32,6 @@ import moment from "moment";
 import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
-import Toast from 'react-native-root-toast';
 
 var radio_props = [
   {label: 'Male', value: "M"},
@@ -43,9 +42,6 @@ class MaintainAppointmentForm extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {
-        visible: false
-    };
       this.inputRefs = {
         relationship: null,
       };
@@ -57,14 +53,9 @@ class MaintainAppointmentForm extends Component {
         }
         return errors;
       };
-      
-      setTimeout(() => this.setState({
-        visible: true
-      }), 1000);
 
         let isEditable;
         let isDisabled;
-        
         if(props.appointment) {
           if (props.appointment.status === 'Under Review' || props.appointment.status === 'Service Requested') {
               isEditable=true;
@@ -85,7 +76,7 @@ class MaintainAppointmentForm extends Component {
             cost: "",
             appointment:props.appointment,
             isEditMode: isEditable,
-           isDisabled: isDisabled,
+           isDisabled: isDisabled
           };
         } else {
           this.state = {
@@ -96,7 +87,7 @@ class MaintainAppointmentForm extends Component {
             isEditMode: isEditable,
             isDisabled: isDisabled,
             relationship:undefined,
-            serviceType:undefined,
+            serviceType:undefined
           };
       }
   }
@@ -236,7 +227,7 @@ class MaintainAppointmentForm extends Component {
             </View>
           </View>
 
-        <View>
+        <View style={{}}>
             <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
             <View style={{marginTop:1}}>
             <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
@@ -251,7 +242,7 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-        <View>
+        <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFGender}</Text>
             <View style={{ marginTop:1, marginLeft:20}}>
             <RadioForm
@@ -265,12 +256,27 @@ class MaintainAppointmentForm extends Component {
               selectedLabelColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
               labelStyle = {{ fontSize:18}}
               disabled={this.state.isDisabled}
+              //onPress={(value,initial)=>this.onChooseGender(value,initial)}
               onPress={(value,index)=>this.onChooseGender(value,index)}
+              
             />
+              {/*<RadioGroup
+                defaultChoice={this.genderIdx()}
+                style={{ marginTop: 5, margin:15, height:20, color: '#fff', flexDirection: "row"}}
+                onChoose={(value,index)=>this.onChooseGender(value,index)}
+                >
+              <RadioButton style={styles.radioButton} value={"M"} disabled={this.state.isDisabled}>
+                  <Text style={{ color:'#44466B',marginRight:10,fontSize:18, height: 25}} >Male</Text><Radio/>
+              </RadioButton>
+              <RadioButton style={styles.radioButton} value={"F"} disabled={this.state.isDisabled}>
+                 <Radio/><Text style={{ color:'#44466B',marginLeft:10, fontSize:18, height: 25}}> Female</Text>
+              </RadioButton>
+            </RadioGroup>*/}
           </View>
         </View>
 
-          <View>
+
+          <View style={{ }}>
               <Text style={styles.textInput}>{strings.AFDOB}</Text>
               <View style={{ marginTop:1}}>
               <DatePicker
@@ -314,7 +320,7 @@ class MaintainAppointmentForm extends Component {
             </View>
           </View>
 
-        <View>
+        <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFAddress}</Text>
             <View style={{ marginTop:1}}>
             <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
@@ -327,8 +333,8 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-        <View>
-          <View>
+        <View style={{ }}>
+          <View style={{ }}>
             <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
             <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
@@ -347,7 +353,7 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-      <View>
+      <View style={{ }}>
         <Text style={styles.textInput}>{strings.AFRelationship}</Text>
           <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}>
             <Icon
@@ -372,7 +378,7 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-        <View>
+        <View style={{}}>
           <Text style={styles.textInput}>{strings.AFServiceType}</Text>
           <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}>
             <Icon
@@ -396,7 +402,7 @@ class MaintainAppointmentForm extends Component {
           </View>
         </View>
 
-    <View>
+    <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
           <View style={{ margin:15,marginTop:1}}>
             <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
@@ -416,7 +422,7 @@ class MaintainAppointmentForm extends Component {
         </View>
 
 
-        <View >
+        <View style={{ }}>
           <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
           <View style={{ margin:15,marginTop:1}}>
             <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
@@ -467,14 +473,6 @@ class MaintainAppointmentForm extends Component {
             }
             if (this.state.appointment.patientName != null && this.state.appointment.sponsorName != null){
               this.submit()
-              Toast.show('Appoinment Created Succesfully',{
-                duration: 3500,
-                position: 75,
-                shadow: true,
-                animation: true,
-                backgroundColor:'#800000',
-                hideOnPress:true,
-              })
             }
           }}
 
@@ -485,10 +483,10 @@ class MaintainAppointmentForm extends Component {
             <Text style={styles.buttonText}>{strings.Save}</Text>
 
          </Button> 
+
       </View>
 
 )}
-
 </View>
     );
   }

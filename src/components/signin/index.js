@@ -36,22 +36,9 @@ class Signin extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      loader: true,
-      disabled: false
+      loader: true
     };
   }
-
-  pressButton(){
-    this.setState({
-      disabled: true
-    })
-  
-  setTimeout(() => {
-    this.setState({
-      disabled:false
-    });
-  }, 5000)
-}
 
   onSelect(index) {
     let lang = "";
@@ -146,7 +133,6 @@ class Signin extends Component {
             <View style={styles.buttonsView}>
               <Button disabled
                 onPress={() => {
-                  //this.pressButton(loginUser())
                   Actions.loginUser()
                     // this.callMe(),
                     // this.props.setCurrentAddress();

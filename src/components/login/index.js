@@ -20,7 +20,6 @@ import * as userstates from "../../Redux/userstore";
 import LoginForm from "./form";
 import styles from "./styles";
 import commonColor from "../../../native-base-theme/variables/commonColor";
-import Header from "../common/header";
 
 
 const { height } = Dimensions.get("window");
@@ -90,26 +89,27 @@ class Login extends Component {
 
   render() {
     const lang = this.props.strings;
-    const strings = this.props;
     console.log(this.props,"index Login@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     return (
       <Container>
-        <Header title={lang.signin} backButton />
         <Content style={{ backgroundColor: "#fff" }} scrollEnabled bounces>
           <View style={styles.contentView}>
             <View style={styles.headerView}>
-              {/*<Button
+              <Button
                 style={{ paddingLeft: 0 }}
                 transparent
                 onPress={() => Actions.pop()}
               >
                 <Icon name="ios-arrow-back" style={styles.arrowIcon} />
-              </Button>*/}
+              </Button>
             </View>
             <View style={styles.formView}>
+              <Text style={styles.signinText}>{lang.signin}</Text>
               <LoginForm lang={lang} loading={this.props.loading} />
             </View>
+
             <Text style={styles.orText}>{lang.or}</Text>
+
             <View style={styles.buttonsView}>
               <Button
                 onPress={() => {
@@ -126,6 +126,10 @@ class Login extends Component {
                   <Spinner color="white" size="small" />
                 )}
               </Button>
+
+              
+
+
               <Button
                     onPress={() => {
                       Actions.signuppage()

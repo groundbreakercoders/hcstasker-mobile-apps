@@ -92,7 +92,7 @@ function* saveAppointment({appointment}) {
     );
     yield put(AppointmentActions.getAppointments(userId,userType));
 
-    //Alert.alert("Appointment Updated Successfully");
+    Alert.alert("Appointment Updated Successfully");
     Actions.homepage();
 
   } catch (error) {

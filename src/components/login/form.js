@@ -28,7 +28,7 @@ export const input = props => {
       </Item>
 
       {meta.touched &&
-        meta.error && <Text style={{ color: "red",marginTop:10 }}>{meta.error}</Text>}
+        meta.error && <Text style={{ color: "red" }}>{meta.error}</Text>}
     </View>
   );
 };
@@ -42,8 +42,8 @@ class LoginForm extends Component {
     const locale = this.props.lang;
     const { loading } = this.props;
     return (
-      <View style={{marginTop: 20}}>
-        <View style={{marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
+        <View style={{ marginTop: 15 }}>
           <Field
             component={input}
             type="email"
