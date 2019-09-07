@@ -33,6 +33,29 @@ import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 
+import Toast from 'react-native-root-toast'
+import PhoneInput from 'react-phone-number-input';
+
+const required = value => (value || typeof value === 'number' ? undefined : 'Required')
+const validate = values => {
+  const errors = {};
+  if (!values.phoneno) {
+    errors.phoneno = "Phone Number is Required";
+  } else if (!/^[0-9]$/i.test(values.phoneno)) {
+    errors.phoneno = "Invalid Phone Number";
+  } else if (!values.password) {
+    errors.password = "Password is Required";
+  } else if (values.password !== values.confirmPassword) {
+    errors.confirmPassword = "Entered passwords doesn't match";
+  }
+  return errors;
+};
+
+export const phoneNumber = value =>
+  value && !/^(0|[1-9][0-9]{9})$/i.test(value)
+    ? 'Invalid phone number, must be 10 digits'
+    : undefined
+
 var radio_props = [
   {label: 'Male', value: "M"},
   {label: 'Female', value: "F" }
@@ -95,6 +118,23 @@ class MaintainAppointmentForm extends Component {
   componentDidMount() {
   }
 
+  mobilevalidate(text) {
+    const reg = /^[0]?[789]\d{9}$/;
+    if (reg.test(text) === false) {
+      this.setState({
+        mobilevalidate: false,
+        telephone: text,
+      });
+      return false;
+    } else {
+      this.setState({
+        mobilevalidate: true,
+        telephone: text,
+        message: '',
+      });
+      return true;
+    }
+  }
 
   openLocationSearch(){
     this.setState({placesModal:true});
@@ -350,6 +390,7 @@ class MaintainAppointmentForm extends Component {
                 secureTextEntry={false}
                 editable={this.state.isEditMode}
             />
+            {!!this.state.phoneNumberError && (<Text style={{ color: "red"}}>{this.state.phoneNumberError}</Text>)}
           </View>
         </View>
 
@@ -471,6 +512,15 @@ class MaintainAppointmentForm extends Component {
             } else{
               this.setState(() => ({ nameError1: null}))
             }
+            if (this.state.appointment.phoneNumber == null){
+                this.setState(() => ({ phoneNumberError: "Phone Number required"}));
+              } else if (this.state.appointment.phoneNumber != null){
+              this.mobilevalidate(this.state.phoneNumber)
+              if(this.mobilevalidate == false){
+                this.setState(() => ({ phoneNumberError: "Invalid Phone Number"}));
+              } else {
+              this.setState(() => ({ phoneNumberError: null}))
+            } }            
             if (this.state.appointment.patientName != null && this.state.appointment.sponsorName != null){
               this.submit()
             }
