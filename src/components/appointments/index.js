@@ -37,6 +37,24 @@ class Appointments extends Component {
     this.props.getAppointments(this.props.userid,this.props.usertype);
   }
 
+  componentDidMount() {
+    var appnt=[];
+    
+    for(var i=0;i<this.props.appointments.length;i++){
+      if(this.props.appointments[i].status != 'Rejected' && this.props.appointments[i].status != 'Cancelled' && this.props.appointments[i].status!='Completed'){
+        appnt = [...appnt,this.props.appointments[i]];
+        // this.setState({
+        //   appointmentHistory: this.state.appointmentHistory.concat(this.props.appointments[i])
+        // });
+        
+      }
+    }
+
+    this.setState({
+          appointmentHistory: appnt
+        });
+  }
+
   getRating(rating) {
     let total = 0;
     const length = rating.length? rating.length: 0;
@@ -65,9 +83,9 @@ class Appointments extends Component {
       <Container >
         <Header title={this.props.strings.myAppointments}/>
         <Content>
-                  {this.props.appointments != null && this.props.appointments.length > 0 ? (
+                  {this.state.appointmentHistory != null && this.state.appointmentHistory.length > 0 ? (
                     <View>
-                      {_.map(this.props.appointments, (appointment, key) => (
+                      {_.map(this.state.appointmentHistory, (appointment, key) => (
                         <Card  style={styles.card} key={key}>
                           <CardItem
                             style={ styles.cardCardItem }

@@ -104,7 +104,7 @@ updateContractStatus(contractStatus) {
                 <WebView
                           bounces={false}
                           scrollEnabled={false}
-                          source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/hcstasker-app.appspot.com/o/Contracts%2Fexample.pdf?alt=media&token=9b63c7df-47b2-456f-99b0-ea2ae56dcfef' }} />
+                          source={{ uri: this.state.appointment.contractURL }} />
               </View>
               <View
               style={{
