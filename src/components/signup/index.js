@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Actions } from "react-native-router-flux";
 import SignUpForm from "./form";
 import styles from "./styles";
+import Header from "../common/header";
 
 const { height } = Dimensions.get("window");
 
@@ -13,7 +14,7 @@ class SignUp extends Component {
     super(props);
     this.state = {};
   }
-
+  
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -24,8 +25,10 @@ class SignUp extends Component {
   }
   render() {
     const lang = this.props.strings;
+    const { strings } = this.props;
     return (
       <Container>
+        <Header title={strings.signup} backButton />
         <Content
           style={{ backgroundColor: "#fff", paddingBottom: 30 }}
           scrollEnabled={true}
@@ -46,7 +49,7 @@ class SignUp extends Component {
                 marginTop: Platform.OS === "ios" ? 15 : 5
               }}
             >
-              <Button
+             {/* <Button
                 style={{ paddingLeft: 0 }}
                 transparent
                 onPress={() => Actions.pop()}
@@ -59,14 +62,14 @@ class SignUp extends Component {
                     color: "#43496a"
                   }}
                 />
-              </Button>
+              </Button>*/}
             </View>
             <View style={{ flexDirection: "column", marginTop: 10 }}>
-              <Text
+              {/*<Text
                 style={{ fontSize: 30, fontWeight: "bold", color: "#43496a" }}
               >
                 {lang.signup}
-              </Text>
+              </Text>*/}
               <SignUpForm lang={lang} loading={this.props.loading} />
             </View>
           </View>

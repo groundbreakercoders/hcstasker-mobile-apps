@@ -24,7 +24,6 @@ import commonColor from "../../../../native-base-theme/variables/commonColor";
 import styles from "./styles";
 import firebase from "react-native-firebase";
 import data from "../../../utils/data";
-//import {RadioGroup, RadioButton, Radio} from "radio-react-native";
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import DatePickerCustom from "../../common/datePicker";
 const { height, width } = Dimensions.get("window");
@@ -35,25 +34,12 @@ import RNPickerSelect from 'react-native-picker-select';
 import Toast from 'react-native-root-toast'
 import PhoneInput from 'react-phone-number-input';
 
-const required = value => (value || typeof value === 'number' ? undefined : 'Required')
-const validate = values => {
-  const errors = {};
-  if (!values.phoneno) {
-    errors.phoneno = "Phone Number is Required";
-  } else if (!/^[0-9]$/i.test(values.phoneno)) {
-    errors.phoneno = "Invalid Phone Number";
-  } else if (!values.password) {
-    errors.password = "Password is Required";
-  } else if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = "Entered passwords doesn't match";
-  }
-  return errors;
-};
+  
 
-export const phoneNumber = value =>
+/*export const phoneNumber = value =>
   value && !/^(0|[1-9][0-9]{9})$/i.test(value)
     ? 'Invalid phone number, must be 10 digits'
-    : undefined
+    : undefined*/
 
 var radio_props = [
   {label: 'Male', value: "M"},
@@ -61,6 +47,52 @@ var radio_props = [
 ];
 
 class MaintainAppointmentForm extends Component {
+
+  validate = values => {
+    const errors = {};
+    if (!values) {
+      errors.patientName = "Phone Number is Required";
+    }else if (!values.phoneno) {
+      errors.phoneno = "Phone Number is Required";
+    } else if (!values.address) {
+      errors.address = "Address is Required";
+    } else if (!values.dob) {
+      errors.dob = "Date Of Birth is Required";
+    } else if (!/^(0|[1-9][0-9]{9})$/i.test(values.phoneno)) {
+      errors.phoneno = "Invalid Phone Number";
+    } else if (!values.relationship) {
+      errors.relationship = "Realtionship is Required";
+    } else if (values.phoneno.length < 10) {
+      errors.phoneno = "Phone Number must be 10 characters";
+    }
+    return errors;
+  };
+   input = props => {
+    const { meta, input } = props;
+    return (
+      <View>
+        <Item
+          style={{
+            height: 56,
+            padding: 10,
+            marginTop: 20,
+            borderTopWidth: 2,
+            borderLeftWidth: 2,
+            borderRightWidth: 2,
+            borderBottomWidth: 2,
+            borderColor: "#c2c6da",
+            borderRadius: 28
+          }}
+        >
+          <Input {...input} {...props} />
+        </Item>
+        {meta.touched &&
+          meta.error && (
+            <Text style={{ color: "red", marginLeft: 20 }}>{meta.error}</Text>
+          )}
+      </View>
+    );
+  };
 
   constructor(props) {
       super(props);
@@ -118,7 +150,7 @@ class MaintainAppointmentForm extends Component {
   componentDidMount() {
   }
 
-  mobilevalidate(text) {
+  /*mobilevalidate(text) {
     const reg = /^[0]?[789]\d{9}$/;
     if (reg.test(text) === false) {
       this.setState({
@@ -134,7 +166,7 @@ class MaintainAppointmentForm extends Component {
       });
       return true;
     }
-  }
+  }*/
 
   openLocationSearch(){
     this.setState({placesModal:true});
@@ -156,6 +188,7 @@ class MaintainAppointmentForm extends Component {
   onChooseGender(value,index) {
     this.setState({ appointment: { ...this.state.appointment, gender: value} });
   }
+  
   submit() {
     this.props.saveAppointment(this.state.appointment);
   }
@@ -488,6 +521,7 @@ class MaintainAppointmentForm extends Component {
          <Button
           disabled = {this.state.isDisabled}
           onPress={() => {
+            this.validate(this.state.appointment.patientName)
             if (this.state.appointment.patientName == null ){
               this.setState(() => ({ nameError: "Patient Name required"}));
             } else {
@@ -498,23 +532,15 @@ class MaintainAppointmentForm extends Component {
             } else{
               this.setState(() => ({ nameError1: null}))
             }
-            if (this.state.appointment.phoneNumber == null){
-                this.setState(() => ({ phoneNumberError: "Phone Number required"}));
-              } else if (this.state.appointment.phoneNumber != null){
-              this.mobilevalidate(this.state.phoneNumber)
-              if(this.mobilevalidate == false){
-                this.setState(() => ({ phoneNumberError: "Invalid Phone Number"}));
-              } else {
-              this.setState(() => ({ phoneNumberError: null}))
-            } }            
             if (this.state.appointment.patientName != null && this.state.appointment.sponsorName != null){
               this.submit()
               Toast.show('Appoinment Created Succesfully',{
                 duration: 3500,
                 position: 75,
+                width:100,
                 shadow: true,
                 animation: true,
-                backgroundColor:'#800000',
+                backgroundColor:'#006400',
                 hideOnPress:true,
               })
             }

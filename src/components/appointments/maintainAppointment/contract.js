@@ -35,6 +35,8 @@ import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
 import CustomModal from "../../common/modal";
 import platform from "../../../../native-base-theme/variables/platform";
+import { Actions } from "react-native-router-flux";
+import Toast from 'react-native-root-toast'
 
 class Contract extends Component {
 
@@ -52,7 +54,13 @@ class Contract extends Component {
 
 
 updateContractStatus(contractStatus) {
+  let appointmentStatus;
   this.state.appointment["contractStatus"] = contractStatus;
+  if (contractStatus == 'accepted'){
+    appointmentStatus = 'Contract Signed';
+  } else {
+    appointmentStatus = 'Contract Rejected';
+  }
   let uniqueId=this.state.appointment.uniqueId;
 
   firebase
@@ -62,7 +70,8 @@ updateContractStatus(contractStatus) {
     .set(
       {
         uniqueId:uniqueId,
-        contractStatus:contractStatus
+        contractStatus:contractStatus,
+        status:appointmentStatus
       },
       {
         merge: true
@@ -128,6 +137,16 @@ updateContractStatus(contractStatus) {
                   style={styles.acceptButton}
                   onPress={() => {
                     this.updateContractStatus("accepted");
+                    Actions.homepage();
+                    Toast.show('Contract Accepted Succesfully',{
+                      duration: 3500,
+                      position: 75,
+                      width:100,
+                      shadow: true,
+                      animation: true,
+                      backgroundColor:'#006400',
+                      hideOnPress:true,
+                    })
                   }}
                   >
                   <Text style={{ fontSize: 18,
@@ -147,6 +166,7 @@ updateContractStatus(contractStatus) {
                 style={styles.declineButton}
                 onPress={() => {
                   this.updateContractStatus("declined");
+                  Actions.homepage();
                 }}
               >
             <Text style={{ fontSize: 18,

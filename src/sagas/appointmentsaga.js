@@ -49,10 +49,20 @@ function* saveAppointment({appointment}) {
     let dateCreated;
     let status;
     if(appointment.uniqueId)  {
+      if (userType == 'tasker'){
+        appointment.supervisorId = userId;
+      } else {
+        appointment.userId = userId;
+      }
       uniqueId = appointment.uniqueId;
       dateCreated = appointment.dateCreated;
-      status = appointment.status;
+      if (userType == 'tasker' && appointment.supervisorComments != undefined){
+        status = 'Review Completed'
+      } else{
+        status = appointment.status;
+      }
     } else {
+      appointment.userId = userId;
       var newAppointmentRef = firebase
                      .firestore()
                      .collection("appointments").doc();
@@ -73,7 +83,7 @@ function* saveAppointment({appointment}) {
             sponsorName:appointment.sponsorName,
             status:status,
             gender: appointment.gender,
-            userId: userId,
+            userId: appointment.userId,
             userLocation:appointment.userLocation,
             phoneno:appointment.phoneno,
             relationship:appointment.relationship,
@@ -82,6 +92,7 @@ function* saveAppointment({appointment}) {
             otherInstructions:appointment.otherInstructions,
             dob:appointment.dob,
             dateCreated: dateCreated,
+            supervisorId: appointment.supervisorId,
             supervisorComments:appointment.supervisorComments
           },
           {
