@@ -16,7 +16,7 @@ export default {
   headerView: {
     flexDirection: "row",
     justifyContent: "space-between",
-    //marginTop: 20
+    marginTop: 20
   },
   buttonsView: {
     flexDirection: "column",
@@ -35,7 +35,7 @@ export default {
     paddingRight: 0
   },
   formView: { flexDirection: "column", marginTop: 10 },
-  signinText: { fontSize: 30, fontWeight: "bold", color: "#43496a"},
+  signinText: { fontSize: 30, fontWeight: "bold", color: "#43496a" },
   orText: {
     fontSize: 16,
     color: "#43496a",
@@ -74,7 +74,6 @@ export default {
     color: "#fff"
   },
   formItem: {
-    marginTop:1,
     height: 56,
     padding: 10,
     borderTopWidth: 2,

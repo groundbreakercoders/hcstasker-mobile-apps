@@ -77,6 +77,7 @@ updateContractStatus(contractStatus) {
         merge: true
       }
     );
+
 }
 
   render() {
@@ -101,9 +102,9 @@ updateContractStatus(contractStatus) {
             }}
           >
             <View style={{ flex: 1, flexDirection: "column" }}>
-              {/*<Text style={styles.useragreement}>{strings.useragreement}</Text>*/}
-              <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,marginBottom:50,
-                borderWidth: 2,borderColor: 'black', shadowColor: 'black',
+              <Text style={styles.useragreement}>{strings.useragreement}</Text>
+              <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,marginBottom:10,
+                borderWidth: 0,borderColor: 'black', shadowColor: 'black',
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.8,
                 shadowRadius: 6,
@@ -112,7 +113,7 @@ updateContractStatus(contractStatus) {
                 <WebView
                           bounces={false}
                           scrollEnabled={false}
-                          source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/hcstasker-app.appspot.com/o/Contracts%2Fexample.pdf?alt=media&token=9b63c7df-47b2-456f-99b0-ea2ae56dcfef' }} />
+                          source={{ uri: this.state.appointment.contractURL }} />
               </View>
               <View
               style={{

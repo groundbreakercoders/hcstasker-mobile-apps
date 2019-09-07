@@ -171,7 +171,7 @@ class Notifications extends Component {
     
     return (
       <Container>
-        <Header title={strings.notifications} backButton />
+        <Header title={strings.notifications} />
         <Content>
           <View>
             {this.state.loading ? (

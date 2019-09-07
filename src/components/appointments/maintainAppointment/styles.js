@@ -169,7 +169,6 @@ containerbtn: {
    flexDirection: 'row',
    alignItems: 'center',
    justifyContent: 'center',
-   marginBottom:50
     },
 buttonContainer: {
         flex: 1,
