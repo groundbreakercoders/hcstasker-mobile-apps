@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   arrowIcon: {
     fontSize: 35,
     marginLeft: 0,
-    color: "#43496a"
+    color: "#FFF"
   }
 });
 

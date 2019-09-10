@@ -12,7 +12,10 @@ import {
   Spinner,
   Icon,
   ListItem,
+  Content,
+  ScrollView
 } from "native-base";
+import PhoneInput from 'react-phone-number-input';
 import PropTypes from "prop-types";
 import _ from "lodash";
 import ModalDropdown from "react-native-modal-dropdown";
@@ -31,9 +34,7 @@ import moment from "moment";
 import DatePicker from "react-native-datepicker";
 import MapInput from '../../common/maps';
 import RNPickerSelect from 'react-native-picker-select';
-
 import Toast from 'react-native-root-toast'
-import PhoneInput from 'react-phone-number-input';
 
   
 
@@ -47,8 +48,9 @@ var radio_props = [
   {label: 'Female', value: "F" }
 ];
 
-class MaintainAppointmentForm extends Component {
 
+class MaintainAppointmentForm extends Component {
+  
   validate = values => {
     const errors = {};
     if (!values) {
@@ -95,18 +97,20 @@ class MaintainAppointmentForm extends Component {
     );
   };
 
+  onFocus = () => {
+    const state = { ...this.state };
+    state.style = {
+      borderStyle: 'solid',
+      borderColor: '#e74712',
+    };
+  
+    this.setState(state);
+  }
+
   constructor(props) {
       super(props);
       this.inputRefs = {
         relationship: null,
-      };
-
-      const validate = ({ patientName }) => {
-        const errors = {}
-        if (patientName.trim() == null){
-          errors.patientName = 'Must not be blank'
-        }
-        return errors;
       };
 
         let isEditable;
@@ -131,7 +135,8 @@ class MaintainAppointmentForm extends Component {
             cost: "",
             appointment:props.appointment,
             isEditMode: isEditable,
-           isDisabled: isDisabled
+           isDisabled: isDisabled,
+           isFocused: false
           };
         } else {
           this.state = {
@@ -142,7 +147,8 @@ class MaintainAppointmentForm extends Component {
             isEditMode: isEditable,
             isDisabled: isDisabled,
             relationship:undefined,
-            serviceType:undefined
+            serviceType:undefined,
+            isFocused: false
           };
       }
   }
@@ -150,27 +156,10 @@ class MaintainAppointmentForm extends Component {
   componentDidMount() {
   }
 
-  /*mobilevalidate(text) {
-    const reg = /^[0]?[789]\d{9}$/;
-    if (reg.test(text) === false) {
-      this.setState({
-        mobilevalidate: false,
-        telephone: text,
-      });
-      return false;
-    } else {
-      this.setState({
-        mobilevalidate: true,
-        telephone: text,
-        message: '',
-      });
-      return true;
-    }
-  }*/
-
   openLocationSearch(){
     this.setState({placesModal:true});
   }
+
   // openLocationSearch() {
   //   RNGooglePlaces.openAutocompleteModal()
   //     .then(place => {
@@ -216,7 +205,6 @@ class MaintainAppointmentForm extends Component {
     this.setState({placesModal:false});
   }
 
-
   render() {
     const pickerSelectStyles = StyleSheet.create({
       inputIOS: {
@@ -260,6 +248,21 @@ class MaintainAppointmentForm extends Component {
       }
     ];
 
+    const serviceHours = [
+      {
+        label:'',
+        value:''
+      },
+      {
+        label:'12hrs',
+        value:'12hrs'
+      },
+      {
+        label:'24hrs',
+        value:'24hrs'
+      }
+    ]
+
     const serviceType = [
       {
         label: '',
@@ -276,8 +279,8 @@ class MaintainAppointmentForm extends Component {
         value: 'Baby Sitter'
       },
     ];
-
-    return (
+  
+  return (
       <View style={styles.container}>
       {this.state.placesModal === true ? (
         <View style={{ marginTop: 20 }}>
@@ -290,6 +293,8 @@ class MaintainAppointmentForm extends Component {
             <View style={{marginTop:1}}>
               <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
                 borderWidth: this.state.isEditMode ? 2 : 0}]}
+                autoFocus = {true}
+                enableAutomaticScroll = {false}
                 onChangeText={text => {
                   this.setState({ appointment: { ...this.state.appointment, patientName: text} });
                 }}
@@ -300,160 +305,214 @@ class MaintainAppointmentForm extends Component {
             </View>
           </View>
 
-        <View style={{}}>
-            <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
-            <View style={{marginTop:1}}>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
-                borderWidth: this.state.isEditMode ? 2 : 0}]}
-                onChangeText={text => {
-                  this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
+      <Text style={styles.textInput}>{strings.AFSponsorName}</Text>
+      <View style={{marginTop:1}}>
+        <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+          borderWidth: this.state.isEditMode ? 2 : 0}]}
+          enableAutomaticScroll = {false}
+          onChangeText={text => {
+            this.setState({ appointment: { ...this.state.appointment, sponsorName: text} });
+          }}
+          editable={this.state.isEditMode}
+          value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
+          />
+        {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
+      </View>
+
+      <Text style={styles.textInput}>{strings.AFGender}</Text>
+      <View style={{ marginTop:1, marginLeft:20}}>
+        <RadioForm
+          radio_props={radio_props}
+          initial={this.genderIdx()}
+          formHorizontal={false}
+          labelHorizontal={true}
+          buttonColor={'#44466B'}
+          animation={true}
+          selectedButtonColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
+          selectedLabelColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
+          labelStyle = {{ fontSize:18}}
+          disabled={this.state.isDisabled}
+          onPress={(value,index)=>this.onChooseGender(value,index)}
+        />
+      </View>
+
+      <Text style={styles.textInput}>{strings.AFDOB}</Text>
+      <View style={{ marginTop:1}}>
+        <DatePicker
+          style={{margin:15,marginTop:1, width: 200}}
+          date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
+          //placeholder = {strings.appointmentDOB}
+          mode="date"
+          format="DD-MM-YYYY"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          disabled={this.state.isDisabled}
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 5,
+              marginLeft: 10,
+              borderWidth: 0
+            },dateText: {
+              fontSize: 20
+            },
+
+            placeholderText: {
+                color: this.state.isDisabled ? '#C0C0C0' : '44466B',
+                fontSize: 17,
+                marginLeft: 15,
+                paddingLeft:5
+            }
+          }}
+          onDateChange={(date) => {
+            this.setState({ appointment: { ...this.state.appointment, dob: date} });
+          }
+          }
+        />
+      </View>
+
+      <Text style={styles.textInput}>{strings.AFAddress}</Text>
+      <View style={{ marginTop:1}}>
+        <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+            borderWidth: this.state.isEditMode ? 2 : 0}]}
+            enableAutomaticScroll = {false}
+            placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
+            value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
+            onFocus={() => this.openLocationSearch()}
+            editable={this.state.isEditMode}
+        />
+      </View>
+
+      <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
+      {/*<PhoneInput placeholder="Enter phone number"
+        onChangeText={text => {
+          this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
+        }}
+        value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}/>*/}
+        <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+            borderWidth: this.state.isEditMode ? 2 : 0}]}
+            placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
+            keyboardType={'phone-pad'}
+            returnKeyType='done'
+            enableAutomaticScroll = {false}
+            autoCapitalize='none'
+            onChangeText={text => {
+              this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
+            }}
+            value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
+            autoCorrect={false}
+            secureTextEntry={false}
+            editable={this.state.isEditMode}
+        />
+        {!!this.state.phoneNumberError && (<Text style={{ color: "red"}}>{this.state.phoneNumberError}</Text>)}
+
+      <Text style={styles.textInput}>{strings.AFRelationship}</Text>
+      <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}>
+        <Icon
+          name='ios-arrow-down'
+          size={20}
+          color='white'
+          style={[{right: 18, top: 1, position: 'absolute'}]}
+        />
+        <RNPickerSelect
+            placeholder={{}}
+            items={relationships}
+            onValueChange={value => {
+                            this.setState({
+                              appointment: { ...this.state.appointment, relationship: value}
+                            });
+                          }}
+            style={pickerSelectStyles}
+            value={this.state.appointment.relationship}
+            disabled={this.state.isDisabled}
+          />
+      </View>
+      <Text style={styles.textInput}>{strings.AFServiceType}</Text>
+      <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}>
+        <Icon
+          name='ios-arrow-down'
+          size={20}
+          color='white'
+          style={[{right: 18, top: 1, position: 'absolute'}]}
+        />
+        <RNPickerSelect
+          placeholder={{}}
+          items={serviceType}
+          onValueChange={value => {
+            this.setState({
+                    appointment: { ...this.state.appointment, serviceType: value}
+                  });
                 }}
-                editable={this.state.isEditMode}
-                value={this.state.appointment&&this.state.appointment.sponsorName?this.state.appointment.sponsorName:''}
-                />
-                {!!this.state.nameError1 && (<Text style={{ color: "red"}}>{this.state.nameError1}</Text>)}
-          </View>
-        </View>
+          style={pickerSelectStyles}
+          value={this.state.appointment.serviceType}
+          disabled={this.state.isDisabled}
+          enableAutomaticScroll = {false}
+        />
+      </View>
 
-        <View style={{ }}>
-            <Text style={styles.textInput}>{strings.AFGender}</Text>
-            <View style={{ marginTop:1, marginLeft:20}}>
-            <RadioForm
-              radio_props={radio_props}
-              initial={this.genderIdx()}
-              formHorizontal={false}
-              labelHorizontal={true}
-              buttonColor={'#44466B'}
-              animation={true}
-              selectedButtonColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
-              selectedLabelColor = {this.state.isDisabled ? '#C0C0C0' : 'blue'}
-              labelStyle = {{ fontSize:18}}
-              disabled={this.state.isDisabled}
-              //onPress={(value,initial)=>this.onChooseGender(value,initial)}
-              onPress={(value,index)=>this.onChooseGender(value,index)}
-              
+      <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
+      <View style={{ margin:15,marginTop:1}}>
+      <TextInput
+          onFocus = {()=> this.onFocus()}
+          style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+          borderWidth: this.state.isEditMode ? 2 : 0}]}
+          onChangeText={text => {
+            this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
+          }}
+          value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
+          editable={this.state.isEditMode}
+          multiline={true}
+          numberOfLines={4}
+          selectionColor={commonColor.lightThemePlaceholder}
+        />
+      </View>
+
+      <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
+      <View style={{ margin:15,marginTop:1}}>
+        <TextInput 
+            enableAutoAutomaticScroll={false}
+            style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
+            borderWidth: this.state.isEditMode ? 2 : 0}]}
+            enableAutomaticScroll = {false}
+            onChangeText={text => {
+              this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
+            }}
+            value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
+            editable={this.state.isEditMode}
+            multiline={true}
+            numberOfLines={4}
+            selectionColor={commonColor.lightThemePlaceholder}        
+        />
+      </View>
+    
+      {this.props.user.userType === "tasker"? (
+        <View>
+          <Text style={styles.textInput}>{strings.AFSupervisorComments}</Text>
+          <View style={{ margin:15,marginTop:1}}>
+            <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
+              enableAutomaticScroll = {false}
+              onChangeText={text => {
+                this.setState({ appointment: { ...this.state.appointment, supervisorComments: text} });
+              }}
+              value={this.state.appointment&&this.state.appointment.supervisorComments?this.state.appointment.supervisorComments:''}
+              editable={this.state.isEditMode}
+              multiline={true}
+              numberOfLines={4}
+              selectionColor={commonColor.lightThemePlaceholder}
             />
-              {/*<RadioGroup
-                defaultChoice={this.genderIdx()}
-                style={{ marginTop: 5, margin:15, height:20, color: '#fff', flexDirection: "row"}}
-                onChoose={(value,index)=>this.onChooseGender(value,index)}
-                >
-              <RadioButton style={styles.radioButton} value={"M"} disabled={this.state.isDisabled}>
-                  <Text style={{ color:'#44466B',marginRight:10,fontSize:18, height: 25}} >Male</Text><Radio/>
-              </RadioButton>
-              <RadioButton style={styles.radioButton} value={"F"} disabled={this.state.isDisabled}>
-                 <Radio/><Text style={{ color:'#44466B',marginLeft:10, fontSize:18, height: 25}}> Female</Text>
-              </RadioButton>
-            </RadioGroup>*/}
-          </View>
-        </View>
-
-
-          <View style={{ }}>
-              <Text style={styles.textInput}>{strings.AFDOB}</Text>
-              <View style={{ marginTop:1}}>
-              <DatePicker
-                      style={{margin:15,marginTop:1, width: 200}}
-                      date={(_.get(this.state,'appointment.dob') === null) ? '' : (_.get(this.state,'appointment.dob'))}
-                      mode="date"
-                      format="DD-MM-YYYY"
-                      confirmBtnText="Confirm"
-                      cancelBtnText="Cancel"
-                      disabled={this.state.isDisabled}
-                      customStyles={{
-                        dateIcon: {
-                          position: 'absolute',
-                          left: 0,
-                          top: 4,
-                          marginLeft: 0
-                        },
-                        dateInput: {
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          padding: 5,
-                          marginLeft: 10,
-                          borderWidth: 0
-                        },dateText: {
-                          fontSize: 20
-                        },
-
-                        placeholderText: {
-                            color: this.state.isDisabled ? '#C0C0C0' : '44466B',
-                            fontSize: 17,
-                            marginLeft: 15,
-                            paddingLeft:5
-                        }
-                        // ... You can check the source to find the other keys.
-                      }}
-                      onDateChange={(date) => {
-                        this.setState({ appointment: { ...this.state.appointment, dob: date} });
-                      }
-                      }
-                    />
-            </View>
-          </View>
-
-        <View style={{ }}>
-            <Text style={styles.textInput}>{strings.AFAddress}</Text>
-            <View style={{ marginTop:1}}>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
-                borderWidth: this.state.isEditMode ? 2 : 0}]}
-                placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
-                value={(_.get(this.state,'appointment.userLocation.address') === null) ? '' : (_.get(this.state,'appointment.userLocation.address'))}
-                onFocus={() => this.openLocationSearch()}
-                editable={this.state.isEditMode}
-            />
-          </View>
-        </View>
-
-        <View style={{ }}>
-          <View style={{ }}>
-            <Text style={styles.textInput}>{strings.AFPhoneNumber}</Text>
-            <TextInput style={[styles.input, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
-                borderWidth: this.state.isEditMode ? 2 : 0}]}
-                placeholder={this.state.appointment&&this.state.appointment.address?this.state.data.appointment:''}
-                keyboardType={'phone-pad'}
-                returnKeyType='done'
-                autoCapitalize='none'
-                onChangeText={text => {
-                  this.setState({ appointment: { ...this.state.appointment, phoneno: text} });
-                }}
-                value={this.state.appointment&&this.state.appointment.phoneno?this.state.appointment.phoneno:''}
-                autoCorrect={false}
-                secureTextEntry={false}
-                editable={this.state.isEditMode}
-            />
-            {!!this.state.phoneNumberError && (<Text style={{ color: "red"}}>{this.state.phoneNumberError}</Text>)}
-          </View>
-        </View>
-
-      <View style={{ }}>
-        <Text style={styles.textInput}>{strings.AFRelationship}</Text>
-          <View style={{ borderWidth:2,borderColor:'#000000',margin:15,marginTop:1, height: 40}}>
-            <Icon
-              name='ios-arrow-down'
-              size={20}
-              color='white'
-              style={[{right: 18, top: 1, position: 'absolute'}]}
-            />
-            <RNPickerSelect
-                placeholder={{}}
-                items={relationships}
-                onValueChange={value => {
-                                this.setState({
-                                  appointment: { ...this.state.appointment, relationship: value}
-                                });
-                              }}
-                style={pickerSelectStyles}
-                value={this.state.appointment.relationship}
-                disabled={this.state.isDisabled}
-              />
-
-          </View>
-        </View>
-
+          </View> 
+        </View> ) : null }
+        
+        {this.props.user.userType === "tasker"? (
         <View style={{}}>
-          <Text style={styles.textInput}>{strings.AFServiceType}</Text>
+          <Text style={styles.textInput}>{strings.AFServiceHours}</Text>
           <View style={{ borderWidth:2,borderColor:'#000000',margin:15, marginTop:1, height: 40}}>
             <Icon
               name='ios-arrow-down'
@@ -463,73 +522,18 @@ class MaintainAppointmentForm extends Component {
             />
             <RNPickerSelect
                     placeholder={{}}
-                      items={serviceType}
+                      items={serviceHours}
                       onValueChange={value => {
                                       this.setState({
-                                        appointment: { ...this.state.appointment, serviceType: value}
+                                        appointment: { ...this.state.appointment, serviceHours: value}
                                       });
                                     }}
                         style={pickerSelectStyles}
-                      value={this.state.appointment.serviceType}
+                      value={this.state.appointment.serviceHours}
                       disabled={this.state.isDisabled}
+                      enableAutomaticScroll = {false}
                     />
           </View>
-        </View>
-
-    <View style={{ }}>
-          <Text style={styles.textInput}>{strings.AFMedicalConditions}</Text>
-          <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
-                borderWidth: this.state.isEditMode ? 2 : 0}]}
-                onChangeText={text => {
-                  this.setState({ appointment: { ...this.state.appointment, medicalCondition: text} });
-                }}
-                value={this.state.appointment&&this.state.appointment.medicalCondition?this.state.appointment.medicalCondition:''}
-                editable={this.state.isEditMode}
-                multiline={true}
-                scrollEnabled = {false}
-                numberOfLines={4}
-                selectionColor={commonColor.lightThemePlaceholder}
-                enableAutoAutomaticScroll={false}
-              />
-          </View>
-        </View>
-
-
-        <View style={{ }}>
-          <Text style={styles.textInput}>{strings.AFOtherInstructions}</Text>
-          <View style={{ margin:15,marginTop:1}}>
-            <TextInput style={[styles.textArea, { color: this.state.isEditMode ? '#44466B' : '#C0C0C0',
-                borderWidth: this.state.isEditMode ? 2 : 0}]}
-                onChangeText={text => {
-                  this.setState({ appointment: { ...this.state.appointment, otherInstructions: text} });
-                }}
-                value={this.state.appointment&&this.state.appointment.otherInstructions?this.state.appointment.otherInstructions:''}
-                editable={this.state.isEditMode}
-                multiline={true}
-                numberOfLines={4}
-                selectionColor={commonColor.lightThemePlaceholder}
-                enableAutoAutomaticScroll={false}
-            />
-          </View>
-         </View>
-
-        {this.props.user.userType === "tasker"? (
-          <View>
-            <Text style={styles.textInput}>{strings.AFSupervisorComments}</Text>
-            <View style={{ margin:15,marginTop:1}}>
-              <TextInput style={[styles.textArea, { backgroundColor: this.state.isEditMode ? '#FFF' : '#C0C0C0' }]}
-                onChangeText={text => {
-                  this.setState({ appointment: { ...this.state.appointment, supervisorComments: text} });
-                }}
-                value={this.state.appointment&&this.state.appointment.supervisorComments?this.state.appointment.supervisorComments:''}
-                editable={this.state.isEditMode}
-                multiline={true}
-                numberOfLines={4}
-                selectionColor={commonColor.lightThemePlaceholder}
-                enableAutoAutomaticScroll={false}
-              />
-            </View>
         </View> ) : null }
         
          <Button
@@ -567,7 +571,6 @@ class MaintainAppointmentForm extends Component {
             <Text style={styles.buttonText}>{strings.Save}</Text>
 
          </Button> 
-
       </View>
 
 )}

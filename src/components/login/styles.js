@@ -16,7 +16,7 @@ export default {
   headerView: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 20
+    //marginTop: 20
   },
   buttonsView: {
     flexDirection: "column",
@@ -74,6 +74,7 @@ export default {
     color: "#fff"
   },
   formItem: {
+    marginTop:1,
     height: 56,
     padding: 10,
     borderTopWidth: 2,

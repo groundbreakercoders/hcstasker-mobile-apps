@@ -16,7 +16,7 @@ export default {
   headerView: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 20
+    //marginTop: 20
   },
   buttonsView: {
     flexDirection: "column",

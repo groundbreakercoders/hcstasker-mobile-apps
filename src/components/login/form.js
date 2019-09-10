@@ -28,7 +28,7 @@ export const input = props => {
       </Item>
 
       {meta.touched &&
-        meta.error && <Text style={{ color: "red" }}>{meta.error}</Text>}
+        meta.error && <Text style={{ color: "red" ,marginTop:10 }}>{meta.error}</Text>}
     </View>
   );
 };

@@ -88,6 +88,7 @@ function* saveAppointment({appointment}) {
             phoneno:appointment.phoneno,
             relationship:appointment.relationship,
             serviceType:appointment.serviceType,
+            serviceHours:appointment.serviceHours,
             medicalCondition:appointment.medicalCondition,
             otherInstructions:appointment.otherInstructions,
             dob:appointment.dob,
@@ -103,7 +104,7 @@ function* saveAppointment({appointment}) {
     );
     yield put(AppointmentActions.getAppointments(userId,userType));
 
-    Alert.alert("Appointment Updated Successfully");
+    //Alert.alert("Appointment Updated Successfully");
     Actions.homepage();
 
   } catch (error) {

@@ -36,9 +36,22 @@ class Signin extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      loader: true
+      loader: true,
+      disabled: false
     };
   }
+
+  pressButton(){
+    this.setState({
+      disabled: true
+    })
+
+   setTimeout(() => {
+    this.setState({
+      disabled:false
+    });
+  }, 5000)
+}
 
   onSelect(index) {
     let lang = "";
