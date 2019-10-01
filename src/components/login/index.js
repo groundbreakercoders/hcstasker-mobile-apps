@@ -11,7 +11,11 @@ import {
   Spinner,
   Item
 } from "native-base";
-import { Dimensions, View, WebView, Modal } from "react-native";
+import {
+  TouchableOpacity
+} from 'react-native';
+import { Dimensions, View, Modal } from "react-native";
+import { WebView } from "react-native-webview";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
 import { connect } from "react-redux";
 import { Actions } from "react-native-router-flux";
@@ -21,8 +25,11 @@ import LoginForm from "./form";
 import styles from "./styles";
 import commonColor from "../../../native-base-theme/variables/commonColor";
 import Header from "../common/header";
+import TwitterButton from './TwitterButton';
+import InstagramLogin from 'react-native-instagram-login';
 
 const { height } = Dimensions.get("window");
+//const fbIcon = require("../../../src/assets/f_logo_RGB-Blue_1024.png");
 
 class Login extends Component {
   constructor(props) {
@@ -32,7 +39,8 @@ class Login extends Component {
       disableLoginButton: false,
       eulaVisible: false,
       url: "",
-      title: ""
+      title: "",
+      token: ''
     };
   }
 
@@ -112,26 +120,58 @@ class Login extends Component {
 
             <Text style={styles.orText}>{lang.or}</Text>
 
-            <View style={styles.buttonsView}>
+              <View style={{flexDirection: "row"}}>
               <Button
                 onPress={() => {
                   if (!this.state.disableLoginButton) {
                     this.yo();
                   }
                 }}
-                rounded
-                style={[styles.loginButton, styles.facebook]}
+                 rounded
+                 style={[styles.loginButtonFB, styles.facebook]}
               >
                 {this.state.show ? (
-                  <Text style={styles.buttonText}>{lang.facebook}</Text>
+                  <Text style={styles.buttonTextFb}>{lang.facebook}</Text>
+                  
+                  //  <Image source={require('../../../src/assets/f_logo_RGB-Blue_1024.png')} height="5%" width="5%"/>
                 ) : (
                   <Spinner color="white" size="small" />
                 )}
               </Button>
 
+              <TwitterButton /> 
+              
+            {/* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity
+              style={{
+                borderRadius: 5,
+                backgroundColor: 'orange',
+                height: 30, width: 100,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              onPress={() => this.instagramLogin.show()}>
+              <Text style={{ color: 'white', textAlign: 'center' }}>Login now</Text>
+            </TouchableOpacity>
+            <Text style={{ margin: 10 }}>Token: {this.state.token}</Text>
+            {this.state.failure && <View>
+              <Text style={{ margin: 10 }}>failure: {JSON.stringify(this.state.failure)}</Text>
+            </View>}
+            <InstagramLogin
+              ref={ref => (this.instagramLogin = ref)}
+              clientId="c54f9ecfc7964bc7afceafc6baeea282"
+              redirectUrl="https://google.com"
+              scopes={['basic']}
+              onLoginSuccess={token => this.setState({ token })}
+              onLoginFailure={data => this.setState({ failure: data })}
+            />
+          </View> */}
+              
+              </View>
+
               
 
-
+              <View style={styles.buttonsView}>
               <Button
                     onPress={() => {
                       Actions.signuppage()
@@ -144,7 +184,7 @@ class Login extends Component {
                     <Text style={[styles.buttonText, styles.signupText]}>
                       {lang.signup}
                       </Text>
-    </Button>
+              </Button>
               {/* <Button rounded style={[styles.loginButton, styles.google]}>
                 <Text style={styles.buttonText}>{lang.google}</Text>
               </Button> */}

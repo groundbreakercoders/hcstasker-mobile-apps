@@ -53,7 +53,7 @@ class Contract extends Component {
   }
 
 
-updateContractStatus(contractStatus) {
+  updateContractStatus(contractStatus) {
   let appointmentStatus;
   this.state.appointment["contractStatus"] = contractStatus;
   if (contractStatus == 'accepted'){
@@ -93,100 +93,62 @@ updateContractStatus(contractStatus) {
     return (
       <Container>
         <CustomModal strings={strings} />
-        <Content scrollEnabled={false}>
-        <View
-            style={{
-              flex: 1,
-              height: Platform.OS === "ios" ? height - 55 : height - 75,
-              backgroundColor: "#fff"
-            }}
-          >
-            <View style={{ flex: 1, flexDirection: "column" }}>
-              {//<Text style={styles.useragreement}>{strings.useragreement}</Text>
-              <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,marginBottom:10,
-                borderWidth: 2,borderColor: 'black', shadowColor: 'black',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.8,
-                shadowRadius: 6,
-                }}>
-
-                <WebView
-                          bounces={false}
-                          scrollEnabled={false}
-                          source={{ uri: this.state.appointment.contractURL }} />
-              </View>
-              <View
-              style={{
-                flex: Platform.OS === "ios"
-                    ? 0.6
-                    : 1.1
-                  }}
-
-                  >
-            <View
-              style={{
-                flex: Platform.OS === "ios" ? 1.7 : 1.9,
-                alignSelf: "center",
-                justifyContent: "center",
-                flexDirection: 'row',
-              }}
-            >
-            <View style={styles.containerbtn}>
-              <View style={styles.buttonContainer}>
-                  <Button
-                  bordered
-                  style={styles.acceptButton}
-                  onPress={() => {
-                    this.updateContractStatus("accepted");
-                    Actions.homepage();
-                    Toast.show('Contract Accepted Succesfully',{
-                      duration: 3500,
-                      position: 75,
-                      width:100,
-                      shadow: true,
-                      animation: true,
-                      backgroundColor:'#006400',
-                      hideOnPress:true,
-                    })
-                  }}
-                  >
-                  <Text style={{ fontSize: 18,
-                  color: "#fff",
-                  fontWeight: "500",
-                  fontWeight: "bold"
-
+          <Content scrollEnabled={false}>
+            <View style={{flex: 1,height: Platform.OS === "ios" ? height - 55 : height - 75,backgroundColor: "#fff"}}>
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <Text ></Text>
+                <View style={{ flex: 6, marginTop:10, marginLeft:10, marginRight:10,marginBottom:10,borderWidth: 2,borderColor: 'black', shadowColor: 'black',
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.8,
+                  shadowRadius: 6,
                   }}>
-                  {this.props.strings.accept}
-                  </Text>
-              </Button>
-
-              </View>
-              <View style={styles.buttonContainer}>
-              <Button
-                bordered
-                style={styles.declineButton}
-                onPress={() => {
-                  this.updateContractStatus("declined");
-                  Actions.homepage();
-                }}
-              >
-            <Text style={{ fontSize: 18,
-            color: "#fff",
-            fontWeight: "500",
-            fontWeight: "bold"
-
-            }}>
-            {this.props.strings.decline}
-            </Text>
-        </Button>
+                  <WebView bounces={false} scrollEnabled={false} source={{ uri: this.state.appointment.contractURL }} />
+                </View>
+                <View style={{flex: Platform.OS === "ios" ? 0.6 : 1.1}}>
+                  <View style={{flex: Platform.OS === "ios" ? 1.7 : 1.9,alignSelf: "center",justifyContent: "center",flexDirection: 'row',}}>
+                    <View style={styles.containerbtn}>
+                      <View style={styles.buttonContainer}>
+                          <Button bordered style={styles.acceptButton}
+                            onPress={() => { this.updateContractStatus("accepted");
+                            Actions.homepage();
+                            Toast.show('Contract Accepted Succesfully',{
+                              duration: 3500,
+                              position: 75,
+                              width:100,
+                              shadow: true,
+                              animation: true,
+                              backgroundColor:'#006400',
+                              hideOnPress:true})
+                            }}>
+                            <Text style={{ fontSize: 18,color: "#fff",fontWeight: "500",fontWeight: "bold"}}>
+                              {this.props.strings.accept}
+                            </Text>
+                          </Button>
+                      </View>
+                      <View style={styles.buttonContainer}>
+                        <Button
+                          bordered
+                          style={styles.declineButton}
+                          onPress={() => {
+                            this.updateContractStatus("declined");
+                            Actions.homepage();
+                            Toast.show('Contract Declined Succesfully',{
+                              duration: 3500,
+                              position: 75,
+                              width:100,
+                              shadow: true,
+                              animation: true,
+                              backgroundColor:'#006400',
+                              hideOnPress:true})}}>
+                          <Text style={{ fontSize: 18,color: "#fff",fontWeight: "500",fontWeight: "bold"}}>
+                            {this.props.strings.decline}
+                          </Text>
+                        </Button>
+                      </View>
+                  </View>
+                </View>
               </View>
             </View>
-
-
-
-          </View>
-          </View>
-          </View>
           </View>
         </Content>
       </Container>

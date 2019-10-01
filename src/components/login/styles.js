@@ -51,8 +51,27 @@ export default {
     justifyContent: "center",
     backgroundColor: commonColor.brandPrimary
   },
+    loginButtonFB: {
+    marginTop: 30,
+    width: deviceWidth - 275,
+    alignSelf: "flex-start",
+    height: 50,
+    justifyContent: "center",
+    backgroundColor: commonColor.brandPrimary
+  },
+  ImageStyle: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
   facebook: {
     backgroundColor: "#3B579D"
+  },
+  button: {
+    height: 50,
   },
   listItem: {
     borderTopWidth: 1,
@@ -70,6 +89,16 @@ export default {
   },
   buttonText: {
     fontSize: 18,
+    fontWeight: "600",
+    color: "#fff"
+  },
+  buttonTextFb: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#fff"
+  },
+  buttonTextTwitter: {
+    fontSize: 16,
     fontWeight: "600",
     color: "#fff"
   },

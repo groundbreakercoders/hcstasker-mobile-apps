@@ -10,6 +10,8 @@ const lang = {
     password: "Password",
     or: "OR",
     facebook: "Facebook",
+    twitter: "Twitter",
+    instagram: "Instagram",
     google: "Google+",
     name: "Name",
     phoneno: "Phone Number",
