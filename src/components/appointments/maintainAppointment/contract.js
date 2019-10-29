@@ -13,7 +13,11 @@ import {
   Icon,
   ListItem,
   Container,
-  Content
+  Content,
+  Card,
+  Body,CheckBox,
+Title,CardItem,Left,Right,
+Thumbnail,COl
 } from "native-base";
 import PropTypes from "prop-types";
 import _ from "lodash";
@@ -36,7 +40,9 @@ import RNPickerSelect from 'react-native-picker-select';
 import CustomModal from "../../common/modal";
 import platform from "../../../../native-base-theme/variables/platform";
 import { Actions } from "react-native-router-flux";
-import Toast from 'react-native-root-toast'
+import Toast from 'react-native-root-toast';
+import NurseList from "./nurseList";
+
 
 class Contract extends Component {
 
@@ -45,6 +51,9 @@ class Contract extends Component {
       this.state = {
         loading: true,
         appointment:props.appointment,
+        activeItem:[],
+      activeLength:[],
+      isDisabled: false
       };
 
   }
@@ -55,30 +64,19 @@ class Contract extends Component {
 
   updateContractStatus(contractStatus) {
   let appointmentStatus;
+  
+
   this.state.appointment["contractStatus"] = contractStatus;
   if (contractStatus == 'accepted'){
     appointmentStatus = 'Contract Signed';
   } else {
     appointmentStatus = 'Contract Rejected';
   }
-  let uniqueId=this.state.appointment.uniqueId;
-
-  firebase
-    .firestore()
-    .collection("appointments")
-    .doc(uniqueId)
-    .set(
-      {
-        uniqueId:uniqueId,
-        contractStatus:contractStatus,
-        status:appointmentStatus
-      },
-      {
-        merge: true
-      }
-    );
+  this.state.appointment["status"] = appointmentStatus;
+  this.props.saveAppointment(this.state.appointment);
 
 }
+
 
   render() {
     const { strings } = this.props;
@@ -110,7 +108,7 @@ class Contract extends Component {
                       <View style={styles.buttonContainer}>
                           <Button bordered style={styles.acceptButton}
                             onPress={() => { this.updateContractStatus("accepted");
-                            Actions.homepage();
+                            
                             Toast.show('Contract Accepted Succesfully',{
                               duration: 3500,
                               position: 75,

@@ -9,6 +9,7 @@ import MaintainAppointmentForm from "./form";
 import Contract from "./contract";
 import Header from "../../common/header";
 import commonColor from "../../../../native-base-theme/variables/commonColor";
+import NurseList from "./nurseList";
 class MaintainAppointment extends Component {
 
 
@@ -52,6 +53,7 @@ class MaintainAppointment extends Component {
             </View>
             {appointment && appointment.status == 'Contract Released' ? (
               <Contract strings={strings} appointment={appointment} />
+              //<NurseList appointment={appointment} />
             ):(
               <MaintainAppointmentForm strings={strings} appointment={appointment} />
             )}

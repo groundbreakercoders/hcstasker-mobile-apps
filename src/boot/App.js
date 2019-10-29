@@ -42,6 +42,8 @@ import Tasker from "../components/tasker";
 import Appointments from "../components/appointments";
 import MaintainAppointment from "../components/appointments/maintainAppointment";
 import lang from "./localise";
+import NurseList from "../components/appointments/maintainAppointment/nurseList";
+
 
 const strings = new LocalizedStrings(lang);
 
@@ -126,6 +128,12 @@ class App extends Component {
             key="appointments"
             component={Appointments}
             title="Appointments Page"
+          />
+          <Scene
+            hideNavBar
+            key="nurseList"
+            component={NurseList}
+            title="Nurse List"
           />
         </Stack>
         <Scene key="taskerpage" component={TaskerPage} title="Tasker Page" />

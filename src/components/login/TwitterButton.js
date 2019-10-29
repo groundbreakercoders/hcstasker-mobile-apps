@@ -10,6 +10,7 @@ import {
   Spinner,
   TouchableOpacity } from "react-native";
   import styles from "./styles";
+  import { SocialIcon } from 'react-native-elements';
 
 const { RNTwitterSignIn } = NativeModules;
 
@@ -59,16 +60,22 @@ export default class TwitterButton extends Component {
           ? <TouchableOpacity onPress={this.handleLogout}>
               <Text>Log out</Text>
             </TouchableOpacity>
-          : <Button name="logo-twitter" style={[styles.loginButtonFB, styles.facebook]} onPress={this._twitterSignIn} title="Twitter login" rounded>
-            <Text style={styles.buttonTextFb}>Twitter</Text>
-            {/* {this.state.show ? (
+          : 
+          // <Button name="logo-twitter" style={[styles.loginButtonFB, styles.facebook]} onPress={this._twitterSignIn} title="Twitter login" rounded>
+          //   <Text style={styles.buttonTextFb}>Twitter</Text>
+          <SocialIcon
+          style = {{justifyContent:'space-evenly'}}
+          type = 'twitter'
+          onPress={this._twitterSignIn}
+          />
+            /* {this.state.show ? (
                   <Text style={styles.buttonTextFb}>{lang.facebook}</Text>
                   
                   //  <Image source={require('../../../src/assets/f_logo_RGB-Blue_1024.png')} height="5%" width="5%"/>
                 ) : (
                   <Spinner color="white" size="small" />
                 )} */}
-            </Button>}
+            }
       </View>
     )
   }

@@ -6,7 +6,10 @@ import { guide } from "../theme";
 const { Types, Creators } = createActions({
   getAppointments: ["userid", "usertype"],
   setAppointments: ["appointments"],
-  saveAppointment: ["appointment"]
+  saveAppointment: ["appointment"],
+  getUserstype: ["usertype"],
+  setUserstype: ["availUsers"],
+  setAppointment: ["appointment"],
 });
 
 export const AppointmentTypes = Types;
@@ -23,7 +26,25 @@ export const setAppointments = (state = INITIAL_STATE, { appointments }) => ({
   appointments
 });
 
+export const setAppointment = (state = INITIAL_STATE, { appointment }) => ({
+  ...state,
+  appointment
+});
+
+export const setUsers = (state = INITIAL_STATE, { users }) => ({
+  ...state,
+  users
+});
+
+export const setUserstype = (state = INITIAL_STATE, { availUsers }) => ({
+  ...state,
+  availUsers
+});
+
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_APPOINTMENTS]: setAppointments
+  [Types.SET_APPOINTMENTS]: setAppointments,
+  [Types.SET_APPOINTMENT]: setAppointment,
+  [Types.SET_USERSTYPE]: setUserstype
 });
+

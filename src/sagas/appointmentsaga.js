@@ -40,6 +40,35 @@ function* getAppointments(filter) {
   }
 }
 
+function* getUserstype(filter) {
+  try {
+    const availUsers = [];
+    var query =   firebase
+                  .firestore()
+                  .collection("users");
+    
+      query=query.where("userType", "==", filter.usertype).where("status","==","Available");
+    
+    yield call(() =>
+          query
+          .get()
+          .then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+              const data = doc.data();
+              availUsers.push(data);
+            });
+          }).catch(error => {
+              console.log("Catch", error);
+
+            })
+    );
+
+    yield put(AppointmentActions.setUserstype(availUsers));
+  } catch (error) {
+    console.log('ERR', error);
+  }
+}
+
 function* saveAppointment({appointment}) {
   try {
     const getUser = state => state.user.userType;
@@ -102,10 +131,16 @@ function* saveAppointment({appointment}) {
         )
         .catch(error => console.log("Catch", error))
     );
-    yield put(AppointmentActions.getAppointments(userId,userType));
+   
 
-    //Alert.alert("Appointment Updated Successfully");
-    Actions.homepage();
+    if(status == 'Contract Signed') {
+      yield put(AppointmentActions.setAppointment(appointment));
+      Actions.nurseList();
+    } else {
+      yield put(AppointmentActions.getAppointments(userId,userType));
+      Actions.homepage();
+    }
+    
 
   } catch (error) {
         console.log("ERROR", error);
@@ -121,7 +156,17 @@ function* getAppointmentsListener() {
 	yield takeLatest(AppointmentTypes.GET_APPOINTMENTS, getAppointments);
 }
 
+function* getUserstypeListener() {
+	yield takeLatest(AppointmentTypes.GET_USERSTYPE, getUserstype);
+}
+
+function* setUserstypeListener() {
+	yield takeLatest(AppointmentTypes.SET_USERSTYPE, setUserstype);
+}
+
 export default function* userSagas() {
   yield fork(getAppointmentsListener);
   yield fork(saveAppointmentListener);
+  yield fork(getUserstypeListener);
+
 }

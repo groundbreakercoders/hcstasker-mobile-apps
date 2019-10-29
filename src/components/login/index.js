@@ -27,9 +27,11 @@ import commonColor from "../../../native-base-theme/variables/commonColor";
 import Header from "../common/header";
 import TwitterButton from './TwitterButton';
 import InstagramLogin from 'react-native-instagram-login';
+import fbImage from './f_logo_RGB-Blue_1024.png';
+import { SocialIcon } from 'react-native-elements';
 
 const { height } = Dimensions.get("window");
-//const fbIcon = require("../../../src/assets/f_logo_RGB-Blue_1024.png");
+const fbIcon = require("../../../src/assets/f_logo_RGB-Blue_1024.png");
 
 class Login extends Component {
   constructor(props) {
@@ -95,6 +97,15 @@ class Login extends Component {
       });
   }
 
+  renderImage() {
+    //var imgSource = this.state.show ? fbImage : null
+    return (
+      <Image
+        source={ fbIcon }
+      />
+    );
+  }
+
   render() {
     const lang = this.props.strings;
     console.log(this.props,"index Login@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
@@ -120,29 +131,35 @@ class Login extends Component {
 
             <Text style={styles.orText}>{lang.or}</Text>
 
-              <View style={{flexDirection: "row"}}>
-              <Button
+              <View style={{flexDirection: "row",justifyContent:"center"}}>
+              <SocialIcon
+                style = {{justifyContent:'space-evenly'}}
+                type='facebook'
                 onPress={() => {
                   if (!this.state.disableLoginButton) {
                     this.yo();
                   }
                 }}
-                 rounded
-                 style={[styles.loginButtonFB, styles.facebook]}
+                //  rounded
+                //  style={[styles.loginButtonFB, styles.facebook]}
               >
-                {this.state.show ? (
-                  <Text style={styles.buttonTextFb}>{lang.facebook}</Text>
-                  
-                  //  <Image source={require('../../../src/assets/f_logo_RGB-Blue_1024.png')} height="5%" width="5%"/>
+                {/* {this.state.show ? (
+                  //<Text style={styles.buttonTextFb}>{lang.facebook}</Text>
+                  //this.renderImage()
+                  <Image  source={{
+                    uri: 'https://facebook.github.io/react/logo-og.png',
+                    cache: 'only-if-cached',
+                  }}
+                  style={{width: 400, height: 400}}/>
                 ) : (
                   <Spinner color="white" size="small" />
-                )}
-              </Button>
-
+                )} */}
+              </SocialIcon>
+              
               <TwitterButton /> 
               
-            {/* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <TouchableOpacity
+            
+            {/* <TouchableOpacity
               style={{
                 borderRadius: 5,
                 backgroundColor: 'orange',
@@ -152,8 +169,14 @@ class Login extends Component {
               }}
               onPress={() => this.instagramLogin.show()}>
               <Text style={{ color: 'white', textAlign: 'center' }}>Login now</Text>
-            </TouchableOpacity>
-            <Text style={{ margin: 10 }}>Token: {this.state.token}</Text>
+            </TouchableOpacity> */}
+            
+            {/* <SocialIcon
+            style = {{justifyContent:'space-evenly'}}
+            type='instagram'
+            onPress={() => this.instagramLogin.show()}
+            disabled='true'/>
+            {/* <Text style={{ margin: 10 }}>Token: {this.state.token}</Text> */}
             {this.state.failure && <View>
               <Text style={{ margin: 10 }}>failure: {JSON.stringify(this.state.failure)}</Text>
             </View>}
@@ -164,8 +187,8 @@ class Login extends Component {
               scopes={['basic']}
               onLoginSuccess={token => this.setState({ token })}
               onLoginFailure={data => this.setState({ failure: data })}
-            />
-          </View> */}
+            /> */}
+         
               
               </View>
 
