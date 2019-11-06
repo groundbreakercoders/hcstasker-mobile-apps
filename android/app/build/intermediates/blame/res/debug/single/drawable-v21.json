@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/drawable-v21/abc_edit_text_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/drawable-v21/notification_action_background.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\drawable-v21\\notification_action_background.xml"
     }
 ]

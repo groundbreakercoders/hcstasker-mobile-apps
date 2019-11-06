@@ -1,22 +1,18 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/layout-v21/notification_action.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v21/place_autocomplete_fragment.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.0.aar/b3cc2f71a3fdf0311c60b9bff28ca486/res/layout-v21/place_autocomplete_fragment.xml"
-    },
-    {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\layout-v21\\notification_action.xml"
     }
 ]

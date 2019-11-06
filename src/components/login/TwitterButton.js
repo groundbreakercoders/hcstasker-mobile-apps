@@ -16,7 +16,6 @@ const { RNTwitterSignIn } = NativeModules;
 
 
 const Constants = {
-  //Dev Parse keys
   TWITTER_COMSUMER_KEY: "VI6zPyrnaJ8p4x0KJHA5cRcZb",
   TWITTER_CONSUMER_SECRET: "tcUcNQ4AgolcU8gY5yibBb1zZ8bF57COxXXQsckVtRHhO2rX8u"
 }
@@ -61,33 +60,16 @@ export default class TwitterButton extends Component {
               <Text>Log out</Text>
             </TouchableOpacity>
           : 
-          // <Button name="logo-twitter" style={[styles.loginButtonFB, styles.facebook]} onPress={this._twitterSignIn} title="Twitter login" rounded>
-          //   <Text style={styles.buttonTextFb}>Twitter</Text>
+          
           <SocialIcon
           style = {{justifyContent:'space-evenly'}}
           type = 'twitter'
           onPress={this._twitterSignIn}
           />
-            /* {this.state.show ? (
-                  <Text style={styles.buttonTextFb}>{lang.facebook}</Text>
-                  
-                  //  <Image source={require('../../../src/assets/f_logo_RGB-Blue_1024.png')} height="5%" width="5%"/>
-                ) : (
-                  <Spinner color="white" size="small" />
-                )} */}
+           }
             }
       </View>
     )
   }
 }
 
-// const styles = StyleSheet.create({
-//   button: {
-//     marginTop: 30,
-//     width: deviceWidth - 275,
-//     alignSelf: "flex-start",
-//     height: 50,
-//     justifyContent: "center",
-//     backgroundColor: commonColor.brandPrimary
-//   }
-// })

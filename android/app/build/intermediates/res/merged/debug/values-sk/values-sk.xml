@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Prejsť na plochu"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Prejsť hore"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Ďalšie možnosti"</string>
     <string msgid="4076576682505996667" name="abc_action_mode_done">"Hotovo"</string>
@@ -15,7 +17,7 @@
     <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Odoslať dopyt"</string>
     <string msgid="893419373245838918" name="abc_searchview_description_voice">"Hlasové vyhľadávanie"</string>
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Zdieľať pomocou"</string>
-    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Zdieľať s aplikáciou <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Zdieľať pomocou %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Zbaliť"</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Navštívte stránku &lt;b>facebook.com/device&lt;/b> a zadajte kód zobrazený vyššie.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Pri sťahovaní obrázka sa vyskytla neočakávaná chyba.</string>
@@ -59,8 +61,6 @@
     <string msgid="3441753203274453993" name="common_signin_button_text">"Prihlásiť sa"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Prihlásiť sa do účtu Google"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Rôzne"</string>
-    <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Vymazať vyhľadávanie"</string>
-    <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Vyhľadávajte"</string>
     <string msgid="368094699078615544" name="s1">"Uloženie obrázka"</string>
     <string msgid="4550830452390689489" name="s2">"Povoliť reklame uložiť obrázok do galérie obrázkov?"</string>
     <string msgid="2435407834265420668" name="s3">"Prijať"</string>
@@ -70,6 +70,7 @@
     <string msgid="7163549807207034258" name="s7">"Testovacia reklama"</string>
     <string msgid="146198913615257606" name="search_menu_title">"Vyhľadávanie"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="tw__login_btn_txt">Prihlásiť sa na Twitter</string>
     <string name="ucrop_label_edit_photo">Upraviť fotografiu</string>
     <string name="ucrop_label_original">Pôvodná</string>
     <string name="ucrop_menu_crop">Orezať</string>

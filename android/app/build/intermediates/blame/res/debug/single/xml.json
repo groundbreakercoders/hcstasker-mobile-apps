@@ -1,10 +1,14 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
-        "source": "/Users/lionelpannisamy/hcstasker-mobile-apps/node_modules/react-native-image-crop-picker/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\react-native-0.54.4.aar\\4d1c8b5dc989813fc9562f24e5879b7a\\res\\xml\\preferences.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/b87bc82bc4e3e084bafe3ef78bd1458e/res/xml/preferences.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\file_provider_paths.xml",
+        "source": "C:\\native\\hcstasker-mobile-apps\\node_modules\\react-native-webview\\android\\build\\intermediates\\packaged_res\\debug\\xml\\file_provider_paths.xml"
+    },
+    {
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\provider_paths.xml",
+        "source": "C:\\native\\hcstasker-mobile-apps\\node_modules\\react-native-image-crop-picker\\android\\build\\intermediates\\packaged_res\\debug\\xml\\provider_paths.xml"
     }
 ]

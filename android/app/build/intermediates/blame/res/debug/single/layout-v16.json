@@ -1,6 +1,6 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/layout-v16/notification_template_custom_big.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/e9046a3f12d88c06e2e5f9673629ed0d/res/layout-v16/notification_template_custom_big.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\9bee35f13fdc73506c2528e0ca430219\\res\\layout-v16\\notification_template_custom_big.xml"
     }
 ]

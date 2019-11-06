@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
+            "outputFile": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-as\\values-as.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/6822f801af7ae99b9290cd258b9e3ca2/res/values-as/values.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-15.0.2.aar\\2eab3131aaca5cc4bc4449968c9f10ba\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-as/values-as.xml",
+            "outputFile": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-as\\values-as.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/6822f801af7ae99b9290cd258b9e3ca2/res/values-as/values.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-15.0.2.aar\\2eab3131aaca5cc4bc4449968c9f10ba\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

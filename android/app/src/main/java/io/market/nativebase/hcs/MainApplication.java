@@ -3,13 +3,12 @@ package io.market.nativebase.hcs;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.goldenowl.twittersignin.TwitterSigninPackage;
-
+import com.reactnativecommunity.webview.RNCWebViewPackage;
+import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
-import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 // import io.sentry.RNSentryPackage;
@@ -70,12 +69,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new TwitterSigninPackage(), 
+         new RNGooglePlacesPackage(),
             new RNCWebViewPackage(),
-            new TwitterSigninPackage(),
             new MapsPackage(),
             new ReactNativeLocalizationPackage(),
             new RNI18nPackage(),
-            new RNGooglePlacesPackage(),
             new RNFirebasePackage(),
             new PickerPackage(),
             new SplashScreenReactPackage(),

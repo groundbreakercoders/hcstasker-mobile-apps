@@ -35,7 +35,7 @@ export const input = props => {
 
 class LoginForm extends Component {
   submit(values) {
-    // this.setState({loading:true})
+    this.setState({loading:true})
     this.props.dispatch(UserActions.login(values.email, values.password,"user"));
   }
   render() {

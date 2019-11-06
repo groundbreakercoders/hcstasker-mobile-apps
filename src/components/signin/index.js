@@ -113,15 +113,11 @@ class Signin extends Component {
   );
 
   render() {
-    // setTimeout(()=>{this.setState({loader:false})},3000)
+  
     const lang = this.props.strings;
-    // console.log(this.props,"HelloSignIN#############!!!!!!!!!!!!!!!")
     if(this.props.User.loading){
         return(
 
-      //  <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-      //    <ActivityIndicator color="blue" size="large"/>
-      //  </View>
       <Container>
         <Content
           scrollEnabled={true}
@@ -141,14 +137,12 @@ class Signin extends Component {
                   <ActivityIndicator color="blue" size="large"></ActivityIndicator>
               </View>
 
-              {/* <ActivityIndicator color="blue" size="large"/> */}
+            
             </View>
             <View style={styles.buttonsView}>
               <Button disabled
                 onPress={() => {
                   Actions.loginUser()
-                    // this.callMe(),
-                    // this.props.setCurrentAddress();
                 }}
                 rounded
                 style={styles.loginButton}
@@ -159,8 +153,8 @@ class Signin extends Component {
               <Button disabled
                 onPress={() => {
                   Actions.loginTasker()
-                    // this.callMe(),
-                    // this.props.setCurrentAddress();
+                   
+                    
                 }}
                 rounded
                 style={[styles.loginButton]}
@@ -246,8 +240,7 @@ class Signin extends Component {
               <Button
                 onPress={() => {
                   Actions.loginUser()
-                    // this.callMe(),
-                    // this.props.setCurrentAddress();
+                    
                 }}
                 rounded
                 style={styles.loginButton}
@@ -257,8 +250,7 @@ class Signin extends Component {
               <Button
                 onPress={() => {
                   Actions.loginTasker()
-                    // this.callMe(),
-                    // this.props.setCurrentAddress();
+                    
                 }}
                 rounded
                 style={styles.loginTaskerButton}
