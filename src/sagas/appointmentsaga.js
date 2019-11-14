@@ -110,6 +110,7 @@ function* saveAppointment({appointment}) {
             uniqueId:uniqueId,
             patientName:appointment.patientName,
             sponsorName:appointment.sponsorName,
+            caretakerAssigned : appointment.caretakerAssigned,
             status:status,
             gender: appointment.gender,
             userId: appointment.userId,

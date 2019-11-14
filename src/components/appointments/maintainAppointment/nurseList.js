@@ -52,7 +52,8 @@ class NurseList extends Component{
       isDisabled: false,
       users:props.appointment.availUsers,
       appointment:props.appointment.appointment
-    }
+    };
+    this.updateAppointment = this.updateAppointment.bind(this);
   };
 
   /*_onPressButton(i){
@@ -93,13 +94,19 @@ class NurseList extends Component{
     }
     return false
   }
+
+  updateAppointment(){
+    this.state.appointment["status"] = "Contract Signed & Nurse Selected";
+    this.state.appointment["caretakerAssigned"] = this.state.activeItem;
+    this.props.saveAppointment(this.state.appointment);
+  }
   
   render() {
     console.disableYellowBox = true;
     //const users = this.props.getUserstype(this.state.appointment.serviceType);
     return (           
       <Container style={{backgroundColor:'#efefef'}}>
-      <Header style={{backgroundColor:'green'}}/>
+      <Header style={{backgroundColor:'blue'}}/>
       <Content>
           <Card style={{alignItems:'center'}}>
             <CardItem>
@@ -128,7 +135,7 @@ class NurseList extends Component{
         block success onPress={
          () => (this.setState({
          bgclr: 'green'}))}>
-        <Text style={{alignItems:'center'}}>Submit</Text>
+        <Text style={{alignItems:'center'}} onPress={this.updateAppointment}>Submit</Text>
       </Button>
       <Button style = {{marginTop:50, marginRight:10,marginLeft:10, backgroundColor:'red'}}
         block success onPress={
