@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/values-v24/values-v24.xml",
+            "outputFile": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/edddd7902b6e797ea57670f9047c0bf2/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5d6baaeda7b24a771a0f901c6969aa98\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -13,30 +13,30 @@
                         "endOffsets": "116,177,243,310"
                     },
                     "to": {
-                        "startLines": "4,5,6,7",
+                        "startLines": "8,9,10,11",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "347,413,474,540",
+                        "startOffsets": "619,685,746,812",
                         "endColumns": "65,60,65,66",
-                        "endOffsets": "408,469,535,602"
+                        "endOffsets": "680,741,807,874"
                     }
                 },
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\values-v24\\values-v24.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
                     }
                 }
             ]
         },
         {
-            "outputFile": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/edddd7902b6e797ea57670f9047c0bf2/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5d6baaeda7b24a771a0f901c6969aa98\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -45,21 +45,21 @@
                         "endOffsets": "116,177,243,310"
                     },
                     "to": {
-                        "startLines": "4,5,6,7",
+                        "startLines": "8,9,10,11",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "347,413,474,540",
+                        "startOffsets": "619,685,746,812",
                         "endColumns": "65,60,65,66",
-                        "endOffsets": "408,469,535,602"
+                        "endOffsets": "680,741,807,874"
                     }
                 },
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\values-v24\\values-v24.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
                     }
                 }
             ]

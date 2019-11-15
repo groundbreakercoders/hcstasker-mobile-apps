@@ -1,38 +1,38 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_angle.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_angle.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_scale.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_scale.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_done.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_done.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_next.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_next.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_crop.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_crop.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_cross.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_cross.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_scale.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_scale.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_reset.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_reset.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_rotate.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_rotate.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_angle.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_angle.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/screen.png",
-        "source": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/src/main/res/drawable-ldpi/screen.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_rotate.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_rotate.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_reset.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_reset.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\screen.png",
+        "source": "C:\\native\\hcstasker-mobile-apps\\android\\app\\src\\main\\res\\drawable-ldpi\\screen.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_cross.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_cross.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_done.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_done.png"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/ucrop_ic_next.png",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/ucrop-2.2.2-native.aar/8d3c44d3ba32dba01fc3a6c1a3bde4ee/res/drawable-ldpi-v4/ucrop_ic_next.png"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ucrop_ic_crop.png",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.2-native.aar\\7ade83e8f986838ead4d4584d709aa85\\res\\drawable-ldpi-v4\\ucrop_ic_crop.png"
     }
 ]

@@ -26,9 +26,9 @@ import styles from "./styles";
 import commonColor from "../../../native-base-theme/variables/commonColor";
 import Header from "../common/header";
 import TwitterButton from './TwitterButton';
-import InstagramLogin from 'react-native-instagram-login';
 import fbImage from './f_logo_RGB-Blue_1024.png';
 import { SocialIcon } from 'react-native-elements';
+// import InstagramLogin from 'react-native-instagram-login';
 
 const { height } = Dimensions.get("window");
 const fbIcon = require("../../../src/assets/f_logo_RGB-Blue_1024.png");
@@ -98,7 +98,7 @@ class Login extends Component {
   }
 
   renderImage() {
-    //var imgSource = this.state.show ? fbImage : null
+   
     return (
       <Image
         source={ fbIcon }
@@ -115,15 +115,7 @@ class Login extends Component {
         <Header title={lang.signin} backButton />
         <Content style={{ backgroundColor: "#fff" }} scrollEnabled bounces>
           <View style={styles.contentView}>
-            <View style={styles.headerView}>
-              {/*<Button
-                style={{ paddingLeft: 0 }}
-                transparent
-                onPress={() => Actions.pop()}
-              >
-                <Icon name="ios-arrow-back" style={styles.arrowIcon} />
-              </Button>*/}
-            </View>
+            
             <View style={styles.formView}>
               <Text style={styles.signinText}>{lang.signin}</Text>
               <LoginForm lang={lang} loading={this.props.loading} />
@@ -140,54 +132,27 @@ class Login extends Component {
                     this.yo();
                   }
                 }}
-                //  rounded
-                //  style={[styles.loginButtonFB, styles.facebook]}
+               
               >
-                {/* {this.state.show ? (
-                  //<Text style={styles.buttonTextFb}>{lang.facebook}</Text>
-                  //this.renderImage()
-                  <Image  source={{
-                    uri: 'https://facebook.github.io/react/logo-og.png',
-                    cache: 'only-if-cached',
-                  }}
-                  style={{width: 400, height: 400}}/>
-                ) : (
-                  <Spinner color="white" size="small" />
-                )} */}
+                
               </SocialIcon>
               
-              <TwitterButton /> 
-              
-            
-            {/* <TouchableOpacity
-              style={{
-                borderRadius: 5,
-                backgroundColor: 'orange',
-                height: 30, width: 100,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-              onPress={() => this.instagramLogin.show()}>
-              <Text style={{ color: 'white', textAlign: 'center' }}>Login now</Text>
-            </TouchableOpacity> */}
-            
-            {/* <SocialIcon
-            style = {{justifyContent:'space-evenly'}}
-            type='instagram'
-            onPress={() => this.instagramLogin.show()}
-            disabled='true'/>
-            {/* <Text style={{ margin: 10 }}>Token: {this.state.token}</Text> */}
+             
+      
             {this.state.failure && <View>
-              <Text style={{ margin: 10 }}>failure: {JSON.stringify(this.state.failure)}</Text>
-            </View>}
-            <InstagramLogin
+              <Text style={{ margin: 10 }}>failure: {JSON.stringify(this.state.failure)}
+              </Text>
+
+               </View>
+            } 
+
+             <InstagramLogin
               ref={ref => (this.instagramLogin = ref)}
               clientId="c54f9ecfc7964bc7afceafc6baeea282"
-              redirectUrl="https://google.com"
-              scopes={['basic']}
-              onLoginSuccess={token => this.setState({ token })}
+              redirectUrl="https://google.com"  scopes={['basic']} onLoginSuccess={token => this.setState({ token })}
               onLoginFailure={data => this.setState({ failure: data })}
-            /> */}
+            />
+            
          
               
               </View>
@@ -198,8 +163,7 @@ class Login extends Component {
               <Button
                     onPress={() => {
                       Actions.signuppage()
-                        // this.callMe(),
-                        // this.props.setCurrentAddress();
+                       
                     }}
                     rounded
                     style={[styles.loginButton, styles.signupButton]}
@@ -208,9 +172,7 @@ class Login extends Component {
                       {lang.signup}
                       </Text>
               </Button>
-              {/* <Button rounded style={[styles.loginButton, styles.google]}>
-                <Text style={styles.buttonText}>{lang.google}</Text>
-              </Button> */}
+             
               <View style={{ marginTop: 25 }}>
                 <Text
                   style={{

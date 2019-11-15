@@ -5,7 +5,6 @@
 	};
 	objectVersion = 51;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -56,7 +55,6 @@
 		88E05AC8955242B7B10B058E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A54B47BDC3345B784ADB402 /* Foundation.ttf */; };
 		8C3BA74A53E4436DA5FE8092 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231502FBA1B14C7F8B8B08DC /* Foundation.ttf */; };
 		92C2A0F98C034B4EAD15BE71 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 411F54D260344E5FBFE2EC0B /* SimpleLineIcons.ttf */; };
-		9B765AF436EC4DD783C1CBC0 /* libRNGooglePlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC1556BE98442D880573FC /* libRNGooglePlaces.a */; };
 		9D37A9AD08044AD492E37C40 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC0DB77B46A14316B2BD7944 /* MaterialCommunityIcons.ttf */; };
 		A5ADA2B5FAB44F65878FF9BC /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00C7215A467C4A1585CCBC50 /* Roboto.ttf */; };
 		A644CEFFE96144C2A41FB315 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDD197A80F8B4F1F80C1E823 /* SimpleLineIcons.ttf */; };
@@ -76,6 +74,8 @@
 		CFD4240462ED4CC4BB72DD22 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0CDEBAE20484BF794C77B8F /* Zocial.ttf */; };
 		E252ADAF1CEE4D28993C6D86 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03306DE128FF42EA8033127C /* EvilIcons.ttf */; };
 		F2DE2B4E3010484B9FBD7238 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 622C6F4909D44152AFE04A7F /* Zocial.ttf */; };
+		EEF15D8112044BDC81A5AE14 /* libRNGooglePlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5282DDCF0548F3A1ACCE23 /* libRNGooglePlaces.a */; };
+		E96F6A56A95C45C3BB625FBB /* libRNTwitterSignIn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2C619A246640E48DE971D7 /* libRNTwitterSignIn.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,13 +359,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
-		A7FBBF4F20EA4EAD00951008 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 494DD12CBEED4AEC8FDC3469 /* RNGooglePlaces.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNGooglePlaces;
-		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -410,10 +403,8 @@
 		2D02E4901E0B4A5D006451C7 /* TaskMan-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaskMan-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAA273F42954EC4992B69E9 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		3DBC1556BE98442D880573FC /* libRNGooglePlaces.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGooglePlaces.a; sourceTree = "<group>"; };
 		411F54D260344E5FBFE2EC0B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		41BFF430C0904D98B7BD0ED3 /* Pods-TaskManTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManTests/Pods-TaskManTests.release.xcconfig"; sourceTree = "<group>"; };
-		494DD12CBEED4AEC8FDC3469 /* RNGooglePlaces.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGooglePlaces.xcodeproj; path = "../node_modules/react-native-google-places/ios/RNGooglePlaces.xcodeproj"; sourceTree = "<group>"; };
 		4F3EACA10ADF479F90C9EF0E /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		574DA70C8A614185938C453A /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		5A54B47BDC3345B784ADB402 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -453,6 +444,10 @@
 		EDD197A80F8B4F1F80C1E823 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		F15CBCE6BB11417DB60ACCED /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		F3566BE958794199AEE9DEB1 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		354E96406A3C496CB19BA375 /* RNGooglePlaces.xcodeproj */ = {isa = PBXFileReference; name = "RNGooglePlaces.xcodeproj"; path = "../node_modules/react-native-google-places/ios/RNGooglePlaces.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5D5282DDCF0548F3A1ACCE23 /* libRNGooglePlaces.a */ = {isa = PBXFileReference; name = "libRNGooglePlaces.a"; path = "libRNGooglePlaces.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0AFCAF9635404DAD89FFD303 /* RNTwitterSignIn.xcodeproj */ = {isa = PBXFileReference; name = "RNTwitterSignIn.xcodeproj"; path = "../node_modules/react-native-twitter-signin/ios/RNTwitterSignIn.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		1C2C619A246640E48DE971D7 /* libRNTwitterSignIn.a */ = {isa = PBXFileReference; name = "libRNTwitterSignIn.a"; path = "libRNTwitterSignIn.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,7 +487,8 @@
 				17AAAF12D7B14130AF5E8F34 /* libRCTFBSDK.a in Frameworks */,
 				1885BB9420EDE8FC0037A1F4 /* FBSDKCoreKit.framework in Frameworks */,
 				5EA5CD42B4B44331A79A07A0 /* libRNFirebase.a in Frameworks */,
-				9B765AF436EC4DD783C1CBC0 /* libRNGooglePlaces.a in Frameworks */,
+				EEF15D8112044BDC81A5AE14 /* libRNGooglePlaces.a in Frameworks */,
+				E96F6A56A95C45C3BB625FBB /* libRNTwitterSignIn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,7 +701,8 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				5DD8A34CBABF4ACC924FB0DA /* RCTFBSDK.xcodeproj */,
 				D7AC64C7A4FB4FAC9BBC1040 /* RNFirebase.xcodeproj */,
-				494DD12CBEED4AEC8FDC3469 /* RNGooglePlaces.xcodeproj */,
+				354E96406A3C496CB19BA375 /* RNGooglePlaces.xcodeproj */,
+				0AFCAF9635404DAD89FFD303 /* RNTwitterSignIn.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -773,14 +770,6 @@
 			isa = PBXGroup;
 			children = (
 				A7FBBF1220EA4E1300951008 /* libRNFirebase.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A7FBBF4C20EA4EAD00951008 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A7FBBF5020EA4EAD00951008 /* libRNGooglePlaces.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1003,10 +992,6 @@
 				{
 					ProductGroup = A7FBBF0E20EA4E1300951008 /* Products */;
 					ProjectRef = D7AC64C7A4FB4FAC9BBC1040 /* RNFirebase.xcodeproj */;
-				},
-				{
-					ProductGroup = A7FBBF4C20EA4EAD00951008 /* Products */;
-					ProjectRef = 494DD12CBEED4AEC8FDC3469 /* RNGooglePlaces.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1286,13 +1271,6 @@
 			remoteRef = A7FBBF1120EA4E1300951008 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A7FBBF5020EA4EAD00951008 /* libRNGooglePlaces.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGooglePlaces.a;
-			remoteRef = A7FBBF4F20EA4EAD00951008 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1542,6 +1520,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-social-share/iOS",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = TaskManTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1552,11 +1532,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1588,6 +1563,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-social-share/iOS",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = TaskManTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1598,11 +1575,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1649,6 +1621,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = TaskMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1699,6 +1673,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = TaskMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1740,6 +1716,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-social-share/iOS",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = "TaskMan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1748,11 +1726,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1791,6 +1764,8 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-social-share/iOS",
+					"$(SRCROOT)\..\node_modules\react-native-google-places\ios",
+					"$(SRCROOT)\..\node_modules\react-native-twitter-signin\ios/**",
 				);
 				INFOPLIST_FILE = "TaskMan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1799,11 +1774,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1843,11 +1813,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.TaskMan-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1879,11 +1844,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

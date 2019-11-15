@@ -1,38 +1,38 @@
 [
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_spinner.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_btn_checkable.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_edittext.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_spinner.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_seek_thumb.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_color_highlight_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_default.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_default.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_btn_colored_text_material.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_tint_switch_track.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "/Users/lionelpannisamy/hcstasker-mobile-apps/android/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
-        "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/df435a3622249ad495bce3eb7e5f4c4c/res/color-v23/abc_btn_colored_text_material.xml"
+        "merged": "C:\\native\\hcstasker-mobile-apps\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\Sathish\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1cb32bfa03a7d969096a44ae850d2d52\\res\\color-v23\\abc_color_highlight_material.xml"
     }
 ]
