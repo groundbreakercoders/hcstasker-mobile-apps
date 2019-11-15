@@ -28,7 +28,7 @@ import Header from "../common/header";
 import TwitterButton from './TwitterButton';
 import fbImage from './f_logo_RGB-Blue_1024.png';
 import { SocialIcon } from 'react-native-elements';
-// import InstagramLogin from 'react-native-instagram-login';
+import InstagramLogin from 'react-native-instagram-login';
 
 const { height } = Dimensions.get("window");
 const fbIcon = require("../../../src/assets/f_logo_RGB-Blue_1024.png");
@@ -145,7 +145,7 @@ class Login extends Component {
 
                </View>
             } 
-
+            <TwitterButton /> 
              <InstagramLogin
               ref={ref => (this.instagramLogin = ref)}
               clientId="c54f9ecfc7964bc7afceafc6baeea282"
