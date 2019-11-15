@@ -54,6 +54,7 @@ class NurseList extends Component{
       appointment:props.appointment.appointment
     };
     this.updateAppointment = this.updateAppointment.bind(this);
+    this.updateAppointmentNurseCancel = this.updateAppointmentNurseCancel.bind(this);
   };
 
   /*_onPressButton(i){
@@ -96,8 +97,14 @@ class NurseList extends Component{
   }
 
   updateAppointment(){
-    this.state.appointment["status"] = "Contract Signed & Nurse Selected";
+    this.state.appointment["status"] = "Contract Signed & CareTaker Selected";
     this.state.appointment["caretakerAssigned"] = this.state.activeItem;
+    this.props.saveAppointment(this.state.appointment);
+  }
+
+  updateAppointmentNurseCancel() {
+    this.state.appointment["status"] = "Contract Released";
+    this.state.appointment["caretakerAssigned"] = '';
     this.props.saveAppointment(this.state.appointment);
   }
   
@@ -141,7 +148,7 @@ class NurseList extends Component{
         block success onPress={
          () => (this.setState({
          bgclr: 'green'}))}>
-        <Text style={{alignItems:'center'}}>Cancel</Text>
+        <Text style={{alignItems:'center'}} onPress={this.updateAppointmentNurseCancel}>Cancel</Text>
       </Button>
     </Content>   
   </Container>
