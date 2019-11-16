@@ -25,7 +25,9 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>twitterkit-VI6zPyrnaJ8p4x0KJHA5cRcZb</string>
 				<string>fb468405990567287</string>
+				
 			</array>
 		</dict>
 	</array>
@@ -37,10 +39,13 @@
 	<string>TaskMan</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>twitter</string>
+		<string>twitterauth</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+		
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -113,5 +118,20 @@
 	<false/>
 	<key>kTCCServiceMediaLibrary</key>
 	<string>To make call </string>
+	
+	<!-- <key>CFBundleURLTypes</key>
+	<array>
+	<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+		<string>twitterkit-myTwitterKey</string>
+		</array>
+	</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>twitterauth</string>
+	</array> -->
 </dict>
 </plist>

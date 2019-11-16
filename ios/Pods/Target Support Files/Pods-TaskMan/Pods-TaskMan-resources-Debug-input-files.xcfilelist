@@ -5,4 +5,5 @@ ${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlac
 ${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle
 ${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle
+${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle
