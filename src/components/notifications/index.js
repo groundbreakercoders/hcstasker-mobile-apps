@@ -40,7 +40,7 @@ class Notifications extends Component {
     .collection("activity")
     .doc(this.props.email)
     .collection("notifications")
-    .orderBy('time','desc');
+    .orderBy('time','desc').limit(1);
     
     this.unsubscribe = null;
     this.state = {
@@ -72,67 +72,6 @@ class Notifications extends Component {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
 
-  // async removeFromFavourites(email) {
-  //   this.setState({ loading: true });
-  //   const userEmail = this.props.email;
-  //   await firebase
-  //     .firestore()
-  //     .collection("users")
-  //     .doc(userEmail)
-  //     .collection("favourites")
-  //     .doc(email)
-  //     .delete()
-  //     .then(() => {
-  //       firebase
-  //         .firestore()
-  //         .collection("users")
-  //         .doc(userEmail)
-  //         .collection("tasks")
-  //         .where("taskDetails.taskerData.email", "==", email)
-  //         .get()
-  //         .then(querySnapshot => {
-  //           querySnapshot.forEach(data => {
-  //             console.log("data", data.favourite);
-  //             data.ref.update({
-  //               favourite: false
-  //             });
-  //           });
-  //           firebase
-  //             .firestore()
-  //             .collection("users")
-  //             .doc(this.props.email)
-  //             .collection("favourites")
-  //             .get()
-  //             .then(querySnapshot => {
-  //               if (querySnapshot.docs.length) {
-  //                 querySnapshot.forEach(data => {
-  //                   const user = data.data();
-  //                   firebase
-  //                     .firestore()
-  //                     .collection("users")
-  //                     .doc(user.email)
-  //                     .get()
-  //                     .then(datas => {
-  //                       const userData = datas.data();
-  //                       if (userData) {
-  //                         this.setState({
-  //                           list: [...[], userData],
-  //                           loading: false
-  //                         });
-  //                       }
-  //                     });
-  //                 });
-  //               } else {
-  //                 this.setState({ list: [], loading: false });
-  //               }
-  //             })
-  //             .catch(error => console.log("Catch", error));
-  //         })
-  //         .catch(error => {
-  //           console.log("Catch", error);
-  //         });
-  //     });
-  // }
 
   getRating(rating) {
     let total = null;
@@ -220,8 +159,12 @@ class Notifications extends Component {
                               fontSize: 22,
                               color: "#44466B",
                               fontWeight: 'bold'}} >
-                            {notification.status}{'\n'}{'\n'}                                                      
+                            Patient Name : {notification.patientName}{'\n'}                                                      
                             </Text>
+                            <Text style={{
+                              fontSize: 22,
+                              color: "#44466B",
+                              fontWeight: 'bold'}}>Status : {notification.status}</Text>{'\n'}{'\n'}
                             <Text>{notification.userNotifMessage}</Text>
                             
                           </Text>

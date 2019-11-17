@@ -34,7 +34,7 @@ class Appointments extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.props.getAppointments(this.props.userid,this.props.usertype);
+    
   }
 
   componentDidMount() {
@@ -53,6 +53,8 @@ class Appointments extends Component {
     this.setState({
           appointmentHistory: appnt
         });
+
+        this.props.getAppointments(this.props.userid,this.props.usertype);    
   }
 
   getRating(rating) {

@@ -98,7 +98,7 @@ class NurseList extends Component{
   }
 
   updateAppointment(){
-    this.state.appointment["status"] = "Contract Signed & CareTaker Selected";
+    //this.state.appointment["status"] = "Contract Signed & CareTaker Selected";
     this.state.appointment["caretakerAssigned"] = this.state.activeItem;
     this.props.saveAppointment(this.state.appointment);
   }
