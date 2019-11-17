@@ -212,7 +212,7 @@ class Appointments extends Component {
 }
 
 const mapStateToProps = state => ({
-  userid: state.user.id,
+  userid: state.user.email,
   usertype: state.user.userType,
   appointments:state.appointment.appointments
 });

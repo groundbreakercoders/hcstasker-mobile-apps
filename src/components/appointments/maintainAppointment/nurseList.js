@@ -50,6 +50,7 @@ class NurseList extends Component{
       activeItem:[],
       activeLength:[],
       isDisabled: false,
+      maxNurseCount : props.appointment.appointment.serviceHours === "12hrs" ? 1 : 2,
       users:props.appointment.availUsers,
       appointment:props.appointment.appointment
     };
@@ -90,7 +91,7 @@ class NurseList extends Component{
   }
   checkDisable(id) {
     console.log(id)
-    if((this.state.activeItem.length >= 2) && (this.state.activeItem.indexOf(id) === -1)) {
+    if((this.state.activeItem.length >= this.state.maxNurseCount) && (this.state.activeItem.indexOf(id) === -1)) {
         return true
     }
     return false
@@ -110,6 +111,7 @@ class NurseList extends Component{
   
   render() {
     console.disableYellowBox = true;
+    
     //const users = this.props.getUserstype(this.state.appointment.serviceType);
     return (           
       <Container style={{backgroundColor:'#efefef'}}>
@@ -161,7 +163,7 @@ const mapStateToProps = state => ({
   //isAddressClicked:false,
   appointment: state.appointment,
   serviceType: state.appointment.serviceType,
-  users: state.availUsers
+  users: state.appointment.availUsers
 });
 
 const bindActions = dispatch => ({

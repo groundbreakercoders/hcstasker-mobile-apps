@@ -74,6 +74,7 @@ class Contract extends Component {
   }
   this.state.appointment["status"] = appointmentStatus;
   this.props.saveAppointment(this.state.appointment);
+  this.props.getUserstype(this.state.appointment.serviceType);
 
 }
 
@@ -157,13 +158,15 @@ class Contract extends Component {
 
 const mapStateToProps = state => ({
   email: state.user.email,
-  isAddressClicked:false
+  isAddressClicked:false,
+  users: state.appointment.availUsers
 });
 
 
 const bindActions = dispatch => ({
   saveAppointment: (appointment) =>
-    dispatch(AppointmentActions.saveAppointment(appointment))
+    dispatch(AppointmentActions.saveAppointment(appointment)),
+    getUserstype : (serviceType) => dispatch(AppointmentActions.getUserstype(serviceType))
 });
 
 export default connect(
