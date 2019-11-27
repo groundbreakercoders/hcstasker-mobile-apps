@@ -18,6 +18,7 @@ function* getAppointments(filter) {
       query=query.where("userId", "==", filter.userid);
     } else if(filter.usertype === 'tasker') {
        query=query.where("supervisorId", "==", filter.userid);
+       query= query.where("status","==","Under Review");
      }
 
     yield call(() =>
