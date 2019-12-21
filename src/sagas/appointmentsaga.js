@@ -135,7 +135,7 @@ function* saveAppointment({appointment}) {
     );
    
 
-    if(status == 'Contract Signed') {
+    if(status == 'Contract Signed' && appointment.caretakerAssigned ==  null) {
       yield put(AppointmentActions.setAppointment(appointment));
       Actions.nurseList();
     } else {
